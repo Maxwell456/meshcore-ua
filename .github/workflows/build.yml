@@ -1,0 +1,162 @@
+# Збірка прошивок MeshCore Україна.
+# Щодоби перевіряє, чи вийшла нова стабільна версія MeshCore. Якщо релізу нашої збірки для неї ще немає —
+# збирає всі плати й ролі паралельно, перевіряє образи, оновлює теки плат і публікує реліз.
+# Запуск вручну: Actions → «Збірка прошивок» → Run workflow.
+name: Збірка прошивок
+
+on:
+  schedule:
+    - cron: '17 3 * * *'
+  workflow_dispatch:
+    inputs:
+      force:
+        description: Зібрати, навіть якщо реліз цієї версії вже є
+        type: boolean
+        default: false
+      publish:
+        description: Опублікувати (реліз і теки плат). Вимкнено — лише зібрати й перевірити
+        type: boolean
+        default: true
+      version:
+        description: Версія MeshCore, напр. 1.18.0 (порожньо — остання стабільна)
+        required: false
+        default: ''
+
+permissions:
+  contents: write
+
+concurrency:
+  group: firmware
+  cancel-in-progress: false
+
+env:
+  PLATFORMIO_VERSION: 6.1.19
+
+jobs:
+  plan:
+    name: План
+    runs-on: ubuntu-latest
+    outputs:
+      needed: ${{ steps.resolve.outputs.needed }}
+      version: ${{ steps.resolve.outputs.version }}
+      tag: ${{ steps.resolve.outputs.tag }}
+      commit: ${{ steps.resolve.outputs.commit }}
+      matrix: ${{ steps.resolve.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - id: resolve
+        name: Визначити версію MeshCore
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          FORCE: ${{ inputs.force && '--force' || '' }}
+          VERSION: ${{ inputs.version && format('--version={0}', inputs.version) || '' }}
+        run: node tools/build.mjs resolve $FORCE $VERSION
+      - uses: actions/upload-artifact@v4
+        with:
+          name: plan
+          path: .work/plan.json
+          include-hidden-files: true
+
+  build:
+    name: ${{ matrix.env }}
+    needs: plan
+    if: needs.plan.outputs.needed == 'true'
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: true
+      max-parallel: 20
+      matrix: ${{ fromJSON(needs.plan.outputs.matrix) }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/cache@v4
+        with:
+          path: ~/.platformio
+          key: pio-${{ matrix.chip }}-${{ env.PLATFORMIO_VERSION }}-${{ needs.plan.outputs.commit }}
+          restore-keys: pio-${{ matrix.chip }}-${{ env.PLATFORMIO_VERSION }}-
+      - run: pip install platformio==${{ env.PLATFORMIO_VERSION }}
+      - run: npm ci
+      - uses: actions/download-artifact@v4
+        with:
+          name: plan
+          path: .work
+      - name: Зібрати й перевірити
+        env:
+          PYTHON: python
+        run: node tools/build.mjs compile ${{ matrix.env }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: fw-${{ matrix.env }}
+          path: .work/out/${{ matrix.env }}
+          include-hidden-files: true
+          retention-days: 7
+
+  publish:
+    name: Публікація
+    needs: [plan, build]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - uses: actions/download-artifact@v4
+        with:
+          name: plan
+          path: .work
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: fw-*
+          path: .work/artifacts
+      - name: Розкласти зібрані прошивки
+        run: |
+          mkdir -p .work/out
+          for d in .work/artifacts/fw-*; do mv "$d" ".work/out/${d##*/fw-}"; done
+      - name: Звести реліз
+        run: node tools/build.mjs assemble
+      - name: Оновити сторінки й теки плат
+        run: node tools/pages.mjs
+      - name: Зберегти результат збірки
+        if: ${{ github.event_name == 'workflow_dispatch' && !inputs.publish }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist
+          retention-days: 7
+      - name: Закомітити теки плат
+        if: ${{ github.event_name != 'workflow_dispatch' || inputs.publish }}
+        run: |
+          git config user.name "Maxwell"
+          git config user.email "15926126+Maxwell456@users.noreply.github.com"
+          git add -A README.md manifest.json devices
+          if git diff --cached --quiet; then echo "Без змін"; else
+            git commit -q -m "MeshCore Україна ${{ needs.plan.outputs.version }}"
+            git push -q origin HEAD:main
+          fi
+      - name: Опублікувати реліз
+        if: ${{ github.event_name != 'workflow_dispatch' || inputs.publish }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TAG: ${{ needs.plan.outputs.tag }}
+          VERSION: ${{ needs.plan.outputs.version }}
+        run: |
+          mapfile -t files < <(find dist -maxdepth 1 -type f ! -name RELEASE-NOTES.md | sort)
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            gh release upload "$TAG" "${files[@]}" --clobber
+            gh release edit "$TAG" --notes-file dist/RELEASE-NOTES.md
+          else
+            gh release create "$TAG" "${files[@]}" --title "MeshCore Україна $VERSION" --notes-file dist/RELEASE-NOTES.md --target main --latest
+          fi

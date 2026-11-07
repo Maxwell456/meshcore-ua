@@ -1,0 +1,17 @@
+{
+  "name": "meshcore-ua",
+  "private": true,
+  "type": "module",
+  "description": "Збірка прошивок MeshCore Україна",
+  "scripts": {
+    "resolve": "node tools/build.mjs resolve",
+    "assemble": "node tools/build.mjs assemble",
+    "pages": "node tools/pages.mjs"
+  },
+  "dependencies": {
+    "fflate": "0.8.2"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

@@ -1,162 +1,175 @@
 #!/usr/bin/env node
 /**
- * MeshCore Україна: збірка для всіх плат, які сайт прошиває в браузері.
+ * Збірка MeshCore Україна з офіційного MeshCore.
  *
- * Береться та сама версія MeshCore, що й в офіційному дзеркалі (src/data/firmware.json),
- * до неї застосовується невеликий патч:
- *   • усі ролі — радіопараметри мережі з src/config/site.ts;
- *   • компаньйони — канали спільноти на чистому пристрої (UaBootstrap.h).
+ *   node tools/build.mjs resolve [--force] [--version=1.18.0]
+ *       Знаходить останню стабільну версію MeshCore, складає план (.work/plan.json):
+ *       які плати й ролі збирати, коміт, офіційні файли для порівняння. needed=false, якщо реліз уже є.
+ *   node tools/build.mjs compile <env>
+ *       Готує вихідний код з патчем, збирає одне середовище PlatformIO, перевіряє образ → .work/out/<env>/
+ *   node tools/build.mjs assemble
+ *       Зводить зібране в dist/: файли, source.zip, LICENSE.txt, manifest.json, SHA256SUMS.txt.
  *
- *   node firmware/ua/build.mjs                  — зібрати все
- *   node firmware/ua/build.mjs --prepare-only   — лише підготувати й пропатчити вихідний код
- *   node firmware/ua/build.mjs --only=Heltec_v3_companion_radio_ble,RAK_4631_repeater
- *   node firmware/ua/build.mjs --parallel=4     — скільки плат збирати одночасно
+ * Патч: радіопараметри мережі для всіх ролей (platformio.ini), канали спільноти для компаньйонів
+ * на чистому пристрої (UaBootstrap.h), рядок версії й дата. Якщо контекст патча в новій версії MeshCore
+ * змінився — збірка зупиняється, а не збирає щось незрозуміле.
  *
- * Результат: public/firmware/custom/v<версія>/ і src/data/custom-firmware.json.
- * Нічого не публікує на сервер.
+ * Потрібні Node.js 22, Python і PlatformIO 6.1.19. GITHUB_TOKEN (необов’язково) підвищує ліміт GitHub API.
  */
 import { createHash } from 'node:crypto';
-import { spawn, spawnSync } from 'node:child_process';
-import { readFile, writeFile, mkdir, copyFile, rm, readdir, rename, cp } from 'node:fs/promises';
-import { existsSync, createWriteStream } from 'node:fs';
-import { homedir, cpus } from 'node:os';
+import { spawnSync } from 'node:child_process';
+import { readFile, writeFile, mkdir, copyFile, rm, readdir, appendFile } from 'node:fs/promises';
+import { existsSync } from 'node:fs';
+import { homedir } from 'node:os';
 import { dirname, resolve, join, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { unzipSync, zipSync } from 'fflate';
 
-/** Номер нашої редакції патча. Збільшуйте, коли змінюється сам патч, а не версія MeshCore. */
-const REVISION = 1;
-/** Збірки, перевірені на фізичному пристрої. */
-const HARDWARE_TESTED = new Set(['Heltec_v3_companion_radio_ble']);
-const REPO = 'meshcore-dev/MeshCore';
+const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
+const work = join(root, '.work');
+const source = join(work, 'src');
+const outRoot = join(work, 'out');
+const dist = join(root, 'dist');
+const python = process.env.PYTHON || 'python3';
+const config = JSON.parse(await readFile(join(root, 'config.json'), 'utf8'));
+const REPO = config.upstream;
 const ROLE_ENV = { companion: 'companion_radio_ble', companion_usb: 'companion_radio_usb', repeater: 'repeater', room_server: 'room_server' };
-const COMPANION_ROLES = new Set(['companion', 'companion_usb']);
+const COMPANION = new Set(['companion', 'companion_usb']);
 const ESP_CHIPS = { 0: 'esp32', 2: 'esp32s2', 5: 'esp32c3', 9: 'esp32s3', 13: 'esp32c6' };
+const ASSET_RE = /^(?<board>.+?)_(?<role>companion_radio_ble|companion_radio_usb|repeater|room_server)-v(?<ver>\d+\.\d+\.\d+)-(?<hash>[0-9a-f]+)(?<merged>-merged)?\.(?<ext>bin|zip|uf2)$/;
+const TAG_RE = /^(companion|repeater|room-server)-v(\d+\.\d+\.\d+)$/;
 
-const root = resolve(dirname(fileURLToPath(import.meta.url)), '../..');
-const work = join(root, '.firmware-work');
-const logs = join(work, 'logs');
-const python = process.env.PYTHON || 'python';
 const sha256 = (data) => createHash('sha256').update(data).digest('hex');
 const args = process.argv.slice(2);
 const option = (name) => args.find((a) => a.startsWith(`--${name}=`))?.split('=')[1];
-const PARALLEL = Math.max(1, Number(option('parallel') ?? process.env.FIRMWARE_PARALLEL ?? 3));
-const CPUS = cpus().length;
+const check = (ok, message) => { if (!ok) throw new Error(message); };
 
 function run(command, argv, cwd = root, capture = false) {
-  const result = spawnSync(command, argv, { cwd, stdio: capture ? 'pipe' : 'inherit', encoding: 'utf8', maxBuffer: 64 << 20, env: { ...process.env, PYTHONUTF8: '1' } });
-  if (result.error) throw result.error;
-  if (result.status) throw new Error(`${command} ${argv.join(' ')} → код ${result.status}\n${result.stderr ?? ''}`);
-  return result.stdout;
+  const r = spawnSync(command, argv, { cwd, stdio: capture ? 'pipe' : 'inherit', encoding: 'utf8', maxBuffer: 64 << 20, env: { ...process.env, PYTHONUTF8: '1' } });
+  if (r.error) throw r.error;
+  if (r.status) throw new Error(`${command} ${argv.join(' ')} → код ${r.status}\n${r.stderr ?? ''}`);
+  return r.stdout;
 }
 
-/** Запускає процес, пише вивід у файл журналу, повертає код завершення. */
-function runLogged(command, argv, cwd, logFile) {
-  return new Promise((done) => {
-    const out = createWriteStream(logFile);
-    const child = spawn(command, argv, { cwd, env: { ...process.env, PYTHONUTF8: '1' } });
-    child.stdout.pipe(out, { end: false });
-    child.stderr.pipe(out, { end: false });
-    child.on('close', (code) => out.end(() => done(code)));
-  });
+async function gh(path, repo = REPO) {
+  const headers = { 'User-Agent': 'meshcore-ua-build', Accept: 'application/vnd.github+json' };
+  if (process.env.GITHUB_TOKEN) headers.Authorization = `Bearer ${process.env.GITHUB_TOKEN}`;
+  const res = await fetch(`https://api.github.com/repos/${repo}${path}`, { headers });
+  if (res.status === 404) return null;
+  if (!res.ok) throw new Error(`GitHub ${path}: HTTP ${res.status}`);
+  return res.json();
 }
 
-async function siteConfig() {
-  const config = JSON.parse(run(process.execPath, ['--no-warnings', '--experimental-strip-types', '--input-type=module', '-e',
-    "import {network,channels} from './src/config/site.ts'; console.log(JSON.stringify({network,channels:channels.map(c=>c.name)}));"], root, true));
-  if (config.channels.length !== new Set(config.channels).size || config.channels.length + 1 > 40) throw new Error('Неправильна кількість каналів');
-  for (const name of config.channels) if (!/^#[a-z0-9_-]+$/.test(name) || Buffer.byteLength(name) >= 32) throw new Error(`Неправильна назва каналу: ${name}`);
-  const n = config.network;
-  for (const value of [n.frequencyMHz, n.bandwidthKHz, n.spreadingFactor, n.codingRate]) if (!Number.isFinite(value)) throw new Error('Неправильний радіопараметр');
-  const channels = config.channels.map((name, i) => {
+async function download(url) {
+  for (let attempt = 1; ; attempt++) {
+    try {
+      const res = await fetch(url, { headers: { 'User-Agent': 'meshcore-ua-build' } });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      return Buffer.from(await res.arrayBuffer());
+    } catch (e) {
+      if (attempt >= 4) throw new Error(`${url}: ${e.message}`);
+      await new Promise((r) => setTimeout(r, 2000 * attempt));
+    }
+  }
+}
+
+function channels() {
+  const names = config.channels;
+  check(names.length === new Set(names).size && names.length + 1 <= 40, 'Неправильна кількість каналів');
+  for (const name of names) check(/^#[a-z0-9_-]+$/.test(name) && Buffer.byteLength(name) < 32, `Неправильна назва каналу: ${name}`);
+  return names.map((name, i) => {
     const key = createHash('sha256').update(name, 'utf8').digest().subarray(0, 16);
     return { slot: i + 1, name, keyHex: key.toString('hex'), keyBase64: key.toString('base64') };
   });
-  return { network: n, channels };
 }
 
-/** Плати й ролі, для яких у дзеркалі є офіційна прошивка, яку сайт пише в браузері. */
-async function targets() {
-  const official = JSON.parse(await readFile(join(root, 'src/data/firmware.json'), 'utf8'));
-  const upstreamVersion = option('version') ?? official.latest;
-  const list = [];
-  let shortHash = null;
-  for (const [board, entry] of Object.entries(official.boards)) {
-    // Лише плати з каталогу сайту (src/data/devices.mjs), а не всі 100+ плат MeshCore.
-    if (!entry.recommended || !['esp32', 'nrf52'].includes(entry.chip)) continue;
-    for (const [role, versions] of Object.entries(entry.roles)) {
-      const files = versions[upstreamVersion];
-      if (!files || !ROLE_ENV[role] || !Object.values(files).some((f) => f.path)) continue;
-      const env = `${board}_${ROLE_ENV[role]}`;
-      for (const f of Object.values(files)) {
-        const m = new RegExp(`-v${upstreamVersion.replace(/\./g, '\\.')}-([0-9a-f]{6,40})`).exec(f.name);
-        if (m) shortHash ??= m[1];
-      }
-      list.push({ board, role, chip: entry.chip, env, official: files });
-    }
+// ---------------------------------------------------------------- resolve
+
+async function resolvePlan() {
+  const releases = (await gh('/releases?per_page=60')).filter((r) => !r.draft && !r.prerelease);
+  const byVersion = new Map();
+  for (const rel of releases) {
+    const m = TAG_RE.exec(rel.tag_name);
+    if (m) byVersion.set(m[2], [...(byVersion.get(m[2]) ?? []), { ...rel, kind: m[1] }]);
   }
-  const only = option('only')?.split(',');
-  return { upstreamVersion, shortHash, list: only ? list.filter((t) => only.includes(t.env)) : list };
+  const complete = [...byVersion.keys()].filter((v) => {
+    const kinds = new Set(byVersion.get(v).map((r) => r.kind));
+    return kinds.has('companion') && kinds.has('repeater');
+  }).sort((a, b) => b.localeCompare(a, undefined, { numeric: true }));
+  const upstreamVersion = option('version') ?? complete[0];
+  check(upstreamVersion && byVersion.has(upstreamVersion), `Немає повного релізу MeshCore ${upstreamVersion ?? ''}`);
+
+  const assets = new Map();
+  let shortHash = null;
+  for (const rel of byVersion.get(upstreamVersion)) for (const a of rel.assets) {
+    const m = ASSET_RE.exec(a.name);
+    if (!m || m.groups.ver !== upstreamVersion) continue;
+    shortHash ??= m.groups.hash;
+    const env = `${m.groups.board}_${m.groups.role}`;
+    const kind = m.groups.ext === 'bin' ? (m.groups.merged ? 'merged' : 'bin') : m.groups.ext;
+    assets.set(env, { ...(assets.get(env) ?? {}), [kind]: { name: a.name, url: a.browser_download_url, size: a.size } });
+  }
+  check(shortHash, 'Не вдалося визначити коміт офіційної збірки');
+  const commit = (await gh(`/commits/${shortHash}`)).sha;
+
+  const targets = [];
+  for (const board of Object.keys(config.boards)) for (const [role, suffix] of Object.entries(ROLE_ENV)) {
+    const env = `${board}_${suffix}`;
+    const official = assets.get(env);
+    if (!official) continue;
+    const chip = official.merged ? 'esp32' : official.zip ? 'nrf52' : null;
+    if (chip) targets.push({ board, role, chip, env, official });
+  }
+  const missing = Object.keys(config.boards).filter((b) => !targets.some((t) => t.board === b));
+  if (missing.length) console.warn(`Увага: в офіційному релізі немає файлів для ${missing.join(', ')}`);
+  check(targets.length, 'Немає плат для збірки');
+
+  const version = `${upstreamVersion}-ua.${config.revision}`;
+  const self = process.env.GITHUB_REPOSITORY;
+  const exists = self ? Boolean(await gh(`/releases/tags/v${version}`, self)) : false;
+  const plan = {
+    version, tag: `v${version}`, revision: config.revision,
+    upstream: { version: upstreamVersion, commit },
+    buildDate: new Date().toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' }),
+    needed: args.includes('--force') || !exists,
+    targets,
+  };
+  await mkdir(work, { recursive: true });
+  await writeFile(join(work, 'plan.json'), JSON.stringify(plan, null, 2));
+  if (process.env.GITHUB_OUTPUT) {
+    await appendFile(process.env.GITHUB_OUTPUT, `needed=${plan.needed}\nversion=${version}\ntag=${plan.tag}\ncommit=${commit}\nmatrix=${JSON.stringify({ include: targets.map((t) => ({ env: t.env, chip: t.chip })) })}\n`);
+  }
+  console.log(`MeshCore ${upstreamVersion} (${commit.slice(0, 7)}) → ${version}: ${targets.length} прошивок; ${plan.needed ? 'збираємо' : 'реліз уже є'}.`);
+  return plan;
 }
 
-async function resolveCommit(version, shortHash) {
-  const previous = existsSync(join(root, 'src/data/custom-firmware.json'))
-    ? JSON.parse(await readFile(join(root, 'src/data/custom-firmware.json'), 'utf8')) : null;
-  if (previous?.upstream?.version === version && previous.upstream.commit?.startsWith(shortHash)) return previous.upstream;
-  const headers = { 'User-Agent': 'meshcore-ua-firmware', Accept: 'application/vnd.github+json' };
-  if (process.env.GITHUB_TOKEN) headers.Authorization = `Bearer ${process.env.GITHUB_TOKEN}`;
-  const res = await fetch(`https://api.github.com/repos/${REPO}/commits/${shortHash}`, { headers });
-  if (!res.ok) throw new Error(`GitHub: коміт ${shortHash} — HTTP ${res.status}`);
-  return { version, commit: (await res.json()).sha, archiveSha256: null };
-}
+const loadPlan = async () => JSON.parse(await readFile(join(work, 'plan.json'), 'utf8'));
+
+// ---------------------------------------------------------------- вихідний код і патч
 
 /** Замінює рівно одне входження; якщо upstream змінився — зупиняє збірку. */
 function replaceOnce(text, pattern, replacement, label) {
-  const re = pattern instanceof RegExp ? new RegExp(pattern.source, pattern.flags.replace('g', '') + 'g') : null;
-  const count = re ? (text.match(re) ?? []).length : text.split(pattern).length - 1;
-  if (count !== 1) throw new Error(`Патч «${label}»: очікувалось 1 входження, знайдено ${count}. Upstream змінився — перевірте патч.`);
+  const count = pattern instanceof RegExp
+    ? (text.match(new RegExp(pattern.source, pattern.flags.replace('g', '') + 'g')) ?? []).length
+    : text.split(pattern).length - 1;
+  check(count === 1, `Патч «${label}»: очікувалось 1 входження, знайдено ${count}. MeshCore змінився — оновіть патч у tools/build.mjs.`);
   return text.replace(pattern, replacement);
 }
 
-export async function prepare() {
-  const { network: n, channels } = await siteConfig();
-  const { upstreamVersion, shortHash, list } = await targets();
-  if (!list.length) throw new Error('Немає плат для збірки');
-  if (!shortHash) throw new Error('Не вдалося визначити коміт офіційної збірки');
-  const upstream = await resolveCommit(upstreamVersion, shortHash);
-  const version = `${upstreamVersion}-ua.${REVISION}`;
-  // Коротка назва теки: у Windows шлях до файлів бібліотек інакше перевищує 260 символів.
-  const source = join(work, 'meshcore-src');
-  const marker = join(source, '.ua-commit');
-  await mkdir(logs, { recursive: true });
-
-  // Інша версія MeshCore — розпаковуємо заново; старі архіви прибираємо.
-  if (existsSync(source) && (!existsSync(marker) || (await readFile(marker, 'utf8')).trim() !== upstream.commit)) {
-    await rm(source, { recursive: true, force: true });
-  }
-  for (const dir of await readdir(work)) {
-    if (/^MeshCore-[0-9a-f]{40}$/.test(dir)) {
-      await rm(join(work, dir), { recursive: true, force: true, maxRetries: 3 })
-        .catch((error) => console.warn(`Не вдалося видалити стару теку ${dir} (${error.code}) — видаліть її вручну.`));
-    }
-    if (/^[0-9a-f]{40}\.zip$/.test(dir) && dir !== `${upstream.commit}.zip`) await rm(join(work, dir), { force: true });
-  }
-
-  const archive = join(work, `${upstream.commit}.zip`);
+async function prepareSource(plan) {
+  const n = config.network, ch = channels();
+  const archive = join(work, `${plan.upstream.commit}.zip`);
   if (!existsSync(archive)) {
-    console.log(`Завантажую MeshCore ${upstreamVersion} (${upstream.commit.slice(0, 7)})…`);
-    const response = await fetch(`https://codeload.github.com/${REPO}/zip/${upstream.commit}`);
-    if (!response.ok) throw new Error(`Вихідний код: HTTP ${response.status}`);
-    await writeFile(archive, Buffer.from(await response.arrayBuffer()));
+    console.log(`Завантажую MeshCore ${plan.upstream.version} (${plan.upstream.commit.slice(0, 7)})…`);
+    await mkdir(work, { recursive: true });
+    await writeFile(archive, await download(`https://codeload.github.com/${REPO}/zip/${plan.upstream.commit}`));
   }
   const bytes = await readFile(archive);
-  const archiveSha256 = sha256(bytes);
-  if (upstream.archiveSha256 && upstream.archiveSha256 !== archiveSha256) throw new Error('SHA-256 архіву MeshCore не збігається із записаним раніше');
-  upstream.archiveSha256 = archiveSha256;
-
   const files = unzipSync(bytes);
-  const prefix = `MeshCore-${upstream.commit}/`;
-  if (!existsSync(join(source, 'platformio.ini'))) {
+  const prefix = `MeshCore-${plan.upstream.commit}/`;
+  const marker = join(source, '.ua-commit');
+  if (!existsSync(marker) || (await readFile(marker, 'utf8')).trim() !== plan.upstream.commit) {
+    await rm(source, { recursive: true, force: true });
     for (const [name, data] of Object.entries(files)) {
       if (!name.startsWith(prefix)) continue;
       const target = resolve(source, name.slice(prefix.length));
@@ -164,11 +177,11 @@ export async function prepare() {
       if (name.endsWith('/')) await mkdir(target, { recursive: true });
       else { await mkdir(dirname(target), { recursive: true }); await writeFile(target, data); }
     }
-    await writeFile(marker, upstream.commit + '\n');
+    await writeFile(marker, plan.upstream.commit + '\n');
   }
   const original = (path) => {
     const data = files[prefix + path];
-    if (!data) throw new Error(`У вихідному коді немає ${path}`);
+    check(data, `У вихідному коді немає ${path}`);
     return Buffer.from(data).toString('utf8');
   };
   const patched = [];
@@ -179,20 +192,18 @@ export async function prepare() {
     patched.push(path);
   }
 
-  const buildDate = new Date().toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });
   const ini = original('platformio.ini');
-  const crEdit = /-D LORA_CR=\d+/.test(ini)
-    ? [/-D LORA_CR=\d+/, `-D LORA_CR=${n.codingRate}`, 'LORA_CR']
-    : [/-D LORA_SF=\d+/, `-D LORA_SF=${n.spreadingFactor}\n  -D LORA_CR=${n.codingRate}`, 'LORA_SF+CR'];
   await patch('platformio.ini', [
     [/-D LORA_FREQ=[\d.]+/, `-D LORA_FREQ=${n.frequencyMHz}`, 'LORA_FREQ'],
     [/-D LORA_BW=[\d.]+/, `-D LORA_BW=${n.bandwidthKHz}`, 'LORA_BW'],
-    ...(crEdit[2] === 'LORA_CR' ? [[/-D LORA_SF=\d+/, `-D LORA_SF=${n.spreadingFactor}`, 'LORA_SF'], crEdit] : [crEdit]),
+    ...(/-D LORA_CR=\d+/.test(ini)
+      ? [[/-D LORA_SF=\d+/, `-D LORA_SF=${n.spreadingFactor}`, 'LORA_SF'], [/-D LORA_CR=\d+/, `-D LORA_CR=${n.codingRate}`, 'LORA_CR']]
+      : [[/-D LORA_SF=\d+/, `-D LORA_SF=${n.spreadingFactor}\n  -D LORA_CR=${n.codingRate}`, 'LORA_SF+CR']]),
   ]);
   for (const example of ['companion_radio', 'simple_repeater', 'simple_room_server']) {
     const path = `examples/${example}/MyMesh.h`;
-    const edits = [[/(#define\s+FIRMWARE_VERSION\s+)"[^"]*"/, `$1"v${version}"`, `${path}: FIRMWARE_VERSION`]];
-    if (/#define\s+FIRMWARE_BUILD_DATE\s+"/.test(original(path))) edits.push([/(#define\s+FIRMWARE_BUILD_DATE\s+)"[^"]*"/, `$1"${buildDate}"`, `${path}: FIRMWARE_BUILD_DATE`]);
+    const edits = [[/(#define\s+FIRMWARE_VERSION\s+)"[^"]*"/, `$1"v${plan.version}"`, `${path}: FIRMWARE_VERSION`]];
+    if (/#define\s+FIRMWARE_BUILD_DATE\s+"/.test(original(path))) edits.push([/(#define\s+FIRMWARE_BUILD_DATE\s+)"[^"]*"/, `$1"${plan.buildDate}"`, `${path}: FIRMWARE_BUILD_DATE`]);
     await patch(path, edits);
   }
   await patch('examples/companion_radio/DataStore.h', [
@@ -215,11 +226,11 @@ void DataStore::loadPrefs(NodePrefs& prefs) {`],
   }`],
   ]);
   await writeFile(join(source, 'examples/companion_radio/MeshcoreUaDefaults.h'), `#pragma once
-// Generated from src/config/site.ts. Public stays at slot 0.
+// Generated from config.json. Public stays at slot 0.
 namespace meshcore_ua {
 struct Channel { const char* name; const char* keyBase64; };
 static constexpr Channel kChannels[] = {
-${channels.map((ch) => `  { ${JSON.stringify(ch.name)}, ${JSON.stringify(ch.keyBase64)} },`).join('\n')}
+${ch.map((c) => `  { ${JSON.stringify(c.name)}, ${JSON.stringify(c.keyBase64)} },`).join('\n')}
 };
 static constexpr unsigned kChannelCount = sizeof(kChannels) / sizeof(kChannels[0]);
 }
@@ -231,189 +242,149 @@ static_assert(LORA_FREQ == ${n.frequencyMHz} && LORA_BW == ${n.bandwidthKHz} && 
 #endif
 `);
   patched.push('examples/companion_radio/MeshcoreUaDefaults.h');
-  await copyFile(join(root, 'firmware/ua/UaBootstrap.h'), join(source, 'examples/companion_radio/UaBootstrap.h'));
+  await copyFile(join(root, 'tools/UaBootstrap.h'), join(source, 'examples/companion_radio/UaBootstrap.h'));
   patched.push('examples/companion_radio/UaBootstrap.h');
-  if (existsSync(join(source, 'platformio.local.ini'))) await rm(join(source, 'platformio.local.ini'));
+  return { patched, files, prefix, channels: ch };
+}
 
-  // Перевіряємо, що жодна плата не перевизначає радіопараметри.
-  const config = JSON.parse(run(python, ['-m', 'platformio', 'project', 'config', '--json-output'], source, true));
-  const envs = new Map(config.filter(([s]) => s.startsWith('env:')).map(([s, opts]) => [s.slice(4), Object.fromEntries(opts)]));
+/** Жодна плата не має перевизначати радіопараметри. */
+function checkRadioFlags(envs) {
+  const n = config.network;
+  const cfg = JSON.parse(run(python, ['-m', 'platformio', 'project', 'config', '--json-output'], source, true));
+  const all = new Map(cfg.filter(([s]) => s.startsWith('env:')).map(([s, o]) => [s.slice(4), Object.fromEntries(o)]));
   const want = { LORA_FREQ: n.frequencyMHz, LORA_BW: n.bandwidthKHz, LORA_SF: n.spreadingFactor, LORA_CR: n.codingRate };
-  for (const t of list) {
-    const env = envs.get(t.env);
-    if (!env) throw new Error(`У MeshCore немає середовища ${t.env}`);
-    const flags = [env.build_flags].flat().join(' ');
+  for (const env of envs) {
+    check(all.has(env), `У MeshCore немає середовища ${env}`);
+    const flags = [all.get(env).build_flags].flat().join(' ');
     for (const [key, value] of Object.entries(want)) {
       const found = [...flags.matchAll(new RegExp(`-D\\s*${key}=([\\d.]+)`, 'g'))].map((m) => Number(m[1]));
-      if (!found.length || found.some((v) => v !== Number(value))) throw new Error(`${t.env}: ${key}=${found.join(',') || 'немає'}, очікувалось ${value}`);
+      check(found.length && found.every((v) => v === Number(value)), `${env}: ${key}=${found.join(',') || 'немає'}, очікувалось ${value}`);
     }
   }
-
-  const profile = {
-    id: 'meshcore-ua', name: 'MeshCore Україна', version, revision: REVISION, upstream,
-    network: { presetName: n.presetName, frequencyMHz: n.frequencyMHz, bandwidthKHz: n.bandwidthKHz, spreadingFactor: n.spreadingFactor, codingRate: n.codingRate },
-    channels: channels.map(({ slot, name, keyHex }) => ({ slot, name, keyHex })),
-    initialisation: 'Радіопараметри — значення за замовчуванням для всіх ролей. Канали компаньйона додаються лише на чистому пристрої (немає prefs.json, new_prefs і channels2); збережені налаштування мають пріоритет.',
-  };
-  console.log(`Підготовлено ${version}: ${list.length} збірок; ${n.frequencyMHz}/${n.bandwidthKHz}/SF${n.spreadingFactor}/CR${n.codingRate}; Public + ${channels.length} каналів.`);
-  return { profile, list, source, patched, channels };
 }
 
-// ---------------------------------------------------------------- перевірка образів
+// ---------------------------------------------------------------- compile
 
-function check(condition, message) { if (!condition) throw new Error(message); }
-
-/** Перейменування теки; у Windows антивірус чи індексатор можуть ненадовго тримати файли — тоді копіюємо. */
-async function moveDir(from, to) {
-  for (let attempt = 1; attempt <= 5; attempt++) {
-    try { await rename(from, to); return; } catch (error) {
-      if (!['EPERM', 'EBUSY', 'EACCES'].includes(error.code)) throw error;
-      await new Promise((r) => setTimeout(r, 1000 * attempt));
-    }
-  }
-  await cp(from, to, { recursive: true });
-  await rm(from, { recursive: true, force: true, maxRetries: 5 }).catch(() => {});
-}
-
-async function officialFile(ref) {
-  return ref?.path && existsSync(join(root, 'public', ref.path)) ? readFile(join(root, 'public', ref.path)) : null;
-}
-
-function checkContent(image, t, version, channels) {
+function checkContent(image, t, version, ch) {
   check(image.includes(Buffer.from(`v${version}`)), `${t.env}: немає рядка версії`);
-  if (COMPANION_ROLES.has(t.role)) for (const ch of channels) {
-    check(image.includes(Buffer.from(ch.name)) && image.includes(Buffer.from(ch.keyBase64)), `${t.env}: немає каналу ${ch.name}`);
-  }
+  if (COMPANION.has(t.role)) for (const c of ch) check(image.includes(Buffer.from(c.name)) && image.includes(Buffer.from(c.keyBase64)), `${t.env}: немає каналу ${c.name}`);
 }
 
-async function collectEsp32(t, buildDir, version, channels) {
+async function collectEsp32(t, buildDir, version, ch) {
   const app = await readFile(join(buildDir, 'firmware.bin'));
   const merged = await readFile(join(buildDir, 'firmware-merged.bin'));
   check(app[0] === 0xe9, `${t.env}: не образ ESP32`);
   check(merged.subarray(0x10000, 0x10000 + app.length).equals(app), `${t.env}: образ у merged не за адресою 0x10000`);
   const chip = ESP_CHIPS[app.readUInt16LE(12)];
-  check(chip, `${t.env}: невідомий чип ${app.readUInt16LE(12)}`);
-  const officialApp = await officialFile(t.official.bin);
-  const officialMerged = await officialFile(t.official.merged);
-  if (officialApp) check(officialApp.readUInt16LE(12) === app.readUInt16LE(12), `${t.env}: чип не збігається з офіційною збіркою`);
-  if (officialMerged) {
-    check(merged.subarray(0x8000, 0x9000).equals(officialMerged.subarray(0x8000, 0x9000)), `${t.env}: таблиця розділів відрізняється від офіційної`);
-    if (!merged.subarray(0, 0x8000).equals(officialMerged.subarray(0, 0x8000))) console.warn(`  ${t.env}: завантажувач відрізняється від офіційного (перевірте)`);
-  }
+  check(chip, `${t.env}: невідомий чип`);
+  const officialApp = await download(t.official.bin.url);
+  const officialMerged = await download(t.official.merged.url);
+  check(officialApp.readUInt16LE(12) === app.readUInt16LE(12), `${t.env}: чип не збігається з офіційною збіркою`);
+  check(merged.subarray(0x8000, 0x9000).equals(officialMerged.subarray(0x8000, 0x9000)), `${t.env}: таблиця розділів відрізняється від офіційної`);
+  if (!merged.subarray(0, 0x8000).equals(officialMerged.subarray(0, 0x8000))) console.warn(`${t.env}: завантажувач відрізняється від офіційного`);
   const esptool = join(process.env.PLATFORMIO_CORE_DIR || join(homedir(), '.platformio'), 'packages/tool-esptoolpy/esptool.py');
   const info = run(python, [esptool, '--chip', chip, 'image_info', join(buildDir, 'firmware.bin')], root, true);
   check(/Checksum:.*\(valid\)/.test(info), `${t.env}: контрольна сума образу неправильна`);
   if (/Validation Hash/.test(info)) check(/Validation Hash:.*\(valid\)/.test(info), `${t.env}: хеш образу неправильний`);
-  checkContent(app, t, version, channels);
+  checkContent(app, t, version, ch);
   return { merged, bin: app };
 }
 
-async function collectNrf52(t, buildDir, source, version, channels) {
-  const hex = join(buildDir, 'firmware.hex');
+async function collectNrf52(t, buildDir, version, ch) {
   const uf2Path = join(buildDir, 'firmware.uf2');
-  run(python, [join(source, 'bin/uf2conv/uf2conv.py'), hex, '-c', '-o', uf2Path, '-f', '0xADA52840'], source, true);
+  run(python, [join(source, 'bin/uf2conv/uf2conv.py'), join(buildDir, 'firmware.hex'), '-c', '-o', uf2Path, '-f', '0xADA52840'], source, true);
   const zip = await readFile(join(buildDir, 'firmware.zip'));
   const uf2 = await readFile(uf2Path);
   check(uf2.readUInt32LE(0) === 0x0a324655 && uf2.readUInt32LE(28) === 0xada52840, `${t.env}: неправильний UF2`);
   const pkg = unzipSync(zip);
-  const manifest = JSON.parse(Buffer.from(pkg['manifest.json'] ?? []).toString() || '{}');
-  const app = manifest.manifest?.application;
+  const app = JSON.parse(Buffer.from(pkg['manifest.json'] ?? []).toString() || '{}').manifest?.application;
   check(app && pkg[app.bin_file] && pkg[app.dat_file], `${t.env}: DFU-пакет без образу`);
-  checkContent(Buffer.from(pkg[app.bin_file]), t, version, channels);
-  const officialZip = await officialFile(t.official.zip);
-  if (officialZip) {
-    const o = unzipSync(officialZip);
-    const oApp = JSON.parse(Buffer.from(o['manifest.json']).toString()).manifest.application;
-    const ratio = pkg[app.bin_file].length / o[oApp.bin_file].length;
-    check(ratio > 0.9 && ratio < 1.1, `${t.env}: розмір образу дуже відрізняється від офіційного (${ratio.toFixed(2)})`);
-  }
+  checkContent(Buffer.from(pkg[app.bin_file]), t, version, ch);
+  const o = unzipSync(await download(t.official.zip.url));
+  const oApp = JSON.parse(Buffer.from(o['manifest.json']).toString()).manifest.application;
+  const ratio = pkg[app.bin_file].length / o[oApp.bin_file].length;
+  check(ratio > 0.9 && ratio < 1.1, `${t.env}: розмір образу дуже відрізняється від офіційного (${ratio.toFixed(2)})`);
   return { zip, uf2 };
 }
 
-// ---------------------------------------------------------------- збірка
+const fileName = (env, version, kind) => `${env}-v${version}${kind === 'merged' ? '-merged' : ''}.${kind === 'merged' || kind === 'bin' ? 'bin' : kind}`;
 
-export async function build() {
-  const { profile, list, source, patched, channels } = await prepare();
-  if (args.includes('--prepare-only')) return profile;
-  const version = profile.version;
-  const pio = (t) => [python, ['-m', 'platformio', 'run', '--project-dir', source, '--environment', t.env,
-    ...(t.chip === 'esp32' ? ['--target', 'mergebin'] : []), '--jobs', String(Math.max(1, Math.floor(CPUS / PARALLEL)))]];
-
-  // Перша плата кожної платформи збирається окремо: PlatformIO встановлює інструменти.
-  const warm = [...new Map(list.map((t) => [t.chip, t])).values()];
-  const queue = [...warm.map((t) => ({ t, solo: true })), ...list.filter((t) => !warm.includes(t)).map((t) => ({ t }))];
-  const failed = [];
-  let done = 0;
-  const started = Date.now();
-  const buildOne = async ({ t }) => {
-    const [cmd, argv] = pio(t);
-    const code = await runLogged(cmd, argv, root, join(logs, `${t.env}.log`));
-    done++;
-    const min = ((Date.now() - started) / 60000).toFixed(1);
-    if (code) { failed.push(t.env); console.log(`  [${done}/${list.length}] ПОМИЛКА ${t.env} — .firmware-work/logs/${t.env}.log`); }
-    else console.log(`  [${done}/${list.length}] ${t.env} · ${min} хв`);
-  };
-  console.log(`Збираю ${list.length} прошивок, паралельно ${PARALLEL}…`);
-  for (const item of queue.filter((q) => q.solo)) await buildOne(item);
-  const rest = queue.filter((q) => !q.solo);
-  await Promise.all(Array.from({ length: PARALLEL }, async () => {
-    while (rest.length) await buildOne(rest.shift());
-  }));
-  if (failed.length) throw new Error(`Не зібрались: ${failed.join(', ')}`);
-
-  // Пишемо в тимчасову теку й підміняємо лише після перевірки всіх образів:
-  // якщо щось зламається, сайт лишається з попередньою робочою збіркою.
-  const customDir = join(root, 'public/firmware/custom');
-  const finalDir = join(customDir, `v${version}`);
-  const outDir = join(customDir, '.staging');
-  const previous = existsSync(join(root, 'src/data/custom-firmware.json'))
-    ? JSON.parse(await readFile(join(root, 'src/data/custom-firmware.json'), 'utf8')) : null;
-  // При частковій збірці (--only) решта вже зібраних файлів цієї версії зберігається.
-  const partial = Boolean(option('only')) && previous?.version === version && previous.boards;
-  await rm(outDir, { recursive: true, force: true });
-  await mkdir(outDir, { recursive: true });
-  if (partial && existsSync(finalDir)) await cp(finalDir, outDir, { recursive: true });
-  const boards = partial ? structuredClone(previous.boards) : {};
-
-  for (const t of list) {
-    const buildDir = join(source, '.pio/build', t.env);
-    const images = t.chip === 'esp32' ? await collectEsp32(t, buildDir, version, channels) : await collectNrf52(t, buildDir, source, version, channels);
-    const files = {};
-    for (const [kind, data] of Object.entries(images)) {
-      const name = `${t.env}-v${version}${kind === 'merged' ? '-merged' : ''}.${kind === 'merged' || kind === 'bin' ? 'bin' : kind}`;
-      const path = `/firmware/custom/v${version}/${name}`;
-      await writeFile(join(outDir, name), data);
-      files[kind] = { name, size: data.length, url: path, path, sha256: sha256(data) };
-    }
-    ((boards[t.board] ??= { roles: {} }).roles)[t.role] = { env: t.env, hardwareTested: HARDWARE_TESTED.has(t.env), files };
+async function compile(env) {
+  const plan = await loadPlan();
+  const t = plan.targets.find((x) => x.env === env);
+  check(t, `${env} немає в плані`);
+  const { channels: ch } = await prepareSource(plan);
+  checkRadioFlags([env]);
+  run(python, ['-m', 'platformio', 'run', '--project-dir', source, '--environment', env, ...(t.chip === 'esp32' ? ['--target', 'mergebin'] : [])]);
+  const buildDir = join(source, '.pio/build', env);
+  const images = t.chip === 'esp32' ? await collectEsp32(t, buildDir, plan.version, ch) : await collectNrf52(t, buildDir, plan.version, ch);
+  const out = join(outRoot, env);
+  await rm(out, { recursive: true, force: true });
+  await mkdir(out, { recursive: true });
+  const files = {};
+  for (const [kind, data] of Object.entries(images)) {
+    const name = fileName(env, plan.version, kind);
+    await writeFile(join(out, name), data);
+    files[kind] = { name, size: data.length, sha256: sha256(data) };
   }
-  const bundled = unzipSync(await readFile(join(work, `${profile.upstream.commit}.zip`)));
-  const prefix = `MeshCore-${profile.upstream.commit}/`;
-  for (const file of patched) bundled[prefix + file] = new Uint8Array(await readFile(join(source, file)));
-  delete bundled[prefix + 'platformio.local.ini'];
-  bundled[prefix + 'README-UA.md'] = new Uint8Array(await readFile(join(root, 'firmware/ua/README.md')));
-  const sourceZip = Buffer.from(zipSync(bundled, { level: 6 }));
-  await writeFile(join(outDir, 'source.zip'), sourceZip);
-  await copyFile(join(source, 'license.txt'), join(outDir, 'LICENSE.txt'));
-
-  profile.builtAt = new Date().toISOString();
-  profile.source = { path: `/firmware/custom/v${version}/source.zip`, sha256: sha256(sourceZip) };
-  profile.boards = Object.fromEntries(Object.entries(boards).sort(([a], [b]) => a.localeCompare(b, 'en')));
-  await writeFile(join(outDir, 'manifest.json'), JSON.stringify(profile, null, 2) + '\n');
-  await rm(finalDir, { recursive: true, force: true });
-  await moveDir(outDir, finalDir);
-  await writeFile(join(root, 'src/data/custom-firmware.json'), JSON.stringify(profile, null, 2) + '\n');
-
-  // Прибираємо попередні версії нашої збірки.
-  for (const dir of await readdir(customDir)) {
-    if (dir !== `v${version}`) await rm(join(customDir, dir), { recursive: true, force: true });
-  }
-  const deps = run(python, ['-m', 'platformio', 'pkg', 'list', '--project-dir', source, ...[...new Map(list.map((t) => [t.chip, t])).values()].flatMap((t) => ['--environment', t.env])], root, true);
-  await writeFile(join(root, 'firmware/ua/build-dependencies.txt'), deps);
-  console.log(`Готово: ${list.length} прошивок ${version} перевірено → public/firmware/custom/v${version}/`);
-  return profile;
+  await writeFile(join(out, 'fragment.json'), JSON.stringify({ board: t.board, role: t.role, chip: t.chip, env, files }, null, 2));
+  console.log(`Готово: ${env} (${Object.values(files).map((f) => f.name).join(', ')})`);
 }
 
-if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
-  build().catch((error) => { console.error(error.message ?? error); process.exitCode = 1; });
+// ---------------------------------------------------------------- assemble
+
+async function assemble() {
+  const plan = await loadPlan();
+  const { patched, files, prefix, channels: ch } = await prepareSource(plan);
+  await rm(dist, { recursive: true, force: true });
+  await mkdir(dist, { recursive: true });
+  const base = `/firmware/custom/${plan.tag}`;
+  const boards = {};
+  for (const t of plan.targets) {
+    const dir = join(outRoot, t.env);
+    check(existsSync(join(dir, 'fragment.json')), `Немає зібраної прошивки ${t.env}`);
+    const frag = JSON.parse(await readFile(join(dir, 'fragment.json'), 'utf8'));
+    const roleFiles = {};
+    for (const [kind, f] of Object.entries(frag.files)) {
+      const data = await readFile(join(dir, f.name));
+      check(sha256(data) === f.sha256, `${f.name}: SHA-256 не збігається`);
+      await writeFile(join(dist, f.name), data);
+      roleFiles[kind] = { ...f, url: `${base}/${f.name}`, path: `${base}/${f.name}` };
+    }
+    const entry = (boards[t.board] ??= { name: config.boards[t.board], chip: t.chip, roles: {} });
+    entry.roles[t.role] = { env: t.env, hardwareTested: config.hardwareTested.includes(t.env), files: roleFiles };
+  }
+  const bundled = { ...files };
+  for (const file of patched) bundled[prefix + file] = new Uint8Array(await readFile(join(source, file)));
+  bundled[prefix + 'README-UA.md'] = new Uint8Array(await readFile(join(root, 'README.md')));
+  const sourceZip = Buffer.from(zipSync(bundled, { level: 6 }));
+  await writeFile(join(dist, 'source.zip'), sourceZip);
+  await writeFile(join(dist, 'LICENSE.txt'), files[prefix + 'license.txt']);
+  const manifest = {
+    id: 'meshcore-ua', name: config.name, version: plan.version, revision: plan.revision,
+    upstream: { ...plan.upstream, archiveSha256: sha256(await readFile(join(work, `${plan.upstream.commit}.zip`))) },
+    network: { ...config.network },
+    channels: ch.map(({ slot, name, keyHex }) => ({ slot, name, keyHex })),
+    initialisation: 'Радіопараметри — значення за замовчуванням для всіх ролей. Канали компаньйона додаються лише на чистому пристрої (немає prefs.json, new_prefs і channels2); збережені налаштування мають пріоритет.',
+    builtAt: new Date().toISOString(),
+    source: { path: `${base}/source.zip`, sha256: sha256(sourceZip) },
+    boards: Object.fromEntries(Object.entries(boards).sort(([a], [b]) => a.localeCompare(b, 'en'))),
+  };
+  await writeFile(join(dist, 'manifest.json'), JSON.stringify(manifest, null, 2) + '\n');
+  const sums = (await readdir(dist)).filter((f) => !['manifest.json', 'LICENSE.txt'].includes(f)).sort();
+  await writeFile(join(dist, 'SHA256SUMS.txt'), (await Promise.all(sums.map(async (f) => `${sha256(await readFile(join(dist, f)))}  ${f}`))).join('\n') + '\n');
+  console.log(`Зведено ${plan.version}: ${plan.targets.length} прошивок → dist/`);
+}
+
+// ---------------------------------------------------------------- CLI
+
+const [command, arg] = args.filter((a) => !a.startsWith('--'));
+try {
+  if (command === 'resolve') await resolvePlan();
+  else if (command === 'compile' && arg) await compile(arg);
+  else if (command === 'assemble') await assemble();
+  else { console.error('Використання: node tools/build.mjs resolve | compile <env> | assemble'); process.exitCode = 2; }
+} catch (e) {
+  console.error(e.message ?? e);
+  process.exitCode = 1;
 }
