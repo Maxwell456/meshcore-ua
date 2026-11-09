@@ -1,8 +1,8 @@
 # Seeed Studio SenseCAP Solar Node P1 / P1 Pro
 
-nRF52 · MeshCore Україна **1.18.0-ua.2** · MeshCore 1.18.0
+nRF52 · MeshCore Україна **1.18.0-ua.3** · MeshCore 1.18.0
 
-[← Усі пристрої](../../README.md) · [Прошити в браузері](https://meshcore.com.ua/install/) · [Реліз v1.18.0-ua.2](https://github.com/Maxwell456/meshcore-ua/releases/tag/v1.18.0-ua.2)
+[← Усі пристрої](../../README.md) · [Прошити в браузері](https://meshcore.com.ua/install/) · [Реліз v1.18.0-ua.3](https://github.com/Maxwell456/meshcore-ua/releases/tag/v1.18.0-ua.3)
 
 Файли лежать у теках за типом вузла: [`bluetooth/`](bluetooth) — компаньйон Bluetooth, [`usb/`](usb) — компаньйон USB, [`repeater/`](repeater) — ретранслятор, [`room-server/`](room-server) — кімната.
 
@@ -10,10 +10,10 @@ nRF52 · MeshCore Україна **1.18.0-ua.2** · MeshCore 1.18.0
 
 | Тип вузла | UF2 | DFU-пакет (ZIP) |
 |---|---|---|
-| **Компаньйон Bluetooth**<br><sub>для телефона, застосунок MeshCore</sub> | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/sensecap-solar/bluetooth/SenseCap_Solar_companion_radio_ble-v1.18.0-ua.2.uf2) · 0,7 МБ | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/sensecap-solar/bluetooth/SenseCap_Solar_companion_radio_ble-v1.18.0-ua.2.zip) · 0,4 МБ |
-| **Компаньйон USB**<br><sub>для комп’ютера, веб-застосунок через кабель</sub> | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/sensecap-solar/usb/SenseCap_Solar_companion_radio_usb-v1.18.0-ua.2.uf2) · 0,7 МБ | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/sensecap-solar/usb/SenseCap_Solar_companion_radio_usb-v1.18.0-ua.2.zip) · 0,4 МБ |
-| **Ретранслятор**<br><sub>пересилає повідомлення, розширює покриття</sub> | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/sensecap-solar/repeater/SenseCap_Solar_repeater-v1.18.0-ua.2.uf2) · 0,7 МБ | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/sensecap-solar/repeater/SenseCap_Solar_repeater-v1.18.0-ua.2.zip) · 0,3 МБ |
-| **Кімната**<br><sub>зберігає історію повідомлень для учасників</sub> | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/sensecap-solar/room-server/SenseCap_Solar_room_server-v1.18.0-ua.2.uf2) · 0,7 МБ | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/sensecap-solar/room-server/SenseCap_Solar_room_server-v1.18.0-ua.2.zip) · 0,3 МБ |
+| **Компаньйон Bluetooth**<br><sub>для телефона, застосунок MeshCore</sub> | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/sensecap-solar/bluetooth/SenseCap_Solar_companion_radio_ble-v1.18.0-ua.3.uf2) · 0,7 МБ | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/sensecap-solar/bluetooth/SenseCap_Solar_companion_radio_ble-v1.18.0-ua.3.zip) · 0,4 МБ |
+| **Компаньйон USB**<br><sub>для комп’ютера, веб-застосунок через кабель</sub> | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/sensecap-solar/usb/SenseCap_Solar_companion_radio_usb-v1.18.0-ua.3.uf2) · 0,7 МБ | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/sensecap-solar/usb/SenseCap_Solar_companion_radio_usb-v1.18.0-ua.3.zip) · 0,4 МБ |
+| **Ретранслятор**<br><sub>пересилає повідомлення, розширює покриття</sub> | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/sensecap-solar/repeater/SenseCap_Solar_repeater-v1.18.0-ua.3.uf2) · 0,7 МБ | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/sensecap-solar/repeater/SenseCap_Solar_repeater-v1.18.0-ua.3.zip) · 0,3 МБ |
+| **Кімната**<br><sub>зберігає історію повідомлень для учасників</sub> | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/sensecap-solar/room-server/SenseCap_Solar_room_server-v1.18.0-ua.3.uf2) · 0,7 МБ | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/sensecap-solar/room-server/SenseCap_Solar_room_server-v1.18.0-ua.3.zip) · 0,3 МБ |
 
 ## Яку прошивку обрати
 
@@ -28,13 +28,13 @@ nRF52 · MeshCore Україна **1.18.0-ua.2** · MeshCore 1.18.0
 
 **UF2 (найпростіше)**
 1. Підключіть пристрій кабелем для даних і двічі швидко натисніть Reset.
-2. З’явиться диск (наприклад, `RAK4631`, `TECHOBOOT` чи `T1000-E`). Скопіюйте на нього `SenseCap_Solar_companion_radio_ble-v1.18.0-ua.2.uf2`.
+2. З’явиться диск (наприклад, `RAK4631`, `TECHOBOOT` чи `T1000-E`). Скопіюйте на нього `SenseCap_Solar_companion_radio_ble-v1.18.0-ua.3.uf2`.
 3. Пристрій перезавантажиться сам.
 
 **DFU через USB**
 ```sh
 pip install adafruit-nrfutil
-adafruit-nrfutil dfu serial --package SenseCap_Solar_companion_radio_ble-v1.18.0-ua.2.zip -p <порт> -b 115200 --touch 1200
+adafruit-nrfutil dfu serial --package SenseCap_Solar_companion_radio_ble-v1.18.0-ua.3.zip -p <порт> -b 115200 --touch 1200
 ```
 
 Прошивка на nRF52 не стирає налаштування. Якщо пристрій уже працював з MeshCore, після прошивки скиньте його до заводських налаштувань у застосунку — тоді з’являться канали спільноти.
@@ -45,14 +45,14 @@ adafruit-nrfutil dfu serial --package SenseCap_Solar_companion_radio_ble-v1.18.0
 <summary>SHA-256 файлів цього пристрою</summary>
 
 ```text
-ece759fc92c9eb8d3272a5fedd25c83149297f0f6660dd533a7b4c56bd826c5f  SenseCap_Solar_companion_radio_ble-v1.18.0-ua.2.uf2
-18952f6beaa7e2e516df36b6030ad073c8beb43b2f6c6b5c4a8afda9ec98e5c8  SenseCap_Solar_companion_radio_ble-v1.18.0-ua.2.zip
-4e9a7ac66cdc7599c4d2d9f3a01ed70b522c7d64e54926fe1374145fbb730230  SenseCap_Solar_companion_radio_usb-v1.18.0-ua.2.uf2
-080c8add65d3a0f91cb65d75e34f867072de0ff63c8f997cb2e33038f3a1ecad  SenseCap_Solar_companion_radio_usb-v1.18.0-ua.2.zip
-08330135ca2b2433afe322d516e06ba524d2ea85fb2685938da27051edb45e2c  SenseCap_Solar_repeater-v1.18.0-ua.2.uf2
-d2d8fe02fa8ebf6a27fffd3dc4fe051669001f3473ccbd60f141ee8cd82f87dd  SenseCap_Solar_repeater-v1.18.0-ua.2.zip
-c7452406862d0356a8dccb452627b78928dff4be4840407dd8de098e79e7cfca  SenseCap_Solar_room_server-v1.18.0-ua.2.uf2
-675fa63918a4ae8372fe54f8c6bc1f12f341124f096278e89eba68cfee34294a  SenseCap_Solar_room_server-v1.18.0-ua.2.zip
+66d934954d1c5523b709239bdfdabfaa269181139613e94082d647e8547e594e  SenseCap_Solar_companion_radio_ble-v1.18.0-ua.3.uf2
+e069f0d704eea0fa90bf4937df46cecab518a815b37532e50daacb9aac92baf2  SenseCap_Solar_companion_radio_ble-v1.18.0-ua.3.zip
+644d325112516e5d9354e1c1c4c643916dbdf1c3f6e2a2210091a201e14bd26d  SenseCap_Solar_companion_radio_usb-v1.18.0-ua.3.uf2
+9176738912a574890d276c38fc5cddba90e15f13a93cb707d557c46c3cde2f93  SenseCap_Solar_companion_radio_usb-v1.18.0-ua.3.zip
+995cbe2206b34b33e81cbe0b32c26e50dcb82c9ec376e0ffec8e31798629aeae  SenseCap_Solar_repeater-v1.18.0-ua.3.uf2
+74c3c5b9cf5362651a9a890ba5577101b17bdd4e4fdb98d1f095203dc4671e6b  SenseCap_Solar_repeater-v1.18.0-ua.3.zip
+58f999cc412483ede108530c2279c2f0d1fc74eec1a79affac409761359f7f3d  SenseCap_Solar_room_server-v1.18.0-ua.3.uf2
+4a05e6a57797723edb8204a3b5ea87cb4cf9ca25dc1b3036015563278355dfb3  SenseCap_Solar_room_server-v1.18.0-ua.3.zip
 ```
 
 </details>

@@ -1,8 +1,8 @@
 # Seeed Studio XIAO nRF52840 + Wio-SX1262
 
-nRF52 · MeshCore Україна **1.18.0-ua.2** · MeshCore 1.18.0
+nRF52 · MeshCore Україна **1.18.0-ua.3** · MeshCore 1.18.0
 
-[← Усі пристрої](../../README.md) · [Прошити в браузері](https://meshcore.com.ua/install/) · [Реліз v1.18.0-ua.2](https://github.com/Maxwell456/meshcore-ua/releases/tag/v1.18.0-ua.2)
+[← Усі пристрої](../../README.md) · [Прошити в браузері](https://meshcore.com.ua/install/) · [Реліз v1.18.0-ua.3](https://github.com/Maxwell456/meshcore-ua/releases/tag/v1.18.0-ua.3)
 
 Файли лежать у теках за типом вузла: [`bluetooth/`](bluetooth) — компаньйон Bluetooth, [`usb/`](usb) — компаньйон USB, [`repeater/`](repeater) — ретранслятор, [`room-server/`](room-server) — кімната.
 
@@ -10,10 +10,10 @@ nRF52 · MeshCore Україна **1.18.0-ua.2** · MeshCore 1.18.0
 
 | Тип вузла | UF2 | DFU-пакет (ZIP) |
 |---|---|---|
-| **Компаньйон Bluetooth**<br><sub>для телефона, застосунок MeshCore</sub> | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/xiao-nrf52/bluetooth/Xiao_nrf52_companion_radio_ble-v1.18.0-ua.2.uf2) · 0,7 МБ | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/xiao-nrf52/bluetooth/Xiao_nrf52_companion_radio_ble-v1.18.0-ua.2.zip) · 0,4 МБ |
-| **Компаньйон USB**<br><sub>для комп’ютера, веб-застосунок через кабель</sub> | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/xiao-nrf52/usb/Xiao_nrf52_companion_radio_usb-v1.18.0-ua.2.uf2) · 0,7 МБ | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/xiao-nrf52/usb/Xiao_nrf52_companion_radio_usb-v1.18.0-ua.2.zip) · 0,4 МБ |
-| **Ретранслятор**<br><sub>пересилає повідомлення, розширює покриття</sub> | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/xiao-nrf52/repeater/Xiao_nrf52_repeater-v1.18.0-ua.2.uf2) · 0,7 МБ | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/xiao-nrf52/repeater/Xiao_nrf52_repeater-v1.18.0-ua.2.zip) · 0,3 МБ |
-| **Кімната**<br><sub>зберігає історію повідомлень для учасників</sub> | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/xiao-nrf52/room-server/Xiao_nrf52_room_server-v1.18.0-ua.2.uf2) · 0,7 МБ | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/xiao-nrf52/room-server/Xiao_nrf52_room_server-v1.18.0-ua.2.zip) · 0,3 МБ |
+| **Компаньйон Bluetooth**<br><sub>для телефона, застосунок MeshCore</sub> | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/xiao-nrf52/bluetooth/Xiao_nrf52_companion_radio_ble-v1.18.0-ua.3.uf2) · 0,7 МБ | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/xiao-nrf52/bluetooth/Xiao_nrf52_companion_radio_ble-v1.18.0-ua.3.zip) · 0,4 МБ |
+| **Компаньйон USB**<br><sub>для комп’ютера, веб-застосунок через кабель</sub> | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/xiao-nrf52/usb/Xiao_nrf52_companion_radio_usb-v1.18.0-ua.3.uf2) · 0,7 МБ | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/xiao-nrf52/usb/Xiao_nrf52_companion_radio_usb-v1.18.0-ua.3.zip) · 0,4 МБ |
+| **Ретранслятор**<br><sub>пересилає повідомлення, розширює покриття</sub> | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/xiao-nrf52/repeater/Xiao_nrf52_repeater-v1.18.0-ua.3.uf2) · 0,7 МБ | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/xiao-nrf52/repeater/Xiao_nrf52_repeater-v1.18.0-ua.3.zip) · 0,3 МБ |
+| **Кімната**<br><sub>зберігає історію повідомлень для учасників</sub> | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/xiao-nrf52/room-server/Xiao_nrf52_room_server-v1.18.0-ua.3.uf2) · 0,7 МБ | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/xiao-nrf52/room-server/Xiao_nrf52_room_server-v1.18.0-ua.3.zip) · 0,3 МБ |
 
 ## Яку прошивку обрати
 
@@ -28,13 +28,13 @@ nRF52 · MeshCore Україна **1.18.0-ua.2** · MeshCore 1.18.0
 
 **UF2 (найпростіше)**
 1. Підключіть пристрій кабелем для даних і двічі швидко натисніть Reset.
-2. З’явиться диск (наприклад, `RAK4631`, `TECHOBOOT` чи `T1000-E`). Скопіюйте на нього `Xiao_nrf52_companion_radio_ble-v1.18.0-ua.2.uf2`.
+2. З’явиться диск (наприклад, `RAK4631`, `TECHOBOOT` чи `T1000-E`). Скопіюйте на нього `Xiao_nrf52_companion_radio_ble-v1.18.0-ua.3.uf2`.
 3. Пристрій перезавантажиться сам.
 
 **DFU через USB**
 ```sh
 pip install adafruit-nrfutil
-adafruit-nrfutil dfu serial --package Xiao_nrf52_companion_radio_ble-v1.18.0-ua.2.zip -p <порт> -b 115200 --touch 1200
+adafruit-nrfutil dfu serial --package Xiao_nrf52_companion_radio_ble-v1.18.0-ua.3.zip -p <порт> -b 115200 --touch 1200
 ```
 
 Прошивка на nRF52 не стирає налаштування. Якщо пристрій уже працював з MeshCore, після прошивки скиньте його до заводських налаштувань у застосунку — тоді з’являться канали спільноти.
@@ -45,14 +45,14 @@ adafruit-nrfutil dfu serial --package Xiao_nrf52_companion_radio_ble-v1.18.0-ua.
 <summary>SHA-256 файлів цього пристрою</summary>
 
 ```text
-0c1eb8663acbc92fc6a3b42775998d5d590e265ff845cd4ad39e98367c9d5454  Xiao_nrf52_companion_radio_ble-v1.18.0-ua.2.uf2
-dfa60dad3468e6ff85534b219ec06c18be30b7b8a7c47fa1b7a9e43c9b9b019e  Xiao_nrf52_companion_radio_ble-v1.18.0-ua.2.zip
-3a4acd9f9f07215cbc61c4b7e6c9e9834bf8edd8e8d4291230d9b3775dfe0bfb  Xiao_nrf52_companion_radio_usb-v1.18.0-ua.2.uf2
-3214f230ad08f6617ccb8e5b71b87dd26c8039ea52dda111c1d348eb86561db9  Xiao_nrf52_companion_radio_usb-v1.18.0-ua.2.zip
-4f30ea427356027be5550afd871c0e81508c584869d8937c926a8fa29c235922  Xiao_nrf52_repeater-v1.18.0-ua.2.uf2
-f8fae16bf92074bba013659dbcc46d5de417c043e0a6d2d44b68f047269c68c5  Xiao_nrf52_repeater-v1.18.0-ua.2.zip
-ccece4f90988cbf598053c9a93798ce40b329ca2178fd61a8d245643446a387a  Xiao_nrf52_room_server-v1.18.0-ua.2.uf2
-f8faa51596bbaaf8bd07b63f258cd6221d37d4e255df945eafbd0ec923c07131  Xiao_nrf52_room_server-v1.18.0-ua.2.zip
+f81f080eb3f7f049c126095a9b1ad8f106e174e5e63cbcd188e737a27bedfdba  Xiao_nrf52_companion_radio_ble-v1.18.0-ua.3.uf2
+99e384c9fea6a6d08014afe948826b667c23715258b291758d054eaf18b54da4  Xiao_nrf52_companion_radio_ble-v1.18.0-ua.3.zip
+c17cc18491ccae6fe619ce80359b9674e529438ffe785c9327f1ff79df77970f  Xiao_nrf52_companion_radio_usb-v1.18.0-ua.3.uf2
+4fd2aa9f6c7843fa47bee14b83fbc74096e4772183a5558a6f8f5a138f4ed5d4  Xiao_nrf52_companion_radio_usb-v1.18.0-ua.3.zip
+60670b2009d3539b6987311ee132f88847c1b4962a9441fe38c9fe41fbd735fc  Xiao_nrf52_repeater-v1.18.0-ua.3.uf2
+044038347da0ee837052a05abe1d1afe53b66abc34bc51a1f838825322102fdf  Xiao_nrf52_repeater-v1.18.0-ua.3.zip
+797b73e4a9cf7246a8497da2215fa75a3da31f080f7e414f67f719d3f4ab50f4  Xiao_nrf52_room_server-v1.18.0-ua.3.uf2
+f3a57987600278812accbb4a5d64ffe2961426b84bcf3b49eb91e1dba8e6b66e  Xiao_nrf52_room_server-v1.18.0-ua.3.zip
 ```
 
 </details>

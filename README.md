@@ -2,14 +2,14 @@
 
 Прошивки [MeshCore](https://github.com/meshcore-dev/MeshCore) для мережі MeshCore Україна: частота, пресет і канали спільноти вже налаштовані — пристрій працює в мережі одразу після прошивки.
 
-[![версія](https://img.shields.io/badge/%D0%B2%D0%B5%D1%80%D1%81%D1%96%D1%8F-1.18.0--ua.2-2f6f4f)](https://github.com/Maxwell456/meshcore-ua/releases/latest) [![MeshCore](https://img.shields.io/badge/MeshCore-1.18.0-2f6f4f)](https://github.com/meshcore-dev/MeshCore/commit/81dbae592ffad40b4212bc0b37e82b38da08f4bc) [![ліцензія](https://img.shields.io/badge/%D0%BB%D1%96%D1%86%D0%B5%D0%BD%D0%B7%D1%96%D1%8F-MIT-2f6f4f)](LICENSE)
+[![версія](https://img.shields.io/badge/%D0%B2%D0%B5%D1%80%D1%81%D1%96%D1%8F-1.18.0--ua.3-2f6f4f)](https://github.com/Maxwell456/meshcore-ua/releases/latest) [![MeshCore](https://img.shields.io/badge/MeshCore-1.18.0-2f6f4f)](https://github.com/meshcore-dev/MeshCore/commit/81dbae592ffad40b4212bc0b37e82b38da08f4bc) [![ліцензія](https://img.shields.io/badge/%D0%BB%D1%96%D1%86%D0%B5%D0%BD%D0%B7%D1%96%D1%8F-MIT-2f6f4f)](LICENSE)
 
 **Прошити в браузері: [meshcore.com.ua/install](https://meshcore.com.ua/install/)** — Chrome або Edge і USB-кабель, без встановлення програм.
 Для ручної прошивки оберіть пристрій у таблиці — на його сторінці файли й інструкція.
 
 ## Пристрої
 
-Версія **1.18.0-ua.2** на основі MeshCore 1.18.0 · пристроїв: 18 · прошивок: 66
+Версія **1.18.0-ua.3** на основі MeshCore 1.18.0 · пристроїв: 18 · прошивок: 66
 
 | Пристрій | Чип | Компаньйон Bluetooth | Компаньйон USB | Ретранслятор | Кімната |
 |---|---|:-:|:-:|:-:|:-:|

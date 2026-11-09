@@ -1,8 +1,8 @@
 # Heltec WiFi LoRa 32 V4 — з tft-екраном
 
-ESP32 · MeshCore Україна **1.18.0-ua.2** · MeshCore 1.18.0
+ESP32 · MeshCore Україна **1.18.0-ua.3** · MeshCore 1.18.0
 
-[← Усі пристрої](../../README.md) · [Прошити в браузері](https://meshcore.com.ua/install/) · [Реліз v1.18.0-ua.2](https://github.com/Maxwell456/meshcore-ua/releases/tag/v1.18.0-ua.2)
+[← Усі пристрої](../../README.md) · [Прошити в браузері](https://meshcore.com.ua/install/) · [Реліз v1.18.0-ua.3](https://github.com/Maxwell456/meshcore-ua/releases/tag/v1.18.0-ua.3)
 
 Файли лежать у теках за типом вузла: [`bluetooth/`](bluetooth) — компаньйон Bluetooth, [`usb/`](usb) — компаньйон USB, [`repeater/`](repeater) — ретранслятор, [`room-server/`](room-server) — кімната, [`gateway/`](gateway) — шлюз #ukraine.
 
@@ -10,11 +10,11 @@ ESP32 · MeshCore Україна **1.18.0-ua.2** · MeshCore 1.18.0
 
 | Тип вузла | Нова установка | Оновлення |
 |---|---|---|
-| **Компаньйон Bluetooth**<br><sub>для телефона, застосунок MeshCore</sub> | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/heltec-v4-tft/bluetooth/heltec_v4_tft_companion_radio_ble-v1.18.0-ua.2-merged.bin) · 1,3 МБ | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/heltec-v4-tft/bluetooth/heltec_v4_tft_companion_radio_ble-v1.18.0-ua.2.bin) · 1,2 МБ |
-| **Компаньйон USB**<br><sub>для комп’ютера, веб-застосунок через кабель</sub> | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/heltec-v4-tft/usb/heltec_v4_tft_companion_radio_usb-v1.18.0-ua.2-merged.bin) · 0,7 МБ | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/heltec-v4-tft/usb/heltec_v4_tft_companion_radio_usb-v1.18.0-ua.2.bin) · 0,6 МБ |
-| **Ретранслятор**<br><sub>пересилає повідомлення, розширює покриття</sub> | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/heltec-v4-tft/repeater/heltec_v4_tft_repeater-v1.18.0-ua.2-merged.bin) · 1,2 МБ | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/heltec-v4-tft/repeater/heltec_v4_tft_repeater-v1.18.0-ua.2.bin) · 1,1 МБ |
-| **Кімната**<br><sub>зберігає історію повідомлень для учасників</sub> | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/heltec-v4-tft/room-server/heltec_v4_tft_room_server-v1.18.0-ua.2-merged.bin) · 1,2 МБ | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/heltec-v4-tft/room-server/heltec_v4_tft_room_server-v1.18.0-ua.2.bin) · 1,1 МБ |
-| **Шлюз #ukraine**<br><sub>компаньйон Bluetooth + Wi-Fi, з’єднує місто з каналом #ukraine</sub> | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/heltec-v4-tft/gateway/heltec_v4_tft_companion_radio_gateway-v1.18.0-ua.2-merged.bin) · 1,9 МБ | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/heltec-v4-tft/gateway/heltec_v4_tft_companion_radio_gateway-v1.18.0-ua.2.bin) · 1,8 МБ |
+| **Компаньйон Bluetooth**<br><sub>для телефона, застосунок MeshCore</sub> | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/heltec-v4-tft/bluetooth/heltec_v4_tft_companion_radio_ble-v1.18.0-ua.3-merged.bin) · 1,3 МБ | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/heltec-v4-tft/bluetooth/heltec_v4_tft_companion_radio_ble-v1.18.0-ua.3.bin) · 1,2 МБ |
+| **Компаньйон USB**<br><sub>для комп’ютера, веб-застосунок через кабель</sub> | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/heltec-v4-tft/usb/heltec_v4_tft_companion_radio_usb-v1.18.0-ua.3-merged.bin) · 0,7 МБ | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/heltec-v4-tft/usb/heltec_v4_tft_companion_radio_usb-v1.18.0-ua.3.bin) · 0,6 МБ |
+| **Ретранслятор**<br><sub>пересилає повідомлення, розширює покриття</sub> | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/heltec-v4-tft/repeater/heltec_v4_tft_repeater-v1.18.0-ua.3-merged.bin) · 1,2 МБ | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/heltec-v4-tft/repeater/heltec_v4_tft_repeater-v1.18.0-ua.3.bin) · 1,1 МБ |
+| **Кімната**<br><sub>зберігає історію повідомлень для учасників</sub> | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/heltec-v4-tft/room-server/heltec_v4_tft_room_server-v1.18.0-ua.3-merged.bin) · 1,2 МБ | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/heltec-v4-tft/room-server/heltec_v4_tft_room_server-v1.18.0-ua.3.bin) · 1,1 МБ |
+| **Шлюз #ukraine**<br><sub>компаньйон Bluetooth + Wi-Fi, з’єднує місто з каналом #ukraine</sub> | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/heltec-v4-tft/gateway/heltec_v4_tft_companion_radio_gateway-v1.18.0-ua.3-merged.bin) · 1,9 МБ | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/heltec-v4-tft/gateway/heltec_v4_tft_companion_radio_gateway-v1.18.0-ua.3.bin) · 1,8 МБ |
 
 ## Яку прошивку обрати
 
@@ -35,11 +35,11 @@ ESP32 · MeshCore Україна **1.18.0-ua.2** · MeshCore 1.18.0
 3. **Нова установка** (стирає налаштування, ключі й контакти; налаштування мережі застосуються одразу):
    ```sh
    esptool.py erase_flash
-   esptool.py write_flash 0x0 heltec_v4_tft_companion_radio_ble-v1.18.0-ua.2-merged.bin
+   esptool.py write_flash 0x0 heltec_v4_tft_companion_radio_ble-v1.18.0-ua.3-merged.bin
    ```
 4. **Оновлення** (зберігає налаштування, канали й ключі):
    ```sh
-   esptool.py write_flash 0x10000 heltec_v4_tft_companion_radio_ble-v1.18.0-ua.2.bin
+   esptool.py write_flash 0x10000 heltec_v4_tft_companion_radio_ble-v1.18.0-ua.3.bin
    ```
 
 ## Контрольні суми
@@ -48,16 +48,16 @@ ESP32 · MeshCore Україна **1.18.0-ua.2** · MeshCore 1.18.0
 <summary>SHA-256 файлів цього пристрою</summary>
 
 ```text
-dad77c48e1d00d96736d9db18604c5bf7133c474575062bc437bdd4c4bc91db2  heltec_v4_tft_companion_radio_ble-v1.18.0-ua.2-merged.bin
-c5e02d694cd0c8c6b68793573ba80381a581a081f0df89deda8e49ed464f3460  heltec_v4_tft_companion_radio_ble-v1.18.0-ua.2.bin
-b00c398564fb31ec3dcfa9c0e13246211dcd2939c8498db58145aaad2460de3e  heltec_v4_tft_companion_radio_gateway-v1.18.0-ua.2-merged.bin
-a73439a6a4281498be8846f63295d9472f9b5c44b734f92c286a7bc8301676c0  heltec_v4_tft_companion_radio_gateway-v1.18.0-ua.2.bin
-be15c2e432ad02f0d995931033aac6b233e7df0f1f3027b4d08d43c833353a65  heltec_v4_tft_companion_radio_usb-v1.18.0-ua.2-merged.bin
-66cb0563a50cf0a7701320718edf860a15470422803b9f0a57324b89ded37934  heltec_v4_tft_companion_radio_usb-v1.18.0-ua.2.bin
-149cb88cb4557b9e79774605638a1adffcc3a2a0d6c2988f4445610855b4fe5e  heltec_v4_tft_repeater-v1.18.0-ua.2-merged.bin
-6c58157fddc27a6dae1b5c67e21e8565730d363252dfd3366c53f86cd4551a4b  heltec_v4_tft_repeater-v1.18.0-ua.2.bin
-da38f866378d1866217147a4128b59a033ac006832850513fd90016a7a464c43  heltec_v4_tft_room_server-v1.18.0-ua.2-merged.bin
-3468dee004fcc8fab16641e11b60b56b69613db837867ed5f36fa2a53c8bce1c  heltec_v4_tft_room_server-v1.18.0-ua.2.bin
+19ad0494efd51dbbe4135673e653621fd1a7dd24269d6bddf2cdf3c287d27f9f  heltec_v4_tft_companion_radio_ble-v1.18.0-ua.3-merged.bin
+f17b0880e85f430052ceacebf0e175ecddeb8d3e3ed2d0fdee3974109bf21c46  heltec_v4_tft_companion_radio_ble-v1.18.0-ua.3.bin
+49be60f246b11c5eb73cac29343dfc486fe9c68581ceffd3a3c554be57a8e8b4  heltec_v4_tft_companion_radio_gateway-v1.18.0-ua.3-merged.bin
+da86cc0544583791cf6fa90c159549f0a3c73fa48da8e0bae8b8e95e89ba297f  heltec_v4_tft_companion_radio_gateway-v1.18.0-ua.3.bin
+4f072875517ebee1954353bffb0180a8303c63749a593bf7b96be7bab5160601  heltec_v4_tft_companion_radio_usb-v1.18.0-ua.3-merged.bin
+5e9b4d45de0bada94019b732f0fa53dcb7e8bb7b802eaba8f1a13b80c9d9500d  heltec_v4_tft_companion_radio_usb-v1.18.0-ua.3.bin
+13b6cf5577c7a1ba4837d2e4581f1e964669862a2420fddfbdfef79b35f22cd9  heltec_v4_tft_repeater-v1.18.0-ua.3-merged.bin
+345bca3001b93e90146c893b67a43b9ebb56d4fdc371fa4e68ef2c328204340a  heltec_v4_tft_repeater-v1.18.0-ua.3.bin
+fb885de8fd411276a70911777f13ccccdf6111c9dd4b6d4365e7a7a40d274e83  heltec_v4_tft_room_server-v1.18.0-ua.3-merged.bin
+a9e21b3e6dd7a269ac3251143a66eb89551d5d58f1127c6f8e95d3f85f665e2e  heltec_v4_tft_room_server-v1.18.0-ua.3.bin
 ```
 
 </details>
