@@ -1,8 +1,8 @@
 {
   "id": "meshcore-ua",
   "name": "MeshCore Україна",
-  "version": "1.18.0-ua.3",
-  "revision": 3,
+  "version": "1.18.0-ua.4",
+  "revision": 4,
   "upstream": {
     "version": "1.18.0",
     "commit": "81dbae592ffad40b4212bc0b37e82b38da08f4bc",
@@ -48,10 +48,10 @@
     }
   ],
   "initialisation": "Радіопараметри — значення за замовчуванням для всіх ролей. Канали компаньйона додаються лише на чистому пристрої (немає prefs.json, new_prefs і channels2); збережені налаштування мають пріоритет.",
-  "builtAt": "2026-11-09T18:46:48.437Z",
+  "builtAt": "2026-11-09T21:51:48.489Z",
   "source": {
-    "path": "/firmware/custom/v1.18.0-ua.3/source.zip",
-    "sha256": "f80dde4937f2ce3bd17cbd2e6f154b3d33f895048702ea13238b4c4d26f7c070"
+    "path": "/firmware/custom/v1.18.0-ua.4/source.zip",
+    "sha256": "02fd901adc28a426595e790f1b1c65450e8ce5218786215b6b754b0772175555"
   },
   "boards": {
     "Heltec_mesh_solar": {
@@ -63,18 +63,18 @@
           "hardwareTested": false,
           "files": {
             "zip": {
-              "name": "Heltec_mesh_solar_repeater-v1.18.0-ua.3.zip",
+              "name": "Heltec_mesh_solar_repeater-v1.18.0-ua.4.zip",
               "size": 365563,
-              "sha256": "6d761eb0c7521078ec05b52dc918fd06b9c7379d122467cb52c45f07595ffbca",
-              "url": "/firmware/custom/v1.18.0-ua.3/Heltec_mesh_solar_repeater-v1.18.0-ua.3.zip",
-              "path": "/firmware/custom/v1.18.0-ua.3/Heltec_mesh_solar_repeater-v1.18.0-ua.3.zip"
+              "sha256": "706b4ff07434ad58cb5a9d7bc908e1f64c664edcdd6bde8b51f94ab62160e5ca",
+              "url": "/firmware/custom/v1.18.0-ua.4/Heltec_mesh_solar_repeater-v1.18.0-ua.4.zip",
+              "path": "/firmware/custom/v1.18.0-ua.4/Heltec_mesh_solar_repeater-v1.18.0-ua.4.zip"
             },
             "uf2": {
-              "name": "Heltec_mesh_solar_repeater-v1.18.0-ua.3.uf2",
+              "name": "Heltec_mesh_solar_repeater-v1.18.0-ua.4.uf2",
               "size": 729600,
-              "sha256": "2f958685073a86b339e821959f237075eaa3ef51b46119f9030fc9151596eee1",
-              "url": "/firmware/custom/v1.18.0-ua.3/Heltec_mesh_solar_repeater-v1.18.0-ua.3.uf2",
-              "path": "/firmware/custom/v1.18.0-ua.3/Heltec_mesh_solar_repeater-v1.18.0-ua.3.uf2"
+              "sha256": "280a6212b54adc64f31ef78e940f4793abf3b90a63054c13f6b5c94ebc20b2e3",
+              "url": "/firmware/custom/v1.18.0-ua.4/Heltec_mesh_solar_repeater-v1.18.0-ua.4.uf2",
+              "path": "/firmware/custom/v1.18.0-ua.4/Heltec_mesh_solar_repeater-v1.18.0-ua.4.uf2"
             }
           }
         },
@@ -83,18 +83,18 @@
           "hardwareTested": false,
           "files": {
             "zip": {
-              "name": "Heltec_mesh_solar_room_server-v1.18.0-ua.3.zip",
-              "size": 359003,
-              "sha256": "f86cec7a9152776a473b8072df0ee72bbb127d14ee15ae5fa12cfc185f132450",
-              "url": "/firmware/custom/v1.18.0-ua.3/Heltec_mesh_solar_room_server-v1.18.0-ua.3.zip",
-              "path": "/firmware/custom/v1.18.0-ua.3/Heltec_mesh_solar_room_server-v1.18.0-ua.3.zip"
+              "name": "Heltec_mesh_solar_room_server-v1.18.0-ua.4.zip",
+              "size": 359002,
+              "sha256": "b816bc3f3777b063d47786683db6acdf27eeb429498b4c0ceebebf81c899046e",
+              "url": "/firmware/custom/v1.18.0-ua.4/Heltec_mesh_solar_room_server-v1.18.0-ua.4.zip",
+              "path": "/firmware/custom/v1.18.0-ua.4/Heltec_mesh_solar_room_server-v1.18.0-ua.4.zip"
             },
             "uf2": {
-              "name": "Heltec_mesh_solar_room_server-v1.18.0-ua.3.uf2",
+              "name": "Heltec_mesh_solar_room_server-v1.18.0-ua.4.uf2",
               "size": 716800,
-              "sha256": "7135e5e6b699b868542c5207e015201f136746efb9c5ebdb6840aaf8ea3b57b0",
-              "url": "/firmware/custom/v1.18.0-ua.3/Heltec_mesh_solar_room_server-v1.18.0-ua.3.uf2",
-              "path": "/firmware/custom/v1.18.0-ua.3/Heltec_mesh_solar_room_server-v1.18.0-ua.3.uf2"
+              "sha256": "bbe0731f8b9566b4c0934b3112d53ec55cc5b46fd1b0651d202104d1151ad3b6",
+              "url": "/firmware/custom/v1.18.0-ua.4/Heltec_mesh_solar_room_server-v1.18.0-ua.4.uf2",
+              "path": "/firmware/custom/v1.18.0-ua.4/Heltec_mesh_solar_room_server-v1.18.0-ua.4.uf2"
             }
           }
         }
@@ -109,18 +109,18 @@
           "hardwareTested": false,
           "files": {
             "zip": {
-              "name": "Heltec_t114_companion_radio_ble-v1.18.0-ua.3.zip",
+              "name": "Heltec_t114_companion_radio_ble-v1.18.0-ua.4.zip",
               "size": 417051,
-              "sha256": "29af04ef3f1292e4f437b037564da9a22e67b5ca19176e71e833a892f5d1301b",
-              "url": "/firmware/custom/v1.18.0-ua.3/Heltec_t114_companion_radio_ble-v1.18.0-ua.3.zip",
-              "path": "/firmware/custom/v1.18.0-ua.3/Heltec_t114_companion_radio_ble-v1.18.0-ua.3.zip"
+              "sha256": "1ee652c04695c91d81caa0a5778617cbd7138e0f5414d6861a001095e2e37cec",
+              "url": "/firmware/custom/v1.18.0-ua.4/Heltec_t114_companion_radio_ble-v1.18.0-ua.4.zip",
+              "path": "/firmware/custom/v1.18.0-ua.4/Heltec_t114_companion_radio_ble-v1.18.0-ua.4.zip"
             },
             "uf2": {
-              "name": "Heltec_t114_companion_radio_ble-v1.18.0-ua.3.uf2",
+              "name": "Heltec_t114_companion_radio_ble-v1.18.0-ua.4.uf2",
               "size": 832512,
-              "sha256": "6ae0bfbd96ae69e6bfc03f019c813be3db462c6409e201c45b10eb4a22843671",
-              "url": "/firmware/custom/v1.18.0-ua.3/Heltec_t114_companion_radio_ble-v1.18.0-ua.3.uf2",
-              "path": "/firmware/custom/v1.18.0-ua.3/Heltec_t114_companion_radio_ble-v1.18.0-ua.3.uf2"
+              "sha256": "a813a7acc628c69a7a8c98c0aa2fde5c37cb1b0a3f83216299340a156c1324a9",
+              "url": "/firmware/custom/v1.18.0-ua.4/Heltec_t114_companion_radio_ble-v1.18.0-ua.4.uf2",
+              "path": "/firmware/custom/v1.18.0-ua.4/Heltec_t114_companion_radio_ble-v1.18.0-ua.4.uf2"
             }
           }
         },
@@ -129,18 +129,18 @@
           "hardwareTested": false,
           "files": {
             "zip": {
-              "name": "Heltec_t114_companion_radio_usb-v1.18.0-ua.3.zip",
+              "name": "Heltec_t114_companion_radio_usb-v1.18.0-ua.4.zip",
               "size": 411883,
-              "sha256": "c2c4e9878c6b483f32ae1c85791f7950b34994c1cf3b97e18fd13c5ffe675a54",
-              "url": "/firmware/custom/v1.18.0-ua.3/Heltec_t114_companion_radio_usb-v1.18.0-ua.3.zip",
-              "path": "/firmware/custom/v1.18.0-ua.3/Heltec_t114_companion_radio_usb-v1.18.0-ua.3.zip"
+              "sha256": "ae813af20a0045976121f893707e1a52230137d4ae23ccdd9101998b7fb9133c",
+              "url": "/firmware/custom/v1.18.0-ua.4/Heltec_t114_companion_radio_usb-v1.18.0-ua.4.zip",
+              "path": "/firmware/custom/v1.18.0-ua.4/Heltec_t114_companion_radio_usb-v1.18.0-ua.4.zip"
             },
             "uf2": {
-              "name": "Heltec_t114_companion_radio_usb-v1.18.0-ua.3.uf2",
+              "name": "Heltec_t114_companion_radio_usb-v1.18.0-ua.4.uf2",
               "size": 822272,
-              "sha256": "612c2ab51d359ffe56b17fac6b2521364cab79e94e7612523b6326b070e63bf2",
-              "url": "/firmware/custom/v1.18.0-ua.3/Heltec_t114_companion_radio_usb-v1.18.0-ua.3.uf2",
-              "path": "/firmware/custom/v1.18.0-ua.3/Heltec_t114_companion_radio_usb-v1.18.0-ua.3.uf2"
+              "sha256": "38b9856f188cb51c04dc77683dd597b9535acdd760a8f01b526dcc49b613387b",
+              "url": "/firmware/custom/v1.18.0-ua.4/Heltec_t114_companion_radio_usb-v1.18.0-ua.4.uf2",
+              "path": "/firmware/custom/v1.18.0-ua.4/Heltec_t114_companion_radio_usb-v1.18.0-ua.4.uf2"
             }
           }
         },
@@ -149,18 +149,18 @@
           "hardwareTested": false,
           "files": {
             "zip": {
-              "name": "Heltec_t114_repeater-v1.18.0-ua.3.zip",
-              "size": 398623,
-              "sha256": "75b20bbad6cb60595dfd4275bd01b905ee0333869b167ee652b74e1916acd524",
-              "url": "/firmware/custom/v1.18.0-ua.3/Heltec_t114_repeater-v1.18.0-ua.3.zip",
-              "path": "/firmware/custom/v1.18.0-ua.3/Heltec_t114_repeater-v1.18.0-ua.3.zip"
+              "name": "Heltec_t114_repeater-v1.18.0-ua.4.zip",
+              "size": 398622,
+              "sha256": "e31140c267538c73281c99ff41739e1ff615930203284b09844e8fdc0b9bbbef",
+              "url": "/firmware/custom/v1.18.0-ua.4/Heltec_t114_repeater-v1.18.0-ua.4.zip",
+              "path": "/firmware/custom/v1.18.0-ua.4/Heltec_t114_repeater-v1.18.0-ua.4.zip"
             },
             "uf2": {
-              "name": "Heltec_t114_repeater-v1.18.0-ua.3.uf2",
+              "name": "Heltec_t114_repeater-v1.18.0-ua.4.uf2",
               "size": 795648,
-              "sha256": "c7b4c69b20f3a5ebe202739d287b808a3fb96ffd378bba314e8c1f3307caaaf5",
-              "url": "/firmware/custom/v1.18.0-ua.3/Heltec_t114_repeater-v1.18.0-ua.3.uf2",
-              "path": "/firmware/custom/v1.18.0-ua.3/Heltec_t114_repeater-v1.18.0-ua.3.uf2"
+              "sha256": "96dbf8d13786f48da5b2314e9e12d3f48b544c786e119e99c39529b1e2a6c3f2",
+              "url": "/firmware/custom/v1.18.0-ua.4/Heltec_t114_repeater-v1.18.0-ua.4.uf2",
+              "path": "/firmware/custom/v1.18.0-ua.4/Heltec_t114_repeater-v1.18.0-ua.4.uf2"
             }
           }
         },
@@ -169,18 +169,18 @@
           "hardwareTested": false,
           "files": {
             "zip": {
-              "name": "Heltec_t114_room_server-v1.18.0-ua.3.zip",
-              "size": 391711,
-              "sha256": "a94a1be3cfc2120d8522e73fbc0aba2737a18d88543d2fdaafd66c9496c2df3c",
-              "url": "/firmware/custom/v1.18.0-ua.3/Heltec_t114_room_server-v1.18.0-ua.3.zip",
-              "path": "/firmware/custom/v1.18.0-ua.3/Heltec_t114_room_server-v1.18.0-ua.3.zip"
+              "name": "Heltec_t114_room_server-v1.18.0-ua.4.zip",
+              "size": 391710,
+              "sha256": "c69e8e573b198dbcbc8b440c742150926c3535058102b4f34c5f6e474f8ce7ba",
+              "url": "/firmware/custom/v1.18.0-ua.4/Heltec_t114_room_server-v1.18.0-ua.4.zip",
+              "path": "/firmware/custom/v1.18.0-ua.4/Heltec_t114_room_server-v1.18.0-ua.4.zip"
             },
             "uf2": {
-              "name": "Heltec_t114_room_server-v1.18.0-ua.3.uf2",
+              "name": "Heltec_t114_room_server-v1.18.0-ua.4.uf2",
               "size": 781824,
-              "sha256": "23cf5a3ab25852146ba4ac89b931fedca5eb3141aee9b12907b8b7ed9939a24f",
-              "url": "/firmware/custom/v1.18.0-ua.3/Heltec_t114_room_server-v1.18.0-ua.3.uf2",
-              "path": "/firmware/custom/v1.18.0-ua.3/Heltec_t114_room_server-v1.18.0-ua.3.uf2"
+              "sha256": "bb69ed0f0fe1b8bee75ad9e353a7dbadaf71ba9e82d7e9eb276b91cd1136b821",
+              "url": "/firmware/custom/v1.18.0-ua.4/Heltec_t114_room_server-v1.18.0-ua.4.uf2",
+              "path": "/firmware/custom/v1.18.0-ua.4/Heltec_t114_room_server-v1.18.0-ua.4.uf2"
             }
           }
         }
@@ -195,18 +195,18 @@
           "hardwareTested": false,
           "files": {
             "zip": {
-              "name": "Heltec_t114_without_display_companion_radio_ble-v1.18.0-ua.3.zip",
+              "name": "Heltec_t114_without_display_companion_radio_ble-v1.18.0-ua.4.zip",
               "size": 391291,
-              "sha256": "477457ada1841f965cf147af929770c9bf0a2f85c22bc9dfd700a7e5342bdd59",
-              "url": "/firmware/custom/v1.18.0-ua.3/Heltec_t114_without_display_companion_radio_ble-v1.18.0-ua.3.zip",
-              "path": "/firmware/custom/v1.18.0-ua.3/Heltec_t114_without_display_companion_radio_ble-v1.18.0-ua.3.zip"
+              "sha256": "7d900ae7b30ba0acd7bbad4126a977b0d7ad6982eacf392a769d25b6cfc33919",
+              "url": "/firmware/custom/v1.18.0-ua.4/Heltec_t114_without_display_companion_radio_ble-v1.18.0-ua.4.zip",
+              "path": "/firmware/custom/v1.18.0-ua.4/Heltec_t114_without_display_companion_radio_ble-v1.18.0-ua.4.zip"
             },
             "uf2": {
-              "name": "Heltec_t114_without_display_companion_radio_ble-v1.18.0-ua.3.uf2",
+              "name": "Heltec_t114_without_display_companion_radio_ble-v1.18.0-ua.4.uf2",
               "size": 781312,
-              "sha256": "a1b005f0bdf6f4e6e1b49028e031b84cfd62cba0a1f701ef15d4f6d24c4ccc89",
-              "url": "/firmware/custom/v1.18.0-ua.3/Heltec_t114_without_display_companion_radio_ble-v1.18.0-ua.3.uf2",
-              "path": "/firmware/custom/v1.18.0-ua.3/Heltec_t114_without_display_companion_radio_ble-v1.18.0-ua.3.uf2"
+              "sha256": "23e527ef8f2e2f21e20c3cea9348b2f66bcb066174d499528bb1bffe0ace0210",
+              "url": "/firmware/custom/v1.18.0-ua.4/Heltec_t114_without_display_companion_radio_ble-v1.18.0-ua.4.uf2",
+              "path": "/firmware/custom/v1.18.0-ua.4/Heltec_t114_without_display_companion_radio_ble-v1.18.0-ua.4.uf2"
             }
           }
         },
@@ -215,18 +215,18 @@
           "hardwareTested": false,
           "files": {
             "zip": {
-              "name": "Heltec_t114_without_display_companion_radio_usb-v1.18.0-ua.3.zip",
-              "size": 386186,
-              "sha256": "3220b63937cd04ce50071f6d7dc43357adb6248fdf29e7fcf1e3ca0d683fd595",
-              "url": "/firmware/custom/v1.18.0-ua.3/Heltec_t114_without_display_companion_radio_usb-v1.18.0-ua.3.zip",
-              "path": "/firmware/custom/v1.18.0-ua.3/Heltec_t114_without_display_companion_radio_usb-v1.18.0-ua.3.zip"
+              "name": "Heltec_t114_without_display_companion_radio_usb-v1.18.0-ua.4.zip",
+              "size": 386187,
+              "sha256": "240865b28c9a4c669a22b7b32096e49ffa7825e735a45008ee04b6cf6d3ce003",
+              "url": "/firmware/custom/v1.18.0-ua.4/Heltec_t114_without_display_companion_radio_usb-v1.18.0-ua.4.zip",
+              "path": "/firmware/custom/v1.18.0-ua.4/Heltec_t114_without_display_companion_radio_usb-v1.18.0-ua.4.zip"
             },
             "uf2": {
-              "name": "Heltec_t114_without_display_companion_radio_usb-v1.18.0-ua.3.uf2",
+              "name": "Heltec_t114_without_display_companion_radio_usb-v1.18.0-ua.4.uf2",
               "size": 771072,
-              "sha256": "0c0d6e5d37c9013eeb3e9c593836ddc6d24400c767a11a7da245901900353518",
-              "url": "/firmware/custom/v1.18.0-ua.3/Heltec_t114_without_display_companion_radio_usb-v1.18.0-ua.3.uf2",
-              "path": "/firmware/custom/v1.18.0-ua.3/Heltec_t114_without_display_companion_radio_usb-v1.18.0-ua.3.uf2"
+              "sha256": "a4841935ec137756affac15600b47a7ba178cc16cfb138d650cf3475921434da",
+              "url": "/firmware/custom/v1.18.0-ua.4/Heltec_t114_without_display_companion_radio_usb-v1.18.0-ua.4.uf2",
+              "path": "/firmware/custom/v1.18.0-ua.4/Heltec_t114_without_display_companion_radio_usb-v1.18.0-ua.4.uf2"
             }
           }
         },
@@ -235,18 +235,18 @@
           "hardwareTested": false,
           "files": {
             "zip": {
-              "name": "Heltec_t114_without_display_repeater-v1.18.0-ua.3.zip",
+              "name": "Heltec_t114_without_display_repeater-v1.18.0-ua.4.zip",
               "size": 366431,
-              "sha256": "2e51ca5ee7e29058066200042620cf112f694c2127cbdc6fdeef48f84d09195f",
-              "url": "/firmware/custom/v1.18.0-ua.3/Heltec_t114_without_display_repeater-v1.18.0-ua.3.zip",
-              "path": "/firmware/custom/v1.18.0-ua.3/Heltec_t114_without_display_repeater-v1.18.0-ua.3.zip"
+              "sha256": "f763730b546e7dacc8ae7a6cabb5189a6291a719a22d14b72403db6a5fd94241",
+              "url": "/firmware/custom/v1.18.0-ua.4/Heltec_t114_without_display_repeater-v1.18.0-ua.4.zip",
+              "path": "/firmware/custom/v1.18.0-ua.4/Heltec_t114_without_display_repeater-v1.18.0-ua.4.zip"
             },
             "uf2": {
-              "name": "Heltec_t114_without_display_repeater-v1.18.0-ua.3.uf2",
+              "name": "Heltec_t114_without_display_repeater-v1.18.0-ua.4.uf2",
               "size": 731648,
-              "sha256": "62ee0f9579e8a43e8b1013cdb9ae0d65c70d9826e27960da141971a6176329d4",
-              "url": "/firmware/custom/v1.18.0-ua.3/Heltec_t114_without_display_repeater-v1.18.0-ua.3.uf2",
-              "path": "/firmware/custom/v1.18.0-ua.3/Heltec_t114_without_display_repeater-v1.18.0-ua.3.uf2"
+              "sha256": "e64065679f138922db07e37ac5fd690bed14aba310b91441263d37828bbb81e6",
+              "url": "/firmware/custom/v1.18.0-ua.4/Heltec_t114_without_display_repeater-v1.18.0-ua.4.uf2",
+              "path": "/firmware/custom/v1.18.0-ua.4/Heltec_t114_without_display_repeater-v1.18.0-ua.4.uf2"
             }
           }
         },
@@ -255,18 +255,18 @@
           "hardwareTested": false,
           "files": {
             "zip": {
-              "name": "Heltec_t114_without_display_room_server-v1.18.0-ua.3.zip",
-              "size": 359878,
-              "sha256": "bc5c78a7708ea5d45bbb28b56c0c196d9b0ec42b3749fb9844658b465be5ffc8",
-              "url": "/firmware/custom/v1.18.0-ua.3/Heltec_t114_without_display_room_server-v1.18.0-ua.3.zip",
-              "path": "/firmware/custom/v1.18.0-ua.3/Heltec_t114_without_display_room_server-v1.18.0-ua.3.zip"
+              "name": "Heltec_t114_without_display_room_server-v1.18.0-ua.4.zip",
+              "size": 359879,
+              "sha256": "bcddb48ac4f5bab2874d4b18094b3e761fd49ac4cd3ed9cd80a2ff59951440df",
+              "url": "/firmware/custom/v1.18.0-ua.4/Heltec_t114_without_display_room_server-v1.18.0-ua.4.zip",
+              "path": "/firmware/custom/v1.18.0-ua.4/Heltec_t114_without_display_room_server-v1.18.0-ua.4.zip"
             },
             "uf2": {
-              "name": "Heltec_t114_without_display_room_server-v1.18.0-ua.3.uf2",
+              "name": "Heltec_t114_without_display_room_server-v1.18.0-ua.4.uf2",
               "size": 718336,
-              "sha256": "a1d14381de188e48fb3db4f84b7669eaf882beefd4377c5bbeac3bce71c14c7b",
-              "url": "/firmware/custom/v1.18.0-ua.3/Heltec_t114_without_display_room_server-v1.18.0-ua.3.uf2",
-              "path": "/firmware/custom/v1.18.0-ua.3/Heltec_t114_without_display_room_server-v1.18.0-ua.3.uf2"
+              "sha256": "e4b706034c8c55bc9e5548475e5777d76992101c5fdb23f1e38f8e7ffccc330a",
+              "url": "/firmware/custom/v1.18.0-ua.4/Heltec_t114_without_display_room_server-v1.18.0-ua.4.uf2",
+              "path": "/firmware/custom/v1.18.0-ua.4/Heltec_t114_without_display_room_server-v1.18.0-ua.4.uf2"
             }
           }
         }
@@ -281,18 +281,18 @@
           "hardwareTested": true,
           "files": {
             "merged": {
-              "name": "Heltec_v3_companion_radio_ble-v1.18.0-ua.3-merged.bin",
+              "name": "Heltec_v3_companion_radio_ble-v1.18.0-ua.4-merged.bin",
               "size": 1732848,
-              "sha256": "daf5111a5a13c0080c9b2d9d6e8ca2d5c831dfb1e6b893221de90ab68ed64727",
-              "url": "/firmware/custom/v1.18.0-ua.3/Heltec_v3_companion_radio_ble-v1.18.0-ua.3-merged.bin",
-              "path": "/firmware/custom/v1.18.0-ua.3/Heltec_v3_companion_radio_ble-v1.18.0-ua.3-merged.bin"
+              "sha256": "776d7e0db6a6dfa1053740020b6a2b6ecbb4c10d2b0779d3e41718c0e80dddf1",
+              "url": "/firmware/custom/v1.18.0-ua.4/Heltec_v3_companion_radio_ble-v1.18.0-ua.4-merged.bin",
+              "path": "/firmware/custom/v1.18.0-ua.4/Heltec_v3_companion_radio_ble-v1.18.0-ua.4-merged.bin"
             },
             "bin": {
-              "name": "Heltec_v3_companion_radio_ble-v1.18.0-ua.3.bin",
+              "name": "Heltec_v3_companion_radio_ble-v1.18.0-ua.4.bin",
               "size": 1667312,
-              "sha256": "965df5acaeaec3eef0ce4e1639b871ab526786c4126e64b977d9b18b420cd95a",
-              "url": "/firmware/custom/v1.18.0-ua.3/Heltec_v3_companion_radio_ble-v1.18.0-ua.3.bin",
-              "path": "/firmware/custom/v1.18.0-ua.3/Heltec_v3_companion_radio_ble-v1.18.0-ua.3.bin"
+              "sha256": "eadf13f2ee517f0a2585c82ae5930016567df9cca712c1188501ad0006a6d201",
+              "url": "/firmware/custom/v1.18.0-ua.4/Heltec_v3_companion_radio_ble-v1.18.0-ua.4.bin",
+              "path": "/firmware/custom/v1.18.0-ua.4/Heltec_v3_companion_radio_ble-v1.18.0-ua.4.bin"
             }
           }
         },
@@ -301,18 +301,18 @@
           "hardwareTested": false,
           "files": {
             "merged": {
-              "name": "Heltec_v3_companion_radio_usb-v1.18.0-ua.3-merged.bin",
+              "name": "Heltec_v3_companion_radio_usb-v1.18.0-ua.4-merged.bin",
               "size": 719936,
-              "sha256": "f828d4e57c02bbb9b375def1d72590e76c503f1dbe5cb2fc0204b3a817f3dbdf",
-              "url": "/firmware/custom/v1.18.0-ua.3/Heltec_v3_companion_radio_usb-v1.18.0-ua.3-merged.bin",
-              "path": "/firmware/custom/v1.18.0-ua.3/Heltec_v3_companion_radio_usb-v1.18.0-ua.3-merged.bin"
+              "sha256": "a0b3108fef515017f6b480fe4ddb30aa010e6479ccdc7be214b5ba6f38a77fd8",
+              "url": "/firmware/custom/v1.18.0-ua.4/Heltec_v3_companion_radio_usb-v1.18.0-ua.4-merged.bin",
+              "path": "/firmware/custom/v1.18.0-ua.4/Heltec_v3_companion_radio_usb-v1.18.0-ua.4-merged.bin"
             },
             "bin": {
-              "name": "Heltec_v3_companion_radio_usb-v1.18.0-ua.3.bin",
+              "name": "Heltec_v3_companion_radio_usb-v1.18.0-ua.4.bin",
               "size": 654400,
-              "sha256": "71e2a8023091545418d52cb6b5bf5f83f1cb7f6c5b2550bb918717f9627a8f38",
-              "url": "/firmware/custom/v1.18.0-ua.3/Heltec_v3_companion_radio_usb-v1.18.0-ua.3.bin",
-              "path": "/firmware/custom/v1.18.0-ua.3/Heltec_v3_companion_radio_usb-v1.18.0-ua.3.bin"
+              "sha256": "256b89c493c7846b59a3a5da999c764279b0fe1669ed400903bddd9f3e4dd29d",
+              "url": "/firmware/custom/v1.18.0-ua.4/Heltec_v3_companion_radio_usb-v1.18.0-ua.4.bin",
+              "path": "/firmware/custom/v1.18.0-ua.4/Heltec_v3_companion_radio_usb-v1.18.0-ua.4.bin"
             }
           }
         },
@@ -321,18 +321,18 @@
           "hardwareTested": false,
           "files": {
             "merged": {
-              "name": "Heltec_v3_repeater-v1.18.0-ua.3-merged.bin",
+              "name": "Heltec_v3_repeater-v1.18.0-ua.4-merged.bin",
               "size": 1240496,
-              "sha256": "fa6f2f00c741c586b5bfb8f53873fee22e7aafe6a78f0cd25f6669611359ba5d",
-              "url": "/firmware/custom/v1.18.0-ua.3/Heltec_v3_repeater-v1.18.0-ua.3-merged.bin",
-              "path": "/firmware/custom/v1.18.0-ua.3/Heltec_v3_repeater-v1.18.0-ua.3-merged.bin"
+              "sha256": "ba82c5b5f0efd933f9cc529edbfcf5a9b8fbede7d92812a640f2cf3ddde11998",
+              "url": "/firmware/custom/v1.18.0-ua.4/Heltec_v3_repeater-v1.18.0-ua.4-merged.bin",
+              "path": "/firmware/custom/v1.18.0-ua.4/Heltec_v3_repeater-v1.18.0-ua.4-merged.bin"
             },
             "bin": {
-              "name": "Heltec_v3_repeater-v1.18.0-ua.3.bin",
+              "name": "Heltec_v3_repeater-v1.18.0-ua.4.bin",
               "size": 1174960,
-              "sha256": "f32e53bda8c68e15d6b3e3a5cb50aca3183b52706d1178ab727e471c341ac253",
-              "url": "/firmware/custom/v1.18.0-ua.3/Heltec_v3_repeater-v1.18.0-ua.3.bin",
-              "path": "/firmware/custom/v1.18.0-ua.3/Heltec_v3_repeater-v1.18.0-ua.3.bin"
+              "sha256": "6a108c53eb948b438fe32d7b255f6fe2f64125c55b6bce6edba9ba2b528c1192",
+              "url": "/firmware/custom/v1.18.0-ua.4/Heltec_v3_repeater-v1.18.0-ua.4.bin",
+              "path": "/firmware/custom/v1.18.0-ua.4/Heltec_v3_repeater-v1.18.0-ua.4.bin"
             }
           }
         },
@@ -341,18 +341,18 @@
           "hardwareTested": false,
           "files": {
             "merged": {
-              "name": "Heltec_v3_room_server-v1.18.0-ua.3-merged.bin",
+              "name": "Heltec_v3_room_server-v1.18.0-ua.4-merged.bin",
               "size": 1235728,
-              "sha256": "4c62a458c8928d2817ca663b312b80be043bc3a3bb498ed9eb721b5a8785ec96",
-              "url": "/firmware/custom/v1.18.0-ua.3/Heltec_v3_room_server-v1.18.0-ua.3-merged.bin",
-              "path": "/firmware/custom/v1.18.0-ua.3/Heltec_v3_room_server-v1.18.0-ua.3-merged.bin"
+              "sha256": "aada742188f0b0ac38dd65a395920cd93f7b745428836e8562a5cac20378507c",
+              "url": "/firmware/custom/v1.18.0-ua.4/Heltec_v3_room_server-v1.18.0-ua.4-merged.bin",
+              "path": "/firmware/custom/v1.18.0-ua.4/Heltec_v3_room_server-v1.18.0-ua.4-merged.bin"
             },
             "bin": {
-              "name": "Heltec_v3_room_server-v1.18.0-ua.3.bin",
+              "name": "Heltec_v3_room_server-v1.18.0-ua.4.bin",
               "size": 1170192,
-              "sha256": "36cbf790c50c2f3abfdebda23c5c99418d636930e721a31f3d570de9b614f7cb",
-              "url": "/firmware/custom/v1.18.0-ua.3/Heltec_v3_room_server-v1.18.0-ua.3.bin",
-              "path": "/firmware/custom/v1.18.0-ua.3/Heltec_v3_room_server-v1.18.0-ua.3.bin"
+              "sha256": "909d4165ead013952e7c281e95dcbaed7e733f79bd6bc01b76165b803755410c",
+              "url": "/firmware/custom/v1.18.0-ua.4/Heltec_v3_room_server-v1.18.0-ua.4.bin",
+              "path": "/firmware/custom/v1.18.0-ua.4/Heltec_v3_room_server-v1.18.0-ua.4.bin"
             }
           }
         },
@@ -361,18 +361,18 @@
           "hardwareTested": false,
           "files": {
             "merged": {
-              "name": "Heltec_v3_companion_radio_gateway-v1.18.0-ua.3-merged.bin",
-              "size": 1970592,
-              "sha256": "69fe387e91cf0fe61280e90fda3d4a3aeafa83057f9627228bb2e1700ee02741",
-              "url": "/firmware/custom/v1.18.0-ua.3/Heltec_v3_companion_radio_gateway-v1.18.0-ua.3-merged.bin",
-              "path": "/firmware/custom/v1.18.0-ua.3/Heltec_v3_companion_radio_gateway-v1.18.0-ua.3-merged.bin"
+              "name": "Heltec_v3_companion_radio_gateway-v1.18.0-ua.4-merged.bin",
+              "size": 1969200,
+              "sha256": "a23066504979f962b07e6d7aca226bdd2028414bb0e3d09bba980b78e52445ff",
+              "url": "/firmware/custom/v1.18.0-ua.4/Heltec_v3_companion_radio_gateway-v1.18.0-ua.4-merged.bin",
+              "path": "/firmware/custom/v1.18.0-ua.4/Heltec_v3_companion_radio_gateway-v1.18.0-ua.4-merged.bin"
             },
             "bin": {
-              "name": "Heltec_v3_companion_radio_gateway-v1.18.0-ua.3.bin",
-              "size": 1905056,
-              "sha256": "966494a3f761bd6099809276ad20e977d85b47007cdc74cbd8511360b51e6040",
-              "url": "/firmware/custom/v1.18.0-ua.3/Heltec_v3_companion_radio_gateway-v1.18.0-ua.3.bin",
-              "path": "/firmware/custom/v1.18.0-ua.3/Heltec_v3_companion_radio_gateway-v1.18.0-ua.3.bin"
+              "name": "Heltec_v3_companion_radio_gateway-v1.18.0-ua.4.bin",
+              "size": 1903664,
+              "sha256": "1528dcc2e1d978dea9146a2c3c30fe99655974b530373476e80e096bbfb942e1",
+              "url": "/firmware/custom/v1.18.0-ua.4/Heltec_v3_companion_radio_gateway-v1.18.0-ua.4.bin",
+              "path": "/firmware/custom/v1.18.0-ua.4/Heltec_v3_companion_radio_gateway-v1.18.0-ua.4.bin"
             }
           }
         }
@@ -387,18 +387,18 @@
           "hardwareTested": false,
           "files": {
             "merged": {
-              "name": "heltec_v4_companion_radio_ble-v1.18.0-ua.3-merged.bin",
+              "name": "heltec_v4_companion_radio_ble-v1.18.0-ua.4-merged.bin",
               "size": 1731056,
-              "sha256": "5755aa3cea35b05bd1000b33bc95706dfc799010401bc845344cdf8c03e64288",
-              "url": "/firmware/custom/v1.18.0-ua.3/heltec_v4_companion_radio_ble-v1.18.0-ua.3-merged.bin",
-              "path": "/firmware/custom/v1.18.0-ua.3/heltec_v4_companion_radio_ble-v1.18.0-ua.3-merged.bin"
+              "sha256": "255cca2f6723fc3341948a26cad4da8601fb4abc5cfc699e76fe407b209cecd3",
+              "url": "/firmware/custom/v1.18.0-ua.4/heltec_v4_companion_radio_ble-v1.18.0-ua.4-merged.bin",
+              "path": "/firmware/custom/v1.18.0-ua.4/heltec_v4_companion_radio_ble-v1.18.0-ua.4-merged.bin"
             },
             "bin": {
-              "name": "heltec_v4_companion_radio_ble-v1.18.0-ua.3.bin",
+              "name": "heltec_v4_companion_radio_ble-v1.18.0-ua.4.bin",
               "size": 1665520,
-              "sha256": "bee07e63f85fa783a7e8a73838a103d74952aa2cddfcbc11af4698a50f8047b3",
-              "url": "/firmware/custom/v1.18.0-ua.3/heltec_v4_companion_radio_ble-v1.18.0-ua.3.bin",
-              "path": "/firmware/custom/v1.18.0-ua.3/heltec_v4_companion_radio_ble-v1.18.0-ua.3.bin"
+              "sha256": "58718fa01b1e13cdf8e45c5b68c9f5e952e1db7ae0f04b1cfc55260b47ecfef2",
+              "url": "/firmware/custom/v1.18.0-ua.4/heltec_v4_companion_radio_ble-v1.18.0-ua.4.bin",
+              "path": "/firmware/custom/v1.18.0-ua.4/heltec_v4_companion_radio_ble-v1.18.0-ua.4.bin"
             }
           }
         },
@@ -407,18 +407,18 @@
           "hardwareTested": false,
           "files": {
             "merged": {
-              "name": "heltec_v4_companion_radio_usb-v1.18.0-ua.3-merged.bin",
+              "name": "heltec_v4_companion_radio_usb-v1.18.0-ua.4-merged.bin",
               "size": 718304,
-              "sha256": "c1ebfe999eece96d681696a736446e80f825e603c448bb7d3ba2099cc3f90d9d",
-              "url": "/firmware/custom/v1.18.0-ua.3/heltec_v4_companion_radio_usb-v1.18.0-ua.3-merged.bin",
-              "path": "/firmware/custom/v1.18.0-ua.3/heltec_v4_companion_radio_usb-v1.18.0-ua.3-merged.bin"
+              "sha256": "5ee621127ac4b0b3ced332aee08598cfaf539279c755bac56816163407bd20df",
+              "url": "/firmware/custom/v1.18.0-ua.4/heltec_v4_companion_radio_usb-v1.18.0-ua.4-merged.bin",
+              "path": "/firmware/custom/v1.18.0-ua.4/heltec_v4_companion_radio_usb-v1.18.0-ua.4-merged.bin"
             },
             "bin": {
-              "name": "heltec_v4_companion_radio_usb-v1.18.0-ua.3.bin",
+              "name": "heltec_v4_companion_radio_usb-v1.18.0-ua.4.bin",
               "size": 652768,
-              "sha256": "4cb60bc6e36d1dc1f82eb98c5c824ed8fb331976874f105dd55a9b28001ff90d",
-              "url": "/firmware/custom/v1.18.0-ua.3/heltec_v4_companion_radio_usb-v1.18.0-ua.3.bin",
-              "path": "/firmware/custom/v1.18.0-ua.3/heltec_v4_companion_radio_usb-v1.18.0-ua.3.bin"
+              "sha256": "e6f99a6eea5957915af162620b96c98b18d9253aa0bdcee8b048cd785acd0d66",
+              "url": "/firmware/custom/v1.18.0-ua.4/heltec_v4_companion_radio_usb-v1.18.0-ua.4.bin",
+              "path": "/firmware/custom/v1.18.0-ua.4/heltec_v4_companion_radio_usb-v1.18.0-ua.4.bin"
             }
           }
         },
@@ -427,18 +427,18 @@
           "hardwareTested": false,
           "files": {
             "merged": {
-              "name": "heltec_v4_repeater-v1.18.0-ua.3-merged.bin",
+              "name": "heltec_v4_repeater-v1.18.0-ua.4-merged.bin",
               "size": 1238688,
-              "sha256": "cb89cd48b0ad0e6970a34e74ab5737a600ce7c61fe932ad50ffa98132fc780bc",
-              "url": "/firmware/custom/v1.18.0-ua.3/heltec_v4_repeater-v1.18.0-ua.3-merged.bin",
-              "path": "/firmware/custom/v1.18.0-ua.3/heltec_v4_repeater-v1.18.0-ua.3-merged.bin"
+              "sha256": "41b8fbf96cdaa81391d9b86860f1989e20b601979676ad72cbf0af7aaa9ad568",
+              "url": "/firmware/custom/v1.18.0-ua.4/heltec_v4_repeater-v1.18.0-ua.4-merged.bin",
+              "path": "/firmware/custom/v1.18.0-ua.4/heltec_v4_repeater-v1.18.0-ua.4-merged.bin"
             },
             "bin": {
-              "name": "heltec_v4_repeater-v1.18.0-ua.3.bin",
+              "name": "heltec_v4_repeater-v1.18.0-ua.4.bin",
               "size": 1173152,
-              "sha256": "789f47634434170a665427e36c5cb12a515da73230ad5b31051fa496d6b9e602",
-              "url": "/firmware/custom/v1.18.0-ua.3/heltec_v4_repeater-v1.18.0-ua.3.bin",
-              "path": "/firmware/custom/v1.18.0-ua.3/heltec_v4_repeater-v1.18.0-ua.3.bin"
+              "sha256": "666063cb8ff8c0179697398a711abd46884318a11bcc2801aada9c8a1539eaf7",
+              "url": "/firmware/custom/v1.18.0-ua.4/heltec_v4_repeater-v1.18.0-ua.4.bin",
+              "path": "/firmware/custom/v1.18.0-ua.4/heltec_v4_repeater-v1.18.0-ua.4.bin"
             }
           }
         },
@@ -447,18 +447,18 @@
           "hardwareTested": false,
           "files": {
             "merged": {
-              "name": "heltec_v4_room_server-v1.18.0-ua.3-merged.bin",
+              "name": "heltec_v4_room_server-v1.18.0-ua.4-merged.bin",
               "size": 1234080,
-              "sha256": "e4b3aeeb57a6108fac050fbaa4a83f5342068fe2cf609ef5f046fad4904b2b0c",
-              "url": "/firmware/custom/v1.18.0-ua.3/heltec_v4_room_server-v1.18.0-ua.3-merged.bin",
-              "path": "/firmware/custom/v1.18.0-ua.3/heltec_v4_room_server-v1.18.0-ua.3-merged.bin"
+              "sha256": "e4ec47d6014c9b746a630371205b1805352699ccd18709ca003dca47aa0f8f3c",
+              "url": "/firmware/custom/v1.18.0-ua.4/heltec_v4_room_server-v1.18.0-ua.4-merged.bin",
+              "path": "/firmware/custom/v1.18.0-ua.4/heltec_v4_room_server-v1.18.0-ua.4-merged.bin"
             },
             "bin": {
-              "name": "heltec_v4_room_server-v1.18.0-ua.3.bin",
+              "name": "heltec_v4_room_server-v1.18.0-ua.4.bin",
               "size": 1168544,
-              "sha256": "1bd3fde434c996b7a468914ee18e65b6001d536e0811dc5bd7bd621ac5aec1b0",
-              "url": "/firmware/custom/v1.18.0-ua.3/heltec_v4_room_server-v1.18.0-ua.3.bin",
-              "path": "/firmware/custom/v1.18.0-ua.3/heltec_v4_room_server-v1.18.0-ua.3.bin"
+              "sha256": "998aa6b646792a36d9abee73498e1b4488ac17386ce9f6ef8b4d912083b93ebf",
+              "url": "/firmware/custom/v1.18.0-ua.4/heltec_v4_room_server-v1.18.0-ua.4.bin",
+              "path": "/firmware/custom/v1.18.0-ua.4/heltec_v4_room_server-v1.18.0-ua.4.bin"
             }
           }
         },
@@ -467,18 +467,18 @@
           "hardwareTested": false,
           "files": {
             "merged": {
-              "name": "heltec_v4_companion_radio_gateway-v1.18.0-ua.3-merged.bin",
-              "size": 1968480,
-              "sha256": "a35ce0487de11cdfc4bc635f91fad82a0a729df09add0745d6d3dc5874c739cc",
-              "url": "/firmware/custom/v1.18.0-ua.3/heltec_v4_companion_radio_gateway-v1.18.0-ua.3-merged.bin",
-              "path": "/firmware/custom/v1.18.0-ua.3/heltec_v4_companion_radio_gateway-v1.18.0-ua.3-merged.bin"
+              "name": "heltec_v4_companion_radio_gateway-v1.18.0-ua.4-merged.bin",
+              "size": 1967040,
+              "sha256": "6f00a46bbb77916079cd92d92975efbd79e138dc9cbfc19ea01297ef5445ece3",
+              "url": "/firmware/custom/v1.18.0-ua.4/heltec_v4_companion_radio_gateway-v1.18.0-ua.4-merged.bin",
+              "path": "/firmware/custom/v1.18.0-ua.4/heltec_v4_companion_radio_gateway-v1.18.0-ua.4-merged.bin"
             },
             "bin": {
-              "name": "heltec_v4_companion_radio_gateway-v1.18.0-ua.3.bin",
-              "size": 1902944,
-              "sha256": "fa2fc46500d5e7137f923a8febb73747b7ed2072b341aad3afe14bce1574a1d2",
-              "url": "/firmware/custom/v1.18.0-ua.3/heltec_v4_companion_radio_gateway-v1.18.0-ua.3.bin",
-              "path": "/firmware/custom/v1.18.0-ua.3/heltec_v4_companion_radio_gateway-v1.18.0-ua.3.bin"
+              "name": "heltec_v4_companion_radio_gateway-v1.18.0-ua.4.bin",
+              "size": 1901504,
+              "sha256": "4b1e760dedfd1450300f7fe24eab11f16160b92262bee8293c865a7e61926150",
+              "url": "/firmware/custom/v1.18.0-ua.4/heltec_v4_companion_radio_gateway-v1.18.0-ua.4.bin",
+              "path": "/firmware/custom/v1.18.0-ua.4/heltec_v4_companion_radio_gateway-v1.18.0-ua.4.bin"
             }
           }
         }
@@ -493,18 +493,18 @@
           "hardwareTested": false,
           "files": {
             "merged": {
-              "name": "heltec_v4_tft_companion_radio_ble-v1.18.0-ua.3-merged.bin",
+              "name": "heltec_v4_tft_companion_radio_ble-v1.18.0-ua.4-merged.bin",
               "size": 1345840,
-              "sha256": "19ad0494efd51dbbe4135673e653621fd1a7dd24269d6bddf2cdf3c287d27f9f",
-              "url": "/firmware/custom/v1.18.0-ua.3/heltec_v4_tft_companion_radio_ble-v1.18.0-ua.3-merged.bin",
-              "path": "/firmware/custom/v1.18.0-ua.3/heltec_v4_tft_companion_radio_ble-v1.18.0-ua.3-merged.bin"
+              "sha256": "1d92a32527fc7baaa01e79b9b5c00198c1d2bffb5858d3cde54b5779c41559f9",
+              "url": "/firmware/custom/v1.18.0-ua.4/heltec_v4_tft_companion_radio_ble-v1.18.0-ua.4-merged.bin",
+              "path": "/firmware/custom/v1.18.0-ua.4/heltec_v4_tft_companion_radio_ble-v1.18.0-ua.4-merged.bin"
             },
             "bin": {
-              "name": "heltec_v4_tft_companion_radio_ble-v1.18.0-ua.3.bin",
+              "name": "heltec_v4_tft_companion_radio_ble-v1.18.0-ua.4.bin",
               "size": 1280304,
-              "sha256": "f17b0880e85f430052ceacebf0e175ecddeb8d3e3ed2d0fdee3974109bf21c46",
-              "url": "/firmware/custom/v1.18.0-ua.3/heltec_v4_tft_companion_radio_ble-v1.18.0-ua.3.bin",
-              "path": "/firmware/custom/v1.18.0-ua.3/heltec_v4_tft_companion_radio_ble-v1.18.0-ua.3.bin"
+              "sha256": "d23997848e7e7e21b4dce6c2c7a2415d8b65e0c2926b268acae3528b8cdc2583",
+              "url": "/firmware/custom/v1.18.0-ua.4/heltec_v4_tft_companion_radio_ble-v1.18.0-ua.4.bin",
+              "path": "/firmware/custom/v1.18.0-ua.4/heltec_v4_tft_companion_radio_ble-v1.18.0-ua.4.bin"
             }
           }
         },
@@ -513,18 +513,18 @@
           "hardwareTested": false,
           "files": {
             "merged": {
-              "name": "heltec_v4_tft_companion_radio_usb-v1.18.0-ua.3-merged.bin",
+              "name": "heltec_v4_tft_companion_radio_usb-v1.18.0-ua.4-merged.bin",
               "size": 719936,
-              "sha256": "4f072875517ebee1954353bffb0180a8303c63749a593bf7b96be7bab5160601",
-              "url": "/firmware/custom/v1.18.0-ua.3/heltec_v4_tft_companion_radio_usb-v1.18.0-ua.3-merged.bin",
-              "path": "/firmware/custom/v1.18.0-ua.3/heltec_v4_tft_companion_radio_usb-v1.18.0-ua.3-merged.bin"
+              "sha256": "6e9bf293044ae1ec85569122a9efeaef6c714b0366fe42eafb9d7104ab9c2102",
+              "url": "/firmware/custom/v1.18.0-ua.4/heltec_v4_tft_companion_radio_usb-v1.18.0-ua.4-merged.bin",
+              "path": "/firmware/custom/v1.18.0-ua.4/heltec_v4_tft_companion_radio_usb-v1.18.0-ua.4-merged.bin"
             },
             "bin": {
-              "name": "heltec_v4_tft_companion_radio_usb-v1.18.0-ua.3.bin",
+              "name": "heltec_v4_tft_companion_radio_usb-v1.18.0-ua.4.bin",
               "size": 654400,
-              "sha256": "5e9b4d45de0bada94019b732f0fa53dcb7e8bb7b802eaba8f1a13b80c9d9500d",
-              "url": "/firmware/custom/v1.18.0-ua.3/heltec_v4_tft_companion_radio_usb-v1.18.0-ua.3.bin",
-              "path": "/firmware/custom/v1.18.0-ua.3/heltec_v4_tft_companion_radio_usb-v1.18.0-ua.3.bin"
+              "sha256": "5666797ec5587e8d6657d90436150de994f7606035e0240c2ce51f2268bffb89",
+              "url": "/firmware/custom/v1.18.0-ua.4/heltec_v4_tft_companion_radio_usb-v1.18.0-ua.4.bin",
+              "path": "/firmware/custom/v1.18.0-ua.4/heltec_v4_tft_companion_radio_usb-v1.18.0-ua.4.bin"
             }
           }
         },
@@ -533,18 +533,18 @@
           "hardwareTested": false,
           "files": {
             "merged": {
-              "name": "heltec_v4_tft_repeater-v1.18.0-ua.3-merged.bin",
+              "name": "heltec_v4_tft_repeater-v1.18.0-ua.4-merged.bin",
               "size": 1240384,
-              "sha256": "13b6cf5577c7a1ba4837d2e4581f1e964669862a2420fddfbdfef79b35f22cd9",
-              "url": "/firmware/custom/v1.18.0-ua.3/heltec_v4_tft_repeater-v1.18.0-ua.3-merged.bin",
-              "path": "/firmware/custom/v1.18.0-ua.3/heltec_v4_tft_repeater-v1.18.0-ua.3-merged.bin"
+              "sha256": "3accabf506582fc5c1c0850bbf800899eb547c34028f0e547166ee8cbc0f8eb6",
+              "url": "/firmware/custom/v1.18.0-ua.4/heltec_v4_tft_repeater-v1.18.0-ua.4-merged.bin",
+              "path": "/firmware/custom/v1.18.0-ua.4/heltec_v4_tft_repeater-v1.18.0-ua.4-merged.bin"
             },
             "bin": {
-              "name": "heltec_v4_tft_repeater-v1.18.0-ua.3.bin",
+              "name": "heltec_v4_tft_repeater-v1.18.0-ua.4.bin",
               "size": 1174848,
-              "sha256": "345bca3001b93e90146c893b67a43b9ebb56d4fdc371fa4e68ef2c328204340a",
-              "url": "/firmware/custom/v1.18.0-ua.3/heltec_v4_tft_repeater-v1.18.0-ua.3.bin",
-              "path": "/firmware/custom/v1.18.0-ua.3/heltec_v4_tft_repeater-v1.18.0-ua.3.bin"
+              "sha256": "e3ad0497c74b2fafde286a549e8ea2e2f4fb2b23e3c4007ad3befa17a622fd67",
+              "url": "/firmware/custom/v1.18.0-ua.4/heltec_v4_tft_repeater-v1.18.0-ua.4.bin",
+              "path": "/firmware/custom/v1.18.0-ua.4/heltec_v4_tft_repeater-v1.18.0-ua.4.bin"
             }
           }
         },
@@ -553,18 +553,18 @@
           "hardwareTested": false,
           "files": {
             "merged": {
-              "name": "heltec_v4_tft_room_server-v1.18.0-ua.3-merged.bin",
+              "name": "heltec_v4_tft_room_server-v1.18.0-ua.4-merged.bin",
               "size": 1235616,
-              "sha256": "fb885de8fd411276a70911777f13ccccdf6111c9dd4b6d4365e7a7a40d274e83",
-              "url": "/firmware/custom/v1.18.0-ua.3/heltec_v4_tft_room_server-v1.18.0-ua.3-merged.bin",
-              "path": "/firmware/custom/v1.18.0-ua.3/heltec_v4_tft_room_server-v1.18.0-ua.3-merged.bin"
+              "sha256": "525e6ec64c3cd8620f9eb965b9f0ecbad3e2bd3af10c2b96ad1474da6cfa07c2",
+              "url": "/firmware/custom/v1.18.0-ua.4/heltec_v4_tft_room_server-v1.18.0-ua.4-merged.bin",
+              "path": "/firmware/custom/v1.18.0-ua.4/heltec_v4_tft_room_server-v1.18.0-ua.4-merged.bin"
             },
             "bin": {
-              "name": "heltec_v4_tft_room_server-v1.18.0-ua.3.bin",
+              "name": "heltec_v4_tft_room_server-v1.18.0-ua.4.bin",
               "size": 1170080,
-              "sha256": "a9e21b3e6dd7a269ac3251143a66eb89551d5d58f1127c6f8e95d3f85f665e2e",
-              "url": "/firmware/custom/v1.18.0-ua.3/heltec_v4_tft_room_server-v1.18.0-ua.3.bin",
-              "path": "/firmware/custom/v1.18.0-ua.3/heltec_v4_tft_room_server-v1.18.0-ua.3.bin"
+              "sha256": "a17ba40df9abbee59eae23b02f0ffa619c01e06b50447a3bf0b1efd8ca587d9b",
+              "url": "/firmware/custom/v1.18.0-ua.4/heltec_v4_tft_room_server-v1.18.0-ua.4.bin",
+              "path": "/firmware/custom/v1.18.0-ua.4/heltec_v4_tft_room_server-v1.18.0-ua.4.bin"
             }
           }
         },
@@ -573,18 +573,18 @@
           "hardwareTested": false,
           "files": {
             "merged": {
-              "name": "heltec_v4_tft_companion_radio_gateway-v1.18.0-ua.3-merged.bin",
-              "size": 1970080,
-              "sha256": "49be60f246b11c5eb73cac29343dfc486fe9c68581ceffd3a3c554be57a8e8b4",
-              "url": "/firmware/custom/v1.18.0-ua.3/heltec_v4_tft_companion_radio_gateway-v1.18.0-ua.3-merged.bin",
-              "path": "/firmware/custom/v1.18.0-ua.3/heltec_v4_tft_companion_radio_gateway-v1.18.0-ua.3-merged.bin"
+              "name": "heltec_v4_tft_companion_radio_gateway-v1.18.0-ua.4-merged.bin",
+              "size": 1968672,
+              "sha256": "fd69159c0d2519e8c36551bf3adac274452b2815a0c33912efabdca931a20c2c",
+              "url": "/firmware/custom/v1.18.0-ua.4/heltec_v4_tft_companion_radio_gateway-v1.18.0-ua.4-merged.bin",
+              "path": "/firmware/custom/v1.18.0-ua.4/heltec_v4_tft_companion_radio_gateway-v1.18.0-ua.4-merged.bin"
             },
             "bin": {
-              "name": "heltec_v4_tft_companion_radio_gateway-v1.18.0-ua.3.bin",
-              "size": 1904544,
-              "sha256": "da86cc0544583791cf6fa90c159549f0a3c73fa48da8e0bae8b8e95e89ba297f",
-              "url": "/firmware/custom/v1.18.0-ua.3/heltec_v4_tft_companion_radio_gateway-v1.18.0-ua.3.bin",
-              "path": "/firmware/custom/v1.18.0-ua.3/heltec_v4_tft_companion_radio_gateway-v1.18.0-ua.3.bin"
+              "name": "heltec_v4_tft_companion_radio_gateway-v1.18.0-ua.4.bin",
+              "size": 1903136,
+              "sha256": "b4c756b4a489d9c0c89491e07681a0d4e152df7d6292f6615a7bf108752bc23d",
+              "url": "/firmware/custom/v1.18.0-ua.4/heltec_v4_tft_companion_radio_gateway-v1.18.0-ua.4.bin",
+              "path": "/firmware/custom/v1.18.0-ua.4/heltec_v4_tft_companion_radio_gateway-v1.18.0-ua.4.bin"
             }
           }
         }
@@ -599,18 +599,18 @@
           "hardwareTested": false,
           "files": {
             "zip": {
-              "name": "LilyGo_T-Echo_companion_radio_ble-v1.18.0-ua.3.zip",
+              "name": "LilyGo_T-Echo_companion_radio_ble-v1.18.0-ua.4.zip",
               "size": 375227,
-              "sha256": "780fea5f55d291e84649da15d2d5d8a094f5b79e9a00d1c61db4323f98dddbbc",
-              "url": "/firmware/custom/v1.18.0-ua.3/LilyGo_T-Echo_companion_radio_ble-v1.18.0-ua.3.zip",
-              "path": "/firmware/custom/v1.18.0-ua.3/LilyGo_T-Echo_companion_radio_ble-v1.18.0-ua.3.zip"
+              "sha256": "3b3f31a8b9e8d2ba2e6c257d4c8eb4f01fb9d38c104593656d5d9d42bf5cf92c",
+              "url": "/firmware/custom/v1.18.0-ua.4/LilyGo_T-Echo_companion_radio_ble-v1.18.0-ua.4.zip",
+              "path": "/firmware/custom/v1.18.0-ua.4/LilyGo_T-Echo_companion_radio_ble-v1.18.0-ua.4.zip"
             },
             "uf2": {
-              "name": "LilyGo_T-Echo_companion_radio_ble-v1.18.0-ua.3.uf2",
+              "name": "LilyGo_T-Echo_companion_radio_ble-v1.18.0-ua.4.uf2",
               "size": 749056,
-              "sha256": "f96f153a6c2ee8288837ae4d73741defca9ae9ce8db472b70514ab4a76e28e0a",
-              "url": "/firmware/custom/v1.18.0-ua.3/LilyGo_T-Echo_companion_radio_ble-v1.18.0-ua.3.uf2",
-              "path": "/firmware/custom/v1.18.0-ua.3/LilyGo_T-Echo_companion_radio_ble-v1.18.0-ua.3.uf2"
+              "sha256": "e294d530b0862c2656c2b4655b937e93901c1b56164cb938888cdf7102ff9599",
+              "url": "/firmware/custom/v1.18.0-ua.4/LilyGo_T-Echo_companion_radio_ble-v1.18.0-ua.4.uf2",
+              "path": "/firmware/custom/v1.18.0-ua.4/LilyGo_T-Echo_companion_radio_ble-v1.18.0-ua.4.uf2"
             }
           }
         },
@@ -619,18 +619,18 @@
           "hardwareTested": false,
           "files": {
             "zip": {
-              "name": "LilyGo_T-Echo_companion_radio_usb-v1.18.0-ua.3.zip",
+              "name": "LilyGo_T-Echo_companion_radio_usb-v1.18.0-ua.4.zip",
               "size": 369467,
-              "sha256": "38fed9f5058b24051c959aaffc4bfdeea98d39c4a3810a756fd5b388be673d3d",
-              "url": "/firmware/custom/v1.18.0-ua.3/LilyGo_T-Echo_companion_radio_usb-v1.18.0-ua.3.zip",
-              "path": "/firmware/custom/v1.18.0-ua.3/LilyGo_T-Echo_companion_radio_usb-v1.18.0-ua.3.zip"
+              "sha256": "737dd1fe440719c55be8c1fba6170a27276b556e1b7cb1d85aaae3161d34d49f",
+              "url": "/firmware/custom/v1.18.0-ua.4/LilyGo_T-Echo_companion_radio_usb-v1.18.0-ua.4.zip",
+              "path": "/firmware/custom/v1.18.0-ua.4/LilyGo_T-Echo_companion_radio_usb-v1.18.0-ua.4.zip"
             },
             "uf2": {
-              "name": "LilyGo_T-Echo_companion_radio_usb-v1.18.0-ua.3.uf2",
+              "name": "LilyGo_T-Echo_companion_radio_usb-v1.18.0-ua.4.uf2",
               "size": 737792,
-              "sha256": "83acf31ec8c6a28fc3850d4ad40ab9e735deb7d81cf8c85b7abf5cbea4b401f8",
-              "url": "/firmware/custom/v1.18.0-ua.3/LilyGo_T-Echo_companion_radio_usb-v1.18.0-ua.3.uf2",
-              "path": "/firmware/custom/v1.18.0-ua.3/LilyGo_T-Echo_companion_radio_usb-v1.18.0-ua.3.uf2"
+              "sha256": "8d535d0198efa236ad6983172bd445e1fa482d0d9ef42c6b6feb24c3360a317c",
+              "url": "/firmware/custom/v1.18.0-ua.4/LilyGo_T-Echo_companion_radio_usb-v1.18.0-ua.4.uf2",
+              "path": "/firmware/custom/v1.18.0-ua.4/LilyGo_T-Echo_companion_radio_usb-v1.18.0-ua.4.uf2"
             }
           }
         },
@@ -639,18 +639,18 @@
           "hardwareTested": false,
           "files": {
             "zip": {
-              "name": "LilyGo_T-Echo_repeater-v1.18.0-ua.3.zip",
+              "name": "LilyGo_T-Echo_repeater-v1.18.0-ua.4.zip",
               "size": 349867,
-              "sha256": "bee28324d91b4e0592b6ce59d640c4bb2aa030bc0cdeaa0a63fe2e327041fbad",
-              "url": "/firmware/custom/v1.18.0-ua.3/LilyGo_T-Echo_repeater-v1.18.0-ua.3.zip",
-              "path": "/firmware/custom/v1.18.0-ua.3/LilyGo_T-Echo_repeater-v1.18.0-ua.3.zip"
+              "sha256": "e4d8ed90945d1faefcaabe1e446218f6611a4ec6f27969c3b85da4b907360f20",
+              "url": "/firmware/custom/v1.18.0-ua.4/LilyGo_T-Echo_repeater-v1.18.0-ua.4.zip",
+              "path": "/firmware/custom/v1.18.0-ua.4/LilyGo_T-Echo_repeater-v1.18.0-ua.4.zip"
             },
             "uf2": {
-              "name": "LilyGo_T-Echo_repeater-v1.18.0-ua.3.uf2",
+              "name": "LilyGo_T-Echo_repeater-v1.18.0-ua.4.uf2",
               "size": 698368,
-              "sha256": "594f8edcc9749ea3082bc2f6b76ce875686cd07708705562577801942d8caef4",
-              "url": "/firmware/custom/v1.18.0-ua.3/LilyGo_T-Echo_repeater-v1.18.0-ua.3.uf2",
-              "path": "/firmware/custom/v1.18.0-ua.3/LilyGo_T-Echo_repeater-v1.18.0-ua.3.uf2"
+              "sha256": "5e1faf8e78ef9b6e496b2f835172c9ecae793cd8144e0fed151eb3e32f5238ac",
+              "url": "/firmware/custom/v1.18.0-ua.4/LilyGo_T-Echo_repeater-v1.18.0-ua.4.uf2",
+              "path": "/firmware/custom/v1.18.0-ua.4/LilyGo_T-Echo_repeater-v1.18.0-ua.4.uf2"
             }
           }
         },
@@ -659,18 +659,18 @@
           "hardwareTested": false,
           "files": {
             "zip": {
-              "name": "LilyGo_T-Echo_room_server-v1.18.0-ua.3.zip",
+              "name": "LilyGo_T-Echo_room_server-v1.18.0-ua.4.zip",
               "size": 343059,
-              "sha256": "91b86d977d297d89ddaba1a20b461f9879e70c1928a8e75259bdf3c5bb4ba80a",
-              "url": "/firmware/custom/v1.18.0-ua.3/LilyGo_T-Echo_room_server-v1.18.0-ua.3.zip",
-              "path": "/firmware/custom/v1.18.0-ua.3/LilyGo_T-Echo_room_server-v1.18.0-ua.3.zip"
+              "sha256": "737933fa4b3fa5d9fca85a020f14e3a51bf7d74414579e81f98cba7ecbb54527",
+              "url": "/firmware/custom/v1.18.0-ua.4/LilyGo_T-Echo_room_server-v1.18.0-ua.4.zip",
+              "path": "/firmware/custom/v1.18.0-ua.4/LilyGo_T-Echo_room_server-v1.18.0-ua.4.zip"
             },
             "uf2": {
-              "name": "LilyGo_T-Echo_room_server-v1.18.0-ua.3.uf2",
+              "name": "LilyGo_T-Echo_room_server-v1.18.0-ua.4.uf2",
               "size": 684544,
-              "sha256": "b8f387650c58a412b93c1a53653b1349c7a1f965e9d96715296503cb3539be5d",
-              "url": "/firmware/custom/v1.18.0-ua.3/LilyGo_T-Echo_room_server-v1.18.0-ua.3.uf2",
-              "path": "/firmware/custom/v1.18.0-ua.3/LilyGo_T-Echo_room_server-v1.18.0-ua.3.uf2"
+              "sha256": "f8768c0a4e17ecf2dd36a8fdbbeed3c3f19d66bf804c2b664e2eb4b0315a7786",
+              "url": "/firmware/custom/v1.18.0-ua.4/LilyGo_T-Echo_room_server-v1.18.0-ua.4.uf2",
+              "path": "/firmware/custom/v1.18.0-ua.4/LilyGo_T-Echo_room_server-v1.18.0-ua.4.uf2"
             }
           }
         }
@@ -685,18 +685,18 @@
           "hardwareTested": false,
           "files": {
             "zip": {
-              "name": "ProMicro_companion_radio_ble-v1.18.0-ua.3.zip",
+              "name": "ProMicro_companion_radio_ble-v1.18.0-ua.4.zip",
               "size": 367423,
-              "sha256": "430db280f016f12983f9d9c9a68be27da8a566f365bd40c7d5d26c839da1a03b",
-              "url": "/firmware/custom/v1.18.0-ua.3/ProMicro_companion_radio_ble-v1.18.0-ua.3.zip",
-              "path": "/firmware/custom/v1.18.0-ua.3/ProMicro_companion_radio_ble-v1.18.0-ua.3.zip"
+              "sha256": "4c50adabc57a7f362932ecc6fdd7620ab839e97cfbb957a2e3e45b2c46a3b91e",
+              "url": "/firmware/custom/v1.18.0-ua.4/ProMicro_companion_radio_ble-v1.18.0-ua.4.zip",
+              "path": "/firmware/custom/v1.18.0-ua.4/ProMicro_companion_radio_ble-v1.18.0-ua.4.zip"
             },
             "uf2": {
-              "name": "ProMicro_companion_radio_ble-v1.18.0-ua.3.uf2",
+              "name": "ProMicro_companion_radio_ble-v1.18.0-ua.4.uf2",
               "size": 733696,
-              "sha256": "869901b514b61578a26120199a5b2a40d0b76f69c4b181c41b4d98963a843a59",
-              "url": "/firmware/custom/v1.18.0-ua.3/ProMicro_companion_radio_ble-v1.18.0-ua.3.uf2",
-              "path": "/firmware/custom/v1.18.0-ua.3/ProMicro_companion_radio_ble-v1.18.0-ua.3.uf2"
+              "sha256": "927dbfac119b44bd13c6a5c329cbfd54ea20a66cb852696d6462ecb74fef380c",
+              "url": "/firmware/custom/v1.18.0-ua.4/ProMicro_companion_radio_ble-v1.18.0-ua.4.uf2",
+              "path": "/firmware/custom/v1.18.0-ua.4/ProMicro_companion_radio_ble-v1.18.0-ua.4.uf2"
             }
           }
         },
@@ -705,18 +705,18 @@
           "hardwareTested": false,
           "files": {
             "zip": {
-              "name": "ProMicro_companion_radio_usb-v1.18.0-ua.3.zip",
-              "size": 359983,
-              "sha256": "bd4a7e522079cb4359c475949a6b8e3bb96692b9154dca601bdeb9ae40ea12ed",
-              "url": "/firmware/custom/v1.18.0-ua.3/ProMicro_companion_radio_usb-v1.18.0-ua.3.zip",
-              "path": "/firmware/custom/v1.18.0-ua.3/ProMicro_companion_radio_usb-v1.18.0-ua.3.zip"
+              "name": "ProMicro_companion_radio_usb-v1.18.0-ua.4.zip",
+              "size": 359982,
+              "sha256": "f5c30151b485be3f5516c06b1b098f3c2b333eea578be3b89dafe44e080247ee",
+              "url": "/firmware/custom/v1.18.0-ua.4/ProMicro_companion_radio_usb-v1.18.0-ua.4.zip",
+              "path": "/firmware/custom/v1.18.0-ua.4/ProMicro_companion_radio_usb-v1.18.0-ua.4.zip"
             },
             "uf2": {
-              "name": "ProMicro_companion_radio_usb-v1.18.0-ua.3.uf2",
+              "name": "ProMicro_companion_radio_usb-v1.18.0-ua.4.uf2",
               "size": 718848,
-              "sha256": "edc394ab5f7c079d663b149a8e1f30e3bcef3796c4f998127e27d4b59c9ed741",
-              "url": "/firmware/custom/v1.18.0-ua.3/ProMicro_companion_radio_usb-v1.18.0-ua.3.uf2",
-              "path": "/firmware/custom/v1.18.0-ua.3/ProMicro_companion_radio_usb-v1.18.0-ua.3.uf2"
+              "sha256": "d6c5ca18cba516216237a67f4908515da37a8125981258afe5bfa0a8d27bb1c7",
+              "url": "/firmware/custom/v1.18.0-ua.4/ProMicro_companion_radio_usb-v1.18.0-ua.4.uf2",
+              "path": "/firmware/custom/v1.18.0-ua.4/ProMicro_companion_radio_usb-v1.18.0-ua.4.uf2"
             }
           }
         },
@@ -725,18 +725,18 @@
           "hardwareTested": false,
           "files": {
             "zip": {
-              "name": "ProMicro_repeater-v1.18.0-ua.3.zip",
-              "size": 346202,
-              "sha256": "abe08fd44136a248deef207a00c17203e70b4e14d23a15a7bee9f536dae2867e",
-              "url": "/firmware/custom/v1.18.0-ua.3/ProMicro_repeater-v1.18.0-ua.3.zip",
-              "path": "/firmware/custom/v1.18.0-ua.3/ProMicro_repeater-v1.18.0-ua.3.zip"
+              "name": "ProMicro_repeater-v1.18.0-ua.4.zip",
+              "size": 346203,
+              "sha256": "dc4794902e3da1b48300de9a43140baa09d22ddf74dc484c9f8b5d61b2ef804e",
+              "url": "/firmware/custom/v1.18.0-ua.4/ProMicro_repeater-v1.18.0-ua.4.zip",
+              "path": "/firmware/custom/v1.18.0-ua.4/ProMicro_repeater-v1.18.0-ua.4.zip"
             },
             "uf2": {
-              "name": "ProMicro_repeater-v1.18.0-ua.3.uf2",
+              "name": "ProMicro_repeater-v1.18.0-ua.4.uf2",
               "size": 691200,
-              "sha256": "b92044a6ca22c1d5956f2f697102911aea9259ca079a5dfc96315c57535293fa",
-              "url": "/firmware/custom/v1.18.0-ua.3/ProMicro_repeater-v1.18.0-ua.3.uf2",
-              "path": "/firmware/custom/v1.18.0-ua.3/ProMicro_repeater-v1.18.0-ua.3.uf2"
+              "sha256": "f17f59ac6daa9c992c626838fcba74243fed654f98c97f278ce57d36d5657af7",
+              "url": "/firmware/custom/v1.18.0-ua.4/ProMicro_repeater-v1.18.0-ua.4.uf2",
+              "path": "/firmware/custom/v1.18.0-ua.4/ProMicro_repeater-v1.18.0-ua.4.uf2"
             }
           }
         },
@@ -745,18 +745,18 @@
           "hardwareTested": false,
           "files": {
             "zip": {
-              "name": "ProMicro_room_server-v1.18.0-ua.3.zip",
+              "name": "ProMicro_room_server-v1.18.0-ua.4.zip",
               "size": 339219,
-              "sha256": "91015e0a405f3e613b2101aab397eaef34c80e37afa4cd59f498ed31e40d7e81",
-              "url": "/firmware/custom/v1.18.0-ua.3/ProMicro_room_server-v1.18.0-ua.3.zip",
-              "path": "/firmware/custom/v1.18.0-ua.3/ProMicro_room_server-v1.18.0-ua.3.zip"
+              "sha256": "9c574dcaaeb88c0cb8868e4b4734f6641d796f357a168316e2a4daa54f655067",
+              "url": "/firmware/custom/v1.18.0-ua.4/ProMicro_room_server-v1.18.0-ua.4.zip",
+              "path": "/firmware/custom/v1.18.0-ua.4/ProMicro_room_server-v1.18.0-ua.4.zip"
             },
             "uf2": {
-              "name": "ProMicro_room_server-v1.18.0-ua.3.uf2",
+              "name": "ProMicro_room_server-v1.18.0-ua.4.uf2",
               "size": 676864,
-              "sha256": "6d1d1464efe57e9704f090fa7e512a672410c7a78a552b4be880eb97e84e5669",
-              "url": "/firmware/custom/v1.18.0-ua.3/ProMicro_room_server-v1.18.0-ua.3.uf2",
-              "path": "/firmware/custom/v1.18.0-ua.3/ProMicro_room_server-v1.18.0-ua.3.uf2"
+              "sha256": "1e68e5d51b23d95b2fcc5740f548769801446f76ec35ffb4f0510fa2c2ad6815",
+              "url": "/firmware/custom/v1.18.0-ua.4/ProMicro_room_server-v1.18.0-ua.4.uf2",
+              "path": "/firmware/custom/v1.18.0-ua.4/ProMicro_room_server-v1.18.0-ua.4.uf2"
             }
           }
         }
@@ -771,18 +771,18 @@
           "hardwareTested": false,
           "files": {
             "merged": {
-              "name": "RAK_3112_companion_radio_gateway-v1.18.0-ua.3-merged.bin",
-              "size": 1954576,
-              "sha256": "85d0aa4d906b96f5e4baa42eb06caf3477f89d2c4bb2a4ef0a2a19fdd536a0c3",
-              "url": "/firmware/custom/v1.18.0-ua.3/RAK_3112_companion_radio_gateway-v1.18.0-ua.3-merged.bin",
-              "path": "/firmware/custom/v1.18.0-ua.3/RAK_3112_companion_radio_gateway-v1.18.0-ua.3-merged.bin"
+              "name": "RAK_3112_companion_radio_gateway-v1.18.0-ua.4-merged.bin",
+              "size": 1953216,
+              "sha256": "35593bd33ac3dddb7511c46f6dc556a6bc1bf01ae7da0c1f9d6dd905b77a681a",
+              "url": "/firmware/custom/v1.18.0-ua.4/RAK_3112_companion_radio_gateway-v1.18.0-ua.4-merged.bin",
+              "path": "/firmware/custom/v1.18.0-ua.4/RAK_3112_companion_radio_gateway-v1.18.0-ua.4-merged.bin"
             },
             "bin": {
-              "name": "RAK_3112_companion_radio_gateway-v1.18.0-ua.3.bin",
-              "size": 1889040,
-              "sha256": "eb856c0a8542555bac7fdc37afa7e2b3b4382dbf6a8c0bc1585d3db89d64f397",
-              "url": "/firmware/custom/v1.18.0-ua.3/RAK_3112_companion_radio_gateway-v1.18.0-ua.3.bin",
-              "path": "/firmware/custom/v1.18.0-ua.3/RAK_3112_companion_radio_gateway-v1.18.0-ua.3.bin"
+              "name": "RAK_3112_companion_radio_gateway-v1.18.0-ua.4.bin",
+              "size": 1887680,
+              "sha256": "7b1c7a390bc688ebaf4ce6e9d8527d33dad4198e1185c83fd7fed93fa7b1da82",
+              "url": "/firmware/custom/v1.18.0-ua.4/RAK_3112_companion_radio_gateway-v1.18.0-ua.4.bin",
+              "path": "/firmware/custom/v1.18.0-ua.4/RAK_3112_companion_radio_gateway-v1.18.0-ua.4.bin"
             }
           }
         }
@@ -797,18 +797,18 @@
           "hardwareTested": false,
           "files": {
             "zip": {
-              "name": "RAK_4631_companion_radio_ble-v1.18.0-ua.3.zip",
+              "name": "RAK_4631_companion_radio_ble-v1.18.0-ua.4.zip",
               "size": 463835,
-              "sha256": "16e509d882662a8de670f23e775c359671d5ff59dd67f4e0883d5092dd4cd101",
-              "url": "/firmware/custom/v1.18.0-ua.3/RAK_4631_companion_radio_ble-v1.18.0-ua.3.zip",
-              "path": "/firmware/custom/v1.18.0-ua.3/RAK_4631_companion_radio_ble-v1.18.0-ua.3.zip"
+              "sha256": "e83d74b4a2ea49c2cac27d4ab0c2bc6fa2f9d128d3aea0b91c8364b3d63f8ee4",
+              "url": "/firmware/custom/v1.18.0-ua.4/RAK_4631_companion_radio_ble-v1.18.0-ua.4.zip",
+              "path": "/firmware/custom/v1.18.0-ua.4/RAK_4631_companion_radio_ble-v1.18.0-ua.4.zip"
             },
             "uf2": {
-              "name": "RAK_4631_companion_radio_ble-v1.18.0-ua.3.uf2",
+              "name": "RAK_4631_companion_radio_ble-v1.18.0-ua.4.uf2",
               "size": 926208,
-              "sha256": "fed928aad043e4a6028f358ac84c7a513824a413dd015d54a2f8e2b2a0da1d2d",
-              "url": "/firmware/custom/v1.18.0-ua.3/RAK_4631_companion_radio_ble-v1.18.0-ua.3.uf2",
-              "path": "/firmware/custom/v1.18.0-ua.3/RAK_4631_companion_radio_ble-v1.18.0-ua.3.uf2"
+              "sha256": "7393bb336de4e15ebcac67419d849e265bc905b53a2e63f7a2c05ade299cf1df",
+              "url": "/firmware/custom/v1.18.0-ua.4/RAK_4631_companion_radio_ble-v1.18.0-ua.4.uf2",
+              "path": "/firmware/custom/v1.18.0-ua.4/RAK_4631_companion_radio_ble-v1.18.0-ua.4.uf2"
             }
           }
         },
@@ -817,18 +817,18 @@
           "hardwareTested": false,
           "files": {
             "zip": {
-              "name": "RAK_4631_companion_radio_usb-v1.18.0-ua.3.zip",
+              "name": "RAK_4631_companion_radio_usb-v1.18.0-ua.4.zip",
               "size": 456363,
-              "sha256": "4c5bfe8db79837fc489675d3c8c06001b5cc6bc59812efd6f183c9156a68c675",
-              "url": "/firmware/custom/v1.18.0-ua.3/RAK_4631_companion_radio_usb-v1.18.0-ua.3.zip",
-              "path": "/firmware/custom/v1.18.0-ua.3/RAK_4631_companion_radio_usb-v1.18.0-ua.3.zip"
+              "sha256": "95f42eeae84b959ce32fb6267e70fbbac1f7982f65991442f612f0d03ffb7e0d",
+              "url": "/firmware/custom/v1.18.0-ua.4/RAK_4631_companion_radio_usb-v1.18.0-ua.4.zip",
+              "path": "/firmware/custom/v1.18.0-ua.4/RAK_4631_companion_radio_usb-v1.18.0-ua.4.zip"
             },
             "uf2": {
-              "name": "RAK_4631_companion_radio_usb-v1.18.0-ua.3.uf2",
+              "name": "RAK_4631_companion_radio_usb-v1.18.0-ua.4.uf2",
               "size": 911360,
-              "sha256": "ce2ff94c3833a00cee59fe859e32a3ed2572db6fb74a307bb953b25bde7c3d1e",
-              "url": "/firmware/custom/v1.18.0-ua.3/RAK_4631_companion_radio_usb-v1.18.0-ua.3.uf2",
-              "path": "/firmware/custom/v1.18.0-ua.3/RAK_4631_companion_radio_usb-v1.18.0-ua.3.uf2"
+              "sha256": "2642c0478d66aaa25b84f7dc1e711ed3b0929d943cb4d43ba23d0626ae9fcf88",
+              "url": "/firmware/custom/v1.18.0-ua.4/RAK_4631_companion_radio_usb-v1.18.0-ua.4.uf2",
+              "path": "/firmware/custom/v1.18.0-ua.4/RAK_4631_companion_radio_usb-v1.18.0-ua.4.uf2"
             }
           }
         },
@@ -837,18 +837,18 @@
           "hardwareTested": false,
           "files": {
             "zip": {
-              "name": "RAK_4631_repeater-v1.18.0-ua.3.zip",
-              "size": 441886,
-              "sha256": "c0b1f1f2b96a77b59a7cdff27ecd78cd604abbcf15585ce31aab2123e32f99eb",
-              "url": "/firmware/custom/v1.18.0-ua.3/RAK_4631_repeater-v1.18.0-ua.3.zip",
-              "path": "/firmware/custom/v1.18.0-ua.3/RAK_4631_repeater-v1.18.0-ua.3.zip"
+              "name": "RAK_4631_repeater-v1.18.0-ua.4.zip",
+              "size": 441887,
+              "sha256": "6db85403ddfbc44de60b0671d25b90c682c4fe9bdb21264ec1fda983a973033a",
+              "url": "/firmware/custom/v1.18.0-ua.4/RAK_4631_repeater-v1.18.0-ua.4.zip",
+              "path": "/firmware/custom/v1.18.0-ua.4/RAK_4631_repeater-v1.18.0-ua.4.zip"
             },
             "uf2": {
-              "name": "RAK_4631_repeater-v1.18.0-ua.3.uf2",
+              "name": "RAK_4631_repeater-v1.18.0-ua.4.uf2",
               "size": 882176,
-              "sha256": "ae6856cf144de6d0f4d5fe7e5e85d04e2e0be037977e8cc02e5c1523e5a89503",
-              "url": "/firmware/custom/v1.18.0-ua.3/RAK_4631_repeater-v1.18.0-ua.3.uf2",
-              "path": "/firmware/custom/v1.18.0-ua.3/RAK_4631_repeater-v1.18.0-ua.3.uf2"
+              "sha256": "3fa7953ecda34a9fabf165b4f4eeaaef4c9dca7461032d46f501dee4cbae286f",
+              "url": "/firmware/custom/v1.18.0-ua.4/RAK_4631_repeater-v1.18.0-ua.4.uf2",
+              "path": "/firmware/custom/v1.18.0-ua.4/RAK_4631_repeater-v1.18.0-ua.4.uf2"
             }
           }
         },
@@ -857,18 +857,18 @@
           "hardwareTested": false,
           "files": {
             "zip": {
-              "name": "RAK_4631_room_server-v1.18.0-ua.3.zip",
+              "name": "RAK_4631_room_server-v1.18.0-ua.4.zip",
               "size": 435023,
-              "sha256": "87aefab3fdb6ca64747a10a0d1f808a1168e6c56da047a27d4026e758691de60",
-              "url": "/firmware/custom/v1.18.0-ua.3/RAK_4631_room_server-v1.18.0-ua.3.zip",
-              "path": "/firmware/custom/v1.18.0-ua.3/RAK_4631_room_server-v1.18.0-ua.3.zip"
+              "sha256": "f39f472a085a4a1e431e39780aaff56e5e3855e1552b80ec6fc21348d092c702",
+              "url": "/firmware/custom/v1.18.0-ua.4/RAK_4631_room_server-v1.18.0-ua.4.zip",
+              "path": "/firmware/custom/v1.18.0-ua.4/RAK_4631_room_server-v1.18.0-ua.4.zip"
             },
             "uf2": {
-              "name": "RAK_4631_room_server-v1.18.0-ua.3.uf2",
+              "name": "RAK_4631_room_server-v1.18.0-ua.4.uf2",
               "size": 868864,
-              "sha256": "e1a3117b83fc8c5d60569afcc46cf9eac3da80d27fbe702305de5dd38ce05701",
-              "url": "/firmware/custom/v1.18.0-ua.3/RAK_4631_room_server-v1.18.0-ua.3.uf2",
-              "path": "/firmware/custom/v1.18.0-ua.3/RAK_4631_room_server-v1.18.0-ua.3.uf2"
+              "sha256": "07c245b23a5f017dbca30e73d09c03e98fb7a4c769bf3fb8b4ab06b025337c07",
+              "url": "/firmware/custom/v1.18.0-ua.4/RAK_4631_room_server-v1.18.0-ua.4.uf2",
+              "path": "/firmware/custom/v1.18.0-ua.4/RAK_4631_room_server-v1.18.0-ua.4.uf2"
             }
           }
         }
@@ -883,18 +883,18 @@
           "hardwareTested": false,
           "files": {
             "zip": {
-              "name": "RAK_WisMesh_Tag_companion_radio_ble-v1.18.0-ua.3.zip",
+              "name": "RAK_WisMesh_Tag_companion_radio_ble-v1.18.0-ua.4.zip",
               "size": 385267,
-              "sha256": "431aab8809b8939d95e7dc4b81338d95b84745063c91d9d5ec50790e16026252",
-              "url": "/firmware/custom/v1.18.0-ua.3/RAK_WisMesh_Tag_companion_radio_ble-v1.18.0-ua.3.zip",
-              "path": "/firmware/custom/v1.18.0-ua.3/RAK_WisMesh_Tag_companion_radio_ble-v1.18.0-ua.3.zip"
+              "sha256": "33889eec2712b15df9410824738ac40a3680bdc460b27c860dffaeef5c7430e6",
+              "url": "/firmware/custom/v1.18.0-ua.4/RAK_WisMesh_Tag_companion_radio_ble-v1.18.0-ua.4.zip",
+              "path": "/firmware/custom/v1.18.0-ua.4/RAK_WisMesh_Tag_companion_radio_ble-v1.18.0-ua.4.zip"
             },
             "uf2": {
-              "name": "RAK_WisMesh_Tag_companion_radio_ble-v1.18.0-ua.3.uf2",
+              "name": "RAK_WisMesh_Tag_companion_radio_ble-v1.18.0-ua.4.uf2",
               "size": 769024,
-              "sha256": "14a4bd2a8543d3397ad29a95bb5867779a693cc3b03bfad9d593d06865401935",
-              "url": "/firmware/custom/v1.18.0-ua.3/RAK_WisMesh_Tag_companion_radio_ble-v1.18.0-ua.3.uf2",
-              "path": "/firmware/custom/v1.18.0-ua.3/RAK_WisMesh_Tag_companion_radio_ble-v1.18.0-ua.3.uf2"
+              "sha256": "1075b0d393ebf8707532327b506ac2e71164830496013315277a1bb5d68e4e31",
+              "url": "/firmware/custom/v1.18.0-ua.4/RAK_WisMesh_Tag_companion_radio_ble-v1.18.0-ua.4.uf2",
+              "path": "/firmware/custom/v1.18.0-ua.4/RAK_WisMesh_Tag_companion_radio_ble-v1.18.0-ua.4.uf2"
             }
           }
         },
@@ -903,18 +903,18 @@
           "hardwareTested": false,
           "files": {
             "zip": {
-              "name": "RAK_WisMesh_Tag_companion_radio_usb-v1.18.0-ua.3.zip",
-              "size": 377857,
-              "sha256": "5369a84b5b9cdea22b7f905fba1aa19db88c822d954147bad9c1fd3eb50e1f3b",
-              "url": "/firmware/custom/v1.18.0-ua.3/RAK_WisMesh_Tag_companion_radio_usb-v1.18.0-ua.3.zip",
-              "path": "/firmware/custom/v1.18.0-ua.3/RAK_WisMesh_Tag_companion_radio_usb-v1.18.0-ua.3.zip"
+              "name": "RAK_WisMesh_Tag_companion_radio_usb-v1.18.0-ua.4.zip",
+              "size": 377859,
+              "sha256": "c1efe50a6b9277523454e1765cff3a550e673aa17ffdda9d787579e7d4693e9f",
+              "url": "/firmware/custom/v1.18.0-ua.4/RAK_WisMesh_Tag_companion_radio_usb-v1.18.0-ua.4.zip",
+              "path": "/firmware/custom/v1.18.0-ua.4/RAK_WisMesh_Tag_companion_radio_usb-v1.18.0-ua.4.zip"
             },
             "uf2": {
-              "name": "RAK_WisMesh_Tag_companion_radio_usb-v1.18.0-ua.3.uf2",
+              "name": "RAK_WisMesh_Tag_companion_radio_usb-v1.18.0-ua.4.uf2",
               "size": 754176,
-              "sha256": "45f36364080fd441d963b2b6ab4f02cdf67559c769a9b4aa8028a57a67ee68cb",
-              "url": "/firmware/custom/v1.18.0-ua.3/RAK_WisMesh_Tag_companion_radio_usb-v1.18.0-ua.3.uf2",
-              "path": "/firmware/custom/v1.18.0-ua.3/RAK_WisMesh_Tag_companion_radio_usb-v1.18.0-ua.3.uf2"
+              "sha256": "fa4df5fd519e658eb5a852ea1743f4753ad90d2dc449ce3c6642a841cebcd3f8",
+              "url": "/firmware/custom/v1.18.0-ua.4/RAK_WisMesh_Tag_companion_radio_usb-v1.18.0-ua.4.uf2",
+              "path": "/firmware/custom/v1.18.0-ua.4/RAK_WisMesh_Tag_companion_radio_usb-v1.18.0-ua.4.uf2"
             }
           }
         },
@@ -923,18 +923,18 @@
           "hardwareTested": false,
           "files": {
             "zip": {
-              "name": "RAK_WisMesh_Tag_repeater-v1.18.0-ua.3.zip",
-              "size": 369038,
-              "sha256": "9fb15a0b585827a6f33d1cb96b0f11fcacb526f2076f8cee0486f31f322e26e5",
-              "url": "/firmware/custom/v1.18.0-ua.3/RAK_WisMesh_Tag_repeater-v1.18.0-ua.3.zip",
-              "path": "/firmware/custom/v1.18.0-ua.3/RAK_WisMesh_Tag_repeater-v1.18.0-ua.3.zip"
+              "name": "RAK_WisMesh_Tag_repeater-v1.18.0-ua.4.zip",
+              "size": 369039,
+              "sha256": "231e49803cac0fc08ea5c721cc6975b8692998e7e40eb4831fffbfaa61a082b6",
+              "url": "/firmware/custom/v1.18.0-ua.4/RAK_WisMesh_Tag_repeater-v1.18.0-ua.4.zip",
+              "path": "/firmware/custom/v1.18.0-ua.4/RAK_WisMesh_Tag_repeater-v1.18.0-ua.4.zip"
             },
             "uf2": {
-              "name": "RAK_WisMesh_Tag_repeater-v1.18.0-ua.3.uf2",
+              "name": "RAK_WisMesh_Tag_repeater-v1.18.0-ua.4.uf2",
               "size": 736768,
-              "sha256": "c4f0b719b16dd3566a7d6279b487eb6791112b1d4a1a7f7de7926a8a4bab724a",
-              "url": "/firmware/custom/v1.18.0-ua.3/RAK_WisMesh_Tag_repeater-v1.18.0-ua.3.uf2",
-              "path": "/firmware/custom/v1.18.0-ua.3/RAK_WisMesh_Tag_repeater-v1.18.0-ua.3.uf2"
+              "sha256": "671f4a533b74b4a6da3a7f19c0f9164317ab3ede0bd035bb900ec270c69718ad",
+              "url": "/firmware/custom/v1.18.0-ua.4/RAK_WisMesh_Tag_repeater-v1.18.0-ua.4.uf2",
+              "path": "/firmware/custom/v1.18.0-ua.4/RAK_WisMesh_Tag_repeater-v1.18.0-ua.4.uf2"
             }
           }
         },
@@ -943,18 +943,18 @@
           "hardwareTested": false,
           "files": {
             "zip": {
-              "name": "RAK_WisMesh_Tag_room_server-v1.18.0-ua.3.zip",
+              "name": "RAK_WisMesh_Tag_room_server-v1.18.0-ua.4.zip",
               "size": 361479,
-              "sha256": "7bfa3be87e25425c1792adae4f323325179de378aa75a1e852e42834d7929007",
-              "url": "/firmware/custom/v1.18.0-ua.3/RAK_WisMesh_Tag_room_server-v1.18.0-ua.3.zip",
-              "path": "/firmware/custom/v1.18.0-ua.3/RAK_WisMesh_Tag_room_server-v1.18.0-ua.3.zip"
+              "sha256": "e0515a1d0eeb4132b1820ea1e49816ed8da24b5e56552273093903840cc4fd21",
+              "url": "/firmware/custom/v1.18.0-ua.4/RAK_WisMesh_Tag_room_server-v1.18.0-ua.4.zip",
+              "path": "/firmware/custom/v1.18.0-ua.4/RAK_WisMesh_Tag_room_server-v1.18.0-ua.4.zip"
             },
             "uf2": {
-              "name": "RAK_WisMesh_Tag_room_server-v1.18.0-ua.3.uf2",
+              "name": "RAK_WisMesh_Tag_room_server-v1.18.0-ua.4.uf2",
               "size": 721408,
-              "sha256": "7f38f40e4ddb35f68dd1d519c6c6de8ef29400ccb5a29ef82da24c0bf1614143",
-              "url": "/firmware/custom/v1.18.0-ua.3/RAK_WisMesh_Tag_room_server-v1.18.0-ua.3.uf2",
-              "path": "/firmware/custom/v1.18.0-ua.3/RAK_WisMesh_Tag_room_server-v1.18.0-ua.3.uf2"
+              "sha256": "5229b1dcc93db89de9d8d2af889f93782993e230c9778f25e4434d7d71eedbf7",
+              "url": "/firmware/custom/v1.18.0-ua.4/RAK_WisMesh_Tag_room_server-v1.18.0-ua.4.uf2",
+              "path": "/firmware/custom/v1.18.0-ua.4/RAK_WisMesh_Tag_room_server-v1.18.0-ua.4.uf2"
             }
           }
         }
@@ -969,18 +969,18 @@
           "hardwareTested": false,
           "files": {
             "zip": {
-              "name": "SenseCap_Solar_companion_radio_ble-v1.18.0-ua.3.zip",
-              "size": 373595,
-              "sha256": "e069f0d704eea0fa90bf4937df46cecab518a815b37532e50daacb9aac92baf2",
-              "url": "/firmware/custom/v1.18.0-ua.3/SenseCap_Solar_companion_radio_ble-v1.18.0-ua.3.zip",
-              "path": "/firmware/custom/v1.18.0-ua.3/SenseCap_Solar_companion_radio_ble-v1.18.0-ua.3.zip"
+              "name": "SenseCap_Solar_companion_radio_ble-v1.18.0-ua.4.zip",
+              "size": 373593,
+              "sha256": "83a5b4a5e6300d155eba35369f55655696e7693205e698c3a47ea35162a23c1e",
+              "url": "/firmware/custom/v1.18.0-ua.4/SenseCap_Solar_companion_radio_ble-v1.18.0-ua.4.zip",
+              "path": "/firmware/custom/v1.18.0-ua.4/SenseCap_Solar_companion_radio_ble-v1.18.0-ua.4.zip"
             },
             "uf2": {
-              "name": "SenseCap_Solar_companion_radio_ble-v1.18.0-ua.3.uf2",
+              "name": "SenseCap_Solar_companion_radio_ble-v1.18.0-ua.4.uf2",
               "size": 745984,
-              "sha256": "66d934954d1c5523b709239bdfdabfaa269181139613e94082d647e8547e594e",
-              "url": "/firmware/custom/v1.18.0-ua.3/SenseCap_Solar_companion_radio_ble-v1.18.0-ua.3.uf2",
-              "path": "/firmware/custom/v1.18.0-ua.3/SenseCap_Solar_companion_radio_ble-v1.18.0-ua.3.uf2"
+              "sha256": "d9917c1768f0d3676c33f7e7fc83f11121427ed5c0c133690cf9ff8533ee83e0",
+              "url": "/firmware/custom/v1.18.0-ua.4/SenseCap_Solar_companion_radio_ble-v1.18.0-ua.4.uf2",
+              "path": "/firmware/custom/v1.18.0-ua.4/SenseCap_Solar_companion_radio_ble-v1.18.0-ua.4.uf2"
             }
           }
         },
@@ -989,18 +989,18 @@
           "hardwareTested": false,
           "files": {
             "zip": {
-              "name": "SenseCap_Solar_companion_radio_usb-v1.18.0-ua.3.zip",
+              "name": "SenseCap_Solar_companion_radio_usb-v1.18.0-ua.4.zip",
               "size": 368459,
-              "sha256": "9176738912a574890d276c38fc5cddba90e15f13a93cb707d557c46c3cde2f93",
-              "url": "/firmware/custom/v1.18.0-ua.3/SenseCap_Solar_companion_radio_usb-v1.18.0-ua.3.zip",
-              "path": "/firmware/custom/v1.18.0-ua.3/SenseCap_Solar_companion_radio_usb-v1.18.0-ua.3.zip"
+              "sha256": "25c2872fcaafb0f35523db50409f3a31abe82afc6d33cfc6c03b37467cd20cf5",
+              "url": "/firmware/custom/v1.18.0-ua.4/SenseCap_Solar_companion_radio_usb-v1.18.0-ua.4.zip",
+              "path": "/firmware/custom/v1.18.0-ua.4/SenseCap_Solar_companion_radio_usb-v1.18.0-ua.4.zip"
             },
             "uf2": {
-              "name": "SenseCap_Solar_companion_radio_usb-v1.18.0-ua.3.uf2",
+              "name": "SenseCap_Solar_companion_radio_usb-v1.18.0-ua.4.uf2",
               "size": 735744,
-              "sha256": "644d325112516e5d9354e1c1c4c643916dbdf1c3f6e2a2210091a201e14bd26d",
-              "url": "/firmware/custom/v1.18.0-ua.3/SenseCap_Solar_companion_radio_usb-v1.18.0-ua.3.uf2",
-              "path": "/firmware/custom/v1.18.0-ua.3/SenseCap_Solar_companion_radio_usb-v1.18.0-ua.3.uf2"
+              "sha256": "ce138edf12d21f10495efd207969adf9c8122ab1ff950da52c76e9a4128dea18",
+              "url": "/firmware/custom/v1.18.0-ua.4/SenseCap_Solar_companion_radio_usb-v1.18.0-ua.4.uf2",
+              "path": "/firmware/custom/v1.18.0-ua.4/SenseCap_Solar_companion_radio_usb-v1.18.0-ua.4.uf2"
             }
           }
         },
@@ -1009,18 +1009,18 @@
           "hardwareTested": false,
           "files": {
             "zip": {
-              "name": "SenseCap_Solar_repeater-v1.18.0-ua.3.zip",
+              "name": "SenseCap_Solar_repeater-v1.18.0-ua.4.zip",
               "size": 366215,
-              "sha256": "74c3c5b9cf5362651a9a890ba5577101b17bdd4e4fdb98d1f095203dc4671e6b",
-              "url": "/firmware/custom/v1.18.0-ua.3/SenseCap_Solar_repeater-v1.18.0-ua.3.zip",
-              "path": "/firmware/custom/v1.18.0-ua.3/SenseCap_Solar_repeater-v1.18.0-ua.3.zip"
+              "sha256": "97ad5ae49cc60e520aad56da1cca214fbd708160b6ec2b07d7a51f69fe4b43ab",
+              "url": "/firmware/custom/v1.18.0-ua.4/SenseCap_Solar_repeater-v1.18.0-ua.4.zip",
+              "path": "/firmware/custom/v1.18.0-ua.4/SenseCap_Solar_repeater-v1.18.0-ua.4.zip"
             },
             "uf2": {
-              "name": "SenseCap_Solar_repeater-v1.18.0-ua.3.uf2",
+              "name": "SenseCap_Solar_repeater-v1.18.0-ua.4.uf2",
               "size": 731136,
-              "sha256": "995cbe2206b34b33e81cbe0b32c26e50dcb82c9ec376e0ffec8e31798629aeae",
-              "url": "/firmware/custom/v1.18.0-ua.3/SenseCap_Solar_repeater-v1.18.0-ua.3.uf2",
-              "path": "/firmware/custom/v1.18.0-ua.3/SenseCap_Solar_repeater-v1.18.0-ua.3.uf2"
+              "sha256": "6ae9eefb75ca9dcad94921abc320acf35c95d317591dce003e41352109d5c59b",
+              "url": "/firmware/custom/v1.18.0-ua.4/SenseCap_Solar_repeater-v1.18.0-ua.4.uf2",
+              "path": "/firmware/custom/v1.18.0-ua.4/SenseCap_Solar_repeater-v1.18.0-ua.4.uf2"
             }
           }
         },
@@ -1029,18 +1029,18 @@
           "hardwareTested": false,
           "files": {
             "zip": {
-              "name": "SenseCap_Solar_room_server-v1.18.0-ua.3.zip",
-              "size": 359463,
-              "sha256": "4a05e6a57797723edb8204a3b5ea87cb4cf9ca25dc1b3036015563278355dfb3",
-              "url": "/firmware/custom/v1.18.0-ua.3/SenseCap_Solar_room_server-v1.18.0-ua.3.zip",
-              "path": "/firmware/custom/v1.18.0-ua.3/SenseCap_Solar_room_server-v1.18.0-ua.3.zip"
+              "name": "SenseCap_Solar_room_server-v1.18.0-ua.4.zip",
+              "size": 359462,
+              "sha256": "5d8b21d6d87313df35461b88d6f019bacf43fbd60f108b81ad9f81339b6a33ce",
+              "url": "/firmware/custom/v1.18.0-ua.4/SenseCap_Solar_room_server-v1.18.0-ua.4.zip",
+              "path": "/firmware/custom/v1.18.0-ua.4/SenseCap_Solar_room_server-v1.18.0-ua.4.zip"
             },
             "uf2": {
-              "name": "SenseCap_Solar_room_server-v1.18.0-ua.3.uf2",
+              "name": "SenseCap_Solar_room_server-v1.18.0-ua.4.uf2",
               "size": 717824,
-              "sha256": "58f999cc412483ede108530c2279c2f0d1fc74eec1a79affac409761359f7f3d",
-              "url": "/firmware/custom/v1.18.0-ua.3/SenseCap_Solar_room_server-v1.18.0-ua.3.uf2",
-              "path": "/firmware/custom/v1.18.0-ua.3/SenseCap_Solar_room_server-v1.18.0-ua.3.uf2"
+              "sha256": "4a47c72cf6bb13c7042a12050e8303c5bb504ab97a2e7c294a82a517a7e80a49",
+              "url": "/firmware/custom/v1.18.0-ua.4/SenseCap_Solar_room_server-v1.18.0-ua.4.uf2",
+              "path": "/firmware/custom/v1.18.0-ua.4/SenseCap_Solar_room_server-v1.18.0-ua.4.uf2"
             }
           }
         }
@@ -1055,18 +1055,18 @@
           "hardwareTested": false,
           "files": {
             "merged": {
-              "name": "Station_G2_companion_radio_usb-v1.18.0-ua.3-merged.bin",
+              "name": "Station_G2_companion_radio_usb-v1.18.0-ua.4-merged.bin",
               "size": 777696,
-              "sha256": "94587d5f13626901620de2f73a339ad18b238317fc8c3af95fae892fb51ec4c1",
-              "url": "/firmware/custom/v1.18.0-ua.3/Station_G2_companion_radio_usb-v1.18.0-ua.3-merged.bin",
-              "path": "/firmware/custom/v1.18.0-ua.3/Station_G2_companion_radio_usb-v1.18.0-ua.3-merged.bin"
+              "sha256": "6f7b8ed916ec5e3b08bb4ccc4281b0d6ac1927af4691236675bde925c68d7164",
+              "url": "/firmware/custom/v1.18.0-ua.4/Station_G2_companion_radio_usb-v1.18.0-ua.4-merged.bin",
+              "path": "/firmware/custom/v1.18.0-ua.4/Station_G2_companion_radio_usb-v1.18.0-ua.4-merged.bin"
             },
             "bin": {
-              "name": "Station_G2_companion_radio_usb-v1.18.0-ua.3.bin",
+              "name": "Station_G2_companion_radio_usb-v1.18.0-ua.4.bin",
               "size": 712160,
-              "sha256": "9795e33077b23aceae9963a3f6a14a4262a53f174a7101c5a640a063a0d938a9",
-              "url": "/firmware/custom/v1.18.0-ua.3/Station_G2_companion_radio_usb-v1.18.0-ua.3.bin",
-              "path": "/firmware/custom/v1.18.0-ua.3/Station_G2_companion_radio_usb-v1.18.0-ua.3.bin"
+              "sha256": "2e46346b8b42707c49f72af5a7295de601b523642986702d52231edfe01a89b9",
+              "url": "/firmware/custom/v1.18.0-ua.4/Station_G2_companion_radio_usb-v1.18.0-ua.4.bin",
+              "path": "/firmware/custom/v1.18.0-ua.4/Station_G2_companion_radio_usb-v1.18.0-ua.4.bin"
             }
           }
         },
@@ -1075,18 +1075,18 @@
           "hardwareTested": false,
           "files": {
             "merged": {
-              "name": "Station_G2_repeater-v1.18.0-ua.3-merged.bin",
+              "name": "Station_G2_repeater-v1.18.0-ua.4-merged.bin",
               "size": 1273504,
-              "sha256": "82678fad677087b8f4205c248c8e92392dc6cc3980dfe3639acbd88dfa82152a",
-              "url": "/firmware/custom/v1.18.0-ua.3/Station_G2_repeater-v1.18.0-ua.3-merged.bin",
-              "path": "/firmware/custom/v1.18.0-ua.3/Station_G2_repeater-v1.18.0-ua.3-merged.bin"
+              "sha256": "854219bbdd419fb5791b406e1d2b00312f06f84ab1ed74a47012192e83ecdbf6",
+              "url": "/firmware/custom/v1.18.0-ua.4/Station_G2_repeater-v1.18.0-ua.4-merged.bin",
+              "path": "/firmware/custom/v1.18.0-ua.4/Station_G2_repeater-v1.18.0-ua.4-merged.bin"
             },
             "bin": {
-              "name": "Station_G2_repeater-v1.18.0-ua.3.bin",
+              "name": "Station_G2_repeater-v1.18.0-ua.4.bin",
               "size": 1207968,
-              "sha256": "6b980bfb5e84583a3c99261898187074560d52929eecb3713a39b07ea8d109ad",
-              "url": "/firmware/custom/v1.18.0-ua.3/Station_G2_repeater-v1.18.0-ua.3.bin",
-              "path": "/firmware/custom/v1.18.0-ua.3/Station_G2_repeater-v1.18.0-ua.3.bin"
+              "sha256": "2bb19d2c7fb288d798d6140da3c93d0cf63a2abacf0655674d62e2a1b3f49622",
+              "url": "/firmware/custom/v1.18.0-ua.4/Station_G2_repeater-v1.18.0-ua.4.bin",
+              "path": "/firmware/custom/v1.18.0-ua.4/Station_G2_repeater-v1.18.0-ua.4.bin"
             }
           }
         },
@@ -1095,18 +1095,18 @@
           "hardwareTested": false,
           "files": {
             "merged": {
-              "name": "Station_G2_room_server-v1.18.0-ua.3-merged.bin",
+              "name": "Station_G2_room_server-v1.18.0-ua.4-merged.bin",
               "size": 1268736,
-              "sha256": "0b073ce230d8d3f16e40c0dc14dcfa027baf6508c926d13820e9bd48b1d977ca",
-              "url": "/firmware/custom/v1.18.0-ua.3/Station_G2_room_server-v1.18.0-ua.3-merged.bin",
-              "path": "/firmware/custom/v1.18.0-ua.3/Station_G2_room_server-v1.18.0-ua.3-merged.bin"
+              "sha256": "97898e5d1611a4a9c3b9ddaa0ed122d0e4941282ebd008be1db7a2cc0d0e5e67",
+              "url": "/firmware/custom/v1.18.0-ua.4/Station_G2_room_server-v1.18.0-ua.4-merged.bin",
+              "path": "/firmware/custom/v1.18.0-ua.4/Station_G2_room_server-v1.18.0-ua.4-merged.bin"
             },
             "bin": {
-              "name": "Station_G2_room_server-v1.18.0-ua.3.bin",
+              "name": "Station_G2_room_server-v1.18.0-ua.4.bin",
               "size": 1203200,
-              "sha256": "ceca98654ede9dfe3b6d908ee4675c22c439bfe52425b913173d7bf971e3fee2",
-              "url": "/firmware/custom/v1.18.0-ua.3/Station_G2_room_server-v1.18.0-ua.3.bin",
-              "path": "/firmware/custom/v1.18.0-ua.3/Station_G2_room_server-v1.18.0-ua.3.bin"
+              "sha256": "c508a967e7b2e0b986596c97686ec81c434fb8200f64a0e607ee9f7cfb0f33ab",
+              "url": "/firmware/custom/v1.18.0-ua.4/Station_G2_room_server-v1.18.0-ua.4.bin",
+              "path": "/firmware/custom/v1.18.0-ua.4/Station_G2_room_server-v1.18.0-ua.4.bin"
             }
           }
         }
@@ -1121,18 +1121,18 @@
           "hardwareTested": false,
           "files": {
             "merged": {
-              "name": "T_Beam_S3_Supreme_SX1262_companion_radio_gateway-v1.18.0-ua.3-merged.bin",
-              "size": 1950448,
-              "sha256": "fa467e00fd5a5e11b9e154dd2ff72eb26d1bed66babc5ac2eeb4abe72b7c8a33",
-              "url": "/firmware/custom/v1.18.0-ua.3/T_Beam_S3_Supreme_SX1262_companion_radio_gateway-v1.18.0-ua.3-merged.bin",
-              "path": "/firmware/custom/v1.18.0-ua.3/T_Beam_S3_Supreme_SX1262_companion_radio_gateway-v1.18.0-ua.3-merged.bin"
+              "name": "T_Beam_S3_Supreme_SX1262_companion_radio_gateway-v1.18.0-ua.4-merged.bin",
+              "size": 1949072,
+              "sha256": "230ac2920fb819117f397d15932e0086ce8950960e210f3c16a226d28ec67b84",
+              "url": "/firmware/custom/v1.18.0-ua.4/T_Beam_S3_Supreme_SX1262_companion_radio_gateway-v1.18.0-ua.4-merged.bin",
+              "path": "/firmware/custom/v1.18.0-ua.4/T_Beam_S3_Supreme_SX1262_companion_radio_gateway-v1.18.0-ua.4-merged.bin"
             },
             "bin": {
-              "name": "T_Beam_S3_Supreme_SX1262_companion_radio_gateway-v1.18.0-ua.3.bin",
-              "size": 1884912,
-              "sha256": "f50636df9bff659ca662e6e705c88b3aaf3dbaa0aa7d197bd2e52783c0609d89",
-              "url": "/firmware/custom/v1.18.0-ua.3/T_Beam_S3_Supreme_SX1262_companion_radio_gateway-v1.18.0-ua.3.bin",
-              "path": "/firmware/custom/v1.18.0-ua.3/T_Beam_S3_Supreme_SX1262_companion_radio_gateway-v1.18.0-ua.3.bin"
+              "name": "T_Beam_S3_Supreme_SX1262_companion_radio_gateway-v1.18.0-ua.4.bin",
+              "size": 1883536,
+              "sha256": "e07b43f93543aac2db488ca1b0d0f1690741cd47336de50619a97dc3614e7b70",
+              "url": "/firmware/custom/v1.18.0-ua.4/T_Beam_S3_Supreme_SX1262_companion_radio_gateway-v1.18.0-ua.4.bin",
+              "path": "/firmware/custom/v1.18.0-ua.4/T_Beam_S3_Supreme_SX1262_companion_radio_gateway-v1.18.0-ua.4.bin"
             }
           }
         }
@@ -1147,18 +1147,18 @@
           "hardwareTested": false,
           "files": {
             "zip": {
-              "name": "t1000e_companion_radio_ble-v1.18.0-ua.3.zip",
+              "name": "t1000e_companion_radio_ble-v1.18.0-ua.4.zip",
               "size": 310303,
-              "sha256": "cc0e10af86a29684687ffc6cac3bb243e71e5d1a3257c0fd1f2f0ddb7195a255",
-              "url": "/firmware/custom/v1.18.0-ua.3/t1000e_companion_radio_ble-v1.18.0-ua.3.zip",
-              "path": "/firmware/custom/v1.18.0-ua.3/t1000e_companion_radio_ble-v1.18.0-ua.3.zip"
+              "sha256": "d59ae62fd1e60fb63781da4f33a8760338972428a868db6e36b13ad6a43e035e",
+              "url": "/firmware/custom/v1.18.0-ua.4/t1000e_companion_radio_ble-v1.18.0-ua.4.zip",
+              "path": "/firmware/custom/v1.18.0-ua.4/t1000e_companion_radio_ble-v1.18.0-ua.4.zip"
             },
             "uf2": {
-              "name": "t1000e_companion_radio_ble-v1.18.0-ua.3.uf2",
+              "name": "t1000e_companion_radio_ble-v1.18.0-ua.4.uf2",
               "size": 619008,
-              "sha256": "df4c4029e09a78dd8c8dbd32d7aaa64ac223139b559ae61a4e552c471231ec62",
-              "url": "/firmware/custom/v1.18.0-ua.3/t1000e_companion_radio_ble-v1.18.0-ua.3.uf2",
-              "path": "/firmware/custom/v1.18.0-ua.3/t1000e_companion_radio_ble-v1.18.0-ua.3.uf2"
+              "sha256": "75cb6564b791031ed3679650933927ad52eb12b7f2304d7b9f4949c1d4f5e883",
+              "url": "/firmware/custom/v1.18.0-ua.4/t1000e_companion_radio_ble-v1.18.0-ua.4.uf2",
+              "path": "/firmware/custom/v1.18.0-ua.4/t1000e_companion_radio_ble-v1.18.0-ua.4.uf2"
             }
           }
         },
@@ -1167,18 +1167,18 @@
           "hardwareTested": false,
           "files": {
             "zip": {
-              "name": "t1000e_companion_radio_usb-v1.18.0-ua.3.zip",
+              "name": "t1000e_companion_radio_usb-v1.18.0-ua.4.zip",
               "size": 304647,
-              "sha256": "61e9c298895c6b3f5afb1a2afeffabb93ace89179ef620b2a13b3087c2747c97",
-              "url": "/firmware/custom/v1.18.0-ua.3/t1000e_companion_radio_usb-v1.18.0-ua.3.zip",
-              "path": "/firmware/custom/v1.18.0-ua.3/t1000e_companion_radio_usb-v1.18.0-ua.3.zip"
+              "sha256": "07d9487baef7e2b135575a58bc9c3dfdd40a111f48fa0a93763dfc75fa448ea0",
+              "url": "/firmware/custom/v1.18.0-ua.4/t1000e_companion_radio_usb-v1.18.0-ua.4.zip",
+              "path": "/firmware/custom/v1.18.0-ua.4/t1000e_companion_radio_usb-v1.18.0-ua.4.zip"
             },
             "uf2": {
-              "name": "t1000e_companion_radio_usb-v1.18.0-ua.3.uf2",
+              "name": "t1000e_companion_radio_usb-v1.18.0-ua.4.uf2",
               "size": 607744,
-              "sha256": "bcdd27157d63315bc740e6e58fad22972e117c567e968991762b9b9471f461c5",
-              "url": "/firmware/custom/v1.18.0-ua.3/t1000e_companion_radio_usb-v1.18.0-ua.3.uf2",
-              "path": "/firmware/custom/v1.18.0-ua.3/t1000e_companion_radio_usb-v1.18.0-ua.3.uf2"
+              "sha256": "8b12d107f5f53a0af2201d64188bf1ad1bb8429d66f7bcfeaafda1af822da836",
+              "url": "/firmware/custom/v1.18.0-ua.4/t1000e_companion_radio_usb-v1.18.0-ua.4.uf2",
+              "path": "/firmware/custom/v1.18.0-ua.4/t1000e_companion_radio_usb-v1.18.0-ua.4.uf2"
             }
           }
         },
@@ -1187,18 +1187,18 @@
           "hardwareTested": false,
           "files": {
             "zip": {
-              "name": "t1000e_repeater-v1.18.0-ua.3.zip",
+              "name": "t1000e_repeater-v1.18.0-ua.4.zip",
               "size": 294683,
-              "sha256": "8443ea7f5969649d06fc4e7a11075f93da64a1c8138d184cacf1f45056fd0fe5",
-              "url": "/firmware/custom/v1.18.0-ua.3/t1000e_repeater-v1.18.0-ua.3.zip",
-              "path": "/firmware/custom/v1.18.0-ua.3/t1000e_repeater-v1.18.0-ua.3.zip"
+              "sha256": "40337ac59917fe7a5138890b0e995c39a0c0e24c6146d124f03f3375e9c8c35f",
+              "url": "/firmware/custom/v1.18.0-ua.4/t1000e_repeater-v1.18.0-ua.4.zip",
+              "path": "/firmware/custom/v1.18.0-ua.4/t1000e_repeater-v1.18.0-ua.4.zip"
             },
             "uf2": {
-              "name": "t1000e_repeater-v1.18.0-ua.3.uf2",
+              "name": "t1000e_repeater-v1.18.0-ua.4.uf2",
               "size": 587776,
-              "sha256": "73a99a5ce7d171185b066103d885e3e80b99a8673bd2f26ed03fcbdec9eb8a94",
-              "url": "/firmware/custom/v1.18.0-ua.3/t1000e_repeater-v1.18.0-ua.3.uf2",
-              "path": "/firmware/custom/v1.18.0-ua.3/t1000e_repeater-v1.18.0-ua.3.uf2"
+              "sha256": "b6ed977da28e07620ed8f74c80021e3199eae4f0b8cd5d8cdfc929376f6a0e91",
+              "url": "/firmware/custom/v1.18.0-ua.4/t1000e_repeater-v1.18.0-ua.4.uf2",
+              "path": "/firmware/custom/v1.18.0-ua.4/t1000e_repeater-v1.18.0-ua.4.uf2"
             }
           }
         },
@@ -1207,18 +1207,18 @@
           "hardwareTested": false,
           "files": {
             "zip": {
-              "name": "t1000e_room_server-v1.18.0-ua.3.zip",
+              "name": "t1000e_room_server-v1.18.0-ua.4.zip",
               "size": 287519,
-              "sha256": "1f477d2034e23995673bcda7aa93068754386e6975761edf262437a94171ae21",
-              "url": "/firmware/custom/v1.18.0-ua.3/t1000e_room_server-v1.18.0-ua.3.zip",
-              "path": "/firmware/custom/v1.18.0-ua.3/t1000e_room_server-v1.18.0-ua.3.zip"
+              "sha256": "b3b7144654090b4091cbb59facad8624a4173aba045dc8067a87200e33ce8f3e",
+              "url": "/firmware/custom/v1.18.0-ua.4/t1000e_room_server-v1.18.0-ua.4.zip",
+              "path": "/firmware/custom/v1.18.0-ua.4/t1000e_room_server-v1.18.0-ua.4.zip"
             },
             "uf2": {
-              "name": "t1000e_room_server-v1.18.0-ua.3.uf2",
+              "name": "t1000e_room_server-v1.18.0-ua.4.uf2",
               "size": 573440,
-              "sha256": "340372f4db8f07cef7421d474be5c8a1de7c9ae6dc7971616fbf28875405beff",
-              "url": "/firmware/custom/v1.18.0-ua.3/t1000e_room_server-v1.18.0-ua.3.uf2",
-              "path": "/firmware/custom/v1.18.0-ua.3/t1000e_room_server-v1.18.0-ua.3.uf2"
+              "sha256": "8353f89ce4b7cbc5dfbe1c5600182a15447210308fb68ae25bf1086b3148339e",
+              "url": "/firmware/custom/v1.18.0-ua.4/t1000e_room_server-v1.18.0-ua.4.uf2",
+              "path": "/firmware/custom/v1.18.0-ua.4/t1000e_room_server-v1.18.0-ua.4.uf2"
             }
           }
         }
@@ -1233,18 +1233,18 @@
           "hardwareTested": false,
           "files": {
             "zip": {
-              "name": "ThinkNode_M1_companion_radio_ble-v1.18.0-ua.3.zip",
+              "name": "ThinkNode_M1_companion_radio_ble-v1.18.0-ua.4.zip",
               "size": 364295,
-              "sha256": "b573bb36687d1cdf4ec086f2c48f5685f0b9f4bd10a0b40a515a0e4980be01ba",
-              "url": "/firmware/custom/v1.18.0-ua.3/ThinkNode_M1_companion_radio_ble-v1.18.0-ua.3.zip",
-              "path": "/firmware/custom/v1.18.0-ua.3/ThinkNode_M1_companion_radio_ble-v1.18.0-ua.3.zip"
+              "sha256": "1ad49f15eb70a4faae4152a1a53fe35ee80852e5bdf0b29f6fe0fdc6b67b3526",
+              "url": "/firmware/custom/v1.18.0-ua.4/ThinkNode_M1_companion_radio_ble-v1.18.0-ua.4.zip",
+              "path": "/firmware/custom/v1.18.0-ua.4/ThinkNode_M1_companion_radio_ble-v1.18.0-ua.4.zip"
             },
             "uf2": {
-              "name": "ThinkNode_M1_companion_radio_ble-v1.18.0-ua.3.uf2",
+              "name": "ThinkNode_M1_companion_radio_ble-v1.18.0-ua.4.uf2",
               "size": 727040,
-              "sha256": "d01c76e6c0f887cdeccfbbc005f4b124f35a832ab2fbc5c55071ae98e44efc22",
-              "url": "/firmware/custom/v1.18.0-ua.3/ThinkNode_M1_companion_radio_ble-v1.18.0-ua.3.uf2",
-              "path": "/firmware/custom/v1.18.0-ua.3/ThinkNode_M1_companion_radio_ble-v1.18.0-ua.3.uf2"
+              "sha256": "ca79af5499358d01b9f718555caa1163909e3d09d489cdb2f1c081139c65c8d0",
+              "url": "/firmware/custom/v1.18.0-ua.4/ThinkNode_M1_companion_radio_ble-v1.18.0-ua.4.uf2",
+              "path": "/firmware/custom/v1.18.0-ua.4/ThinkNode_M1_companion_radio_ble-v1.18.0-ua.4.uf2"
             }
           }
         },
@@ -1253,18 +1253,18 @@
           "hardwareTested": false,
           "files": {
             "zip": {
-              "name": "ThinkNode_M1_companion_radio_usb-v1.18.0-ua.3.zip",
-              "size": 355220,
-              "sha256": "318de8a1a3432f59d354459856b3948092d93fb08a2428d3e6e11dec4526be87",
-              "url": "/firmware/custom/v1.18.0-ua.3/ThinkNode_M1_companion_radio_usb-v1.18.0-ua.3.zip",
-              "path": "/firmware/custom/v1.18.0-ua.3/ThinkNode_M1_companion_radio_usb-v1.18.0-ua.3.zip"
+              "name": "ThinkNode_M1_companion_radio_usb-v1.18.0-ua.4.zip",
+              "size": 355223,
+              "sha256": "97248a7e81a87f1e8b380cde5a8264c31a54e939b01db318153e8190de39c403",
+              "url": "/firmware/custom/v1.18.0-ua.4/ThinkNode_M1_companion_radio_usb-v1.18.0-ua.4.zip",
+              "path": "/firmware/custom/v1.18.0-ua.4/ThinkNode_M1_companion_radio_usb-v1.18.0-ua.4.zip"
             },
             "uf2": {
-              "name": "ThinkNode_M1_companion_radio_usb-v1.18.0-ua.3.uf2",
+              "name": "ThinkNode_M1_companion_radio_usb-v1.18.0-ua.4.uf2",
               "size": 709120,
-              "sha256": "3070148a46fced7fa6e2610628ac7e4426e73d83422dd8247961b5ee787adc2f",
-              "url": "/firmware/custom/v1.18.0-ua.3/ThinkNode_M1_companion_radio_usb-v1.18.0-ua.3.uf2",
-              "path": "/firmware/custom/v1.18.0-ua.3/ThinkNode_M1_companion_radio_usb-v1.18.0-ua.3.uf2"
+              "sha256": "eda43b53d69bbb034803b8491801fd17bc4f7efb0efa6a7e17227701ff42e592",
+              "url": "/firmware/custom/v1.18.0-ua.4/ThinkNode_M1_companion_radio_usb-v1.18.0-ua.4.uf2",
+              "path": "/firmware/custom/v1.18.0-ua.4/ThinkNode_M1_companion_radio_usb-v1.18.0-ua.4.uf2"
             }
           }
         },
@@ -1273,18 +1273,18 @@
           "hardwareTested": false,
           "files": {
             "zip": {
-              "name": "ThinkNode_M1_repeater-v1.18.0-ua.3.zip",
-              "size": 306143,
-              "sha256": "fd4875f953f2b31b9d89ddfac807034454d011b7f72e34c57d7b482b850517fc",
-              "url": "/firmware/custom/v1.18.0-ua.3/ThinkNode_M1_repeater-v1.18.0-ua.3.zip",
-              "path": "/firmware/custom/v1.18.0-ua.3/ThinkNode_M1_repeater-v1.18.0-ua.3.zip"
+              "name": "ThinkNode_M1_repeater-v1.18.0-ua.4.zip",
+              "size": 306141,
+              "sha256": "a185dc4f80831d5ea76e9080e042a2f3698b1fa0882251eb4718d6b6a35ac41f",
+              "url": "/firmware/custom/v1.18.0-ua.4/ThinkNode_M1_repeater-v1.18.0-ua.4.zip",
+              "path": "/firmware/custom/v1.18.0-ua.4/ThinkNode_M1_repeater-v1.18.0-ua.4.zip"
             },
             "uf2": {
-              "name": "ThinkNode_M1_repeater-v1.18.0-ua.3.uf2",
+              "name": "ThinkNode_M1_repeater-v1.18.0-ua.4.uf2",
               "size": 610816,
-              "sha256": "90dad31f32314a620cfac1dbb96142d924c3249eafc18c1d266e7802296fce66",
-              "url": "/firmware/custom/v1.18.0-ua.3/ThinkNode_M1_repeater-v1.18.0-ua.3.uf2",
-              "path": "/firmware/custom/v1.18.0-ua.3/ThinkNode_M1_repeater-v1.18.0-ua.3.uf2"
+              "sha256": "cfdaf518ccd4a5aab95012b0138e99e3bb039beaf517675eb4f626d6e4527c8c",
+              "url": "/firmware/custom/v1.18.0-ua.4/ThinkNode_M1_repeater-v1.18.0-ua.4.uf2",
+              "path": "/firmware/custom/v1.18.0-ua.4/ThinkNode_M1_repeater-v1.18.0-ua.4.uf2"
             }
           }
         },
@@ -1293,18 +1293,18 @@
           "hardwareTested": false,
           "files": {
             "zip": {
-              "name": "ThinkNode_M1_room_server-v1.18.0-ua.3.zip",
+              "name": "ThinkNode_M1_room_server-v1.18.0-ua.4.zip",
               "size": 299567,
-              "sha256": "cd6fe541cfc629caabfaa4a9266cc9580b2c98eeaeacf8466f61dc24c8f2bf64",
-              "url": "/firmware/custom/v1.18.0-ua.3/ThinkNode_M1_room_server-v1.18.0-ua.3.zip",
-              "path": "/firmware/custom/v1.18.0-ua.3/ThinkNode_M1_room_server-v1.18.0-ua.3.zip"
+              "sha256": "49aca26e840786344b2564bf3988063c395b3cf645ff480f585c823ae0404a78",
+              "url": "/firmware/custom/v1.18.0-ua.4/ThinkNode_M1_room_server-v1.18.0-ua.4.zip",
+              "path": "/firmware/custom/v1.18.0-ua.4/ThinkNode_M1_room_server-v1.18.0-ua.4.zip"
             },
             "uf2": {
-              "name": "ThinkNode_M1_room_server-v1.18.0-ua.3.uf2",
+              "name": "ThinkNode_M1_room_server-v1.18.0-ua.4.uf2",
               "size": 598016,
-              "sha256": "73a968be632f52b59373244f7753e4a38caf36d3032d2d7b572a61bc8903ef8b",
-              "url": "/firmware/custom/v1.18.0-ua.3/ThinkNode_M1_room_server-v1.18.0-ua.3.uf2",
-              "path": "/firmware/custom/v1.18.0-ua.3/ThinkNode_M1_room_server-v1.18.0-ua.3.uf2"
+              "sha256": "07587e2c4099c5ac6da2d3e1e7c025f97e9bae7bad45a1551450b18676299c5f",
+              "url": "/firmware/custom/v1.18.0-ua.4/ThinkNode_M1_room_server-v1.18.0-ua.4.uf2",
+              "path": "/firmware/custom/v1.18.0-ua.4/ThinkNode_M1_room_server-v1.18.0-ua.4.uf2"
             }
           }
         }
@@ -1319,18 +1319,18 @@
           "hardwareTested": false,
           "files": {
             "zip": {
-              "name": "WioTrackerL1_companion_radio_ble-v1.18.0-ua.3.zip",
-              "size": 406247,
-              "sha256": "319bbee61ce94da53ab1cb597f1ebf4fa68b58db681fc20e415b797438046a62",
-              "url": "/firmware/custom/v1.18.0-ua.3/WioTrackerL1_companion_radio_ble-v1.18.0-ua.3.zip",
-              "path": "/firmware/custom/v1.18.0-ua.3/WioTrackerL1_companion_radio_ble-v1.18.0-ua.3.zip"
+              "name": "WioTrackerL1_companion_radio_ble-v1.18.0-ua.4.zip",
+              "size": 406246,
+              "sha256": "997712004d6728b75a5a75db88443d58b3bdbd4d511c3310729454778596c30f",
+              "url": "/firmware/custom/v1.18.0-ua.4/WioTrackerL1_companion_radio_ble-v1.18.0-ua.4.zip",
+              "path": "/firmware/custom/v1.18.0-ua.4/WioTrackerL1_companion_radio_ble-v1.18.0-ua.4.zip"
             },
             "uf2": {
-              "name": "WioTrackerL1_companion_radio_ble-v1.18.0-ua.3.uf2",
+              "name": "WioTrackerL1_companion_radio_ble-v1.18.0-ua.4.uf2",
               "size": 811008,
-              "sha256": "7d69fbe84ece00762d30b41c18f23a9634f8a34ccc23437cb37ececbfccddcf3",
-              "url": "/firmware/custom/v1.18.0-ua.3/WioTrackerL1_companion_radio_ble-v1.18.0-ua.3.uf2",
-              "path": "/firmware/custom/v1.18.0-ua.3/WioTrackerL1_companion_radio_ble-v1.18.0-ua.3.uf2"
+              "sha256": "28f1ab9979839a97f5975d7d23979b8ad711ad4d68fc92e503347c9ddf2cb9cb",
+              "url": "/firmware/custom/v1.18.0-ua.4/WioTrackerL1_companion_radio_ble-v1.18.0-ua.4.uf2",
+              "path": "/firmware/custom/v1.18.0-ua.4/WioTrackerL1_companion_radio_ble-v1.18.0-ua.4.uf2"
             }
           }
         },
@@ -1339,18 +1339,18 @@
           "hardwareTested": false,
           "files": {
             "zip": {
-              "name": "WioTrackerL1_companion_radio_usb-v1.18.0-ua.3.zip",
+              "name": "WioTrackerL1_companion_radio_usb-v1.18.0-ua.4.zip",
               "size": 398183,
-              "sha256": "e44beb9964d379c3258872cab4e637e6c6dde4f31eecadac64fdca2c913ddc0f",
-              "url": "/firmware/custom/v1.18.0-ua.3/WioTrackerL1_companion_radio_usb-v1.18.0-ua.3.zip",
-              "path": "/firmware/custom/v1.18.0-ua.3/WioTrackerL1_companion_radio_usb-v1.18.0-ua.3.zip"
+              "sha256": "09ba9f3114492ddab0a2ee78b59205de3af6f1613aeda33e51ca83ca4a929468",
+              "url": "/firmware/custom/v1.18.0-ua.4/WioTrackerL1_companion_radio_usb-v1.18.0-ua.4.zip",
+              "path": "/firmware/custom/v1.18.0-ua.4/WioTrackerL1_companion_radio_usb-v1.18.0-ua.4.zip"
             },
             "uf2": {
-              "name": "WioTrackerL1_companion_radio_usb-v1.18.0-ua.3.uf2",
+              "name": "WioTrackerL1_companion_radio_usb-v1.18.0-ua.4.uf2",
               "size": 795136,
-              "sha256": "b3f9f21d4892cfb787ead6ba1496bd3e904d2095e7e0c80764f9fdaeddb1a607",
-              "url": "/firmware/custom/v1.18.0-ua.3/WioTrackerL1_companion_radio_usb-v1.18.0-ua.3.uf2",
-              "path": "/firmware/custom/v1.18.0-ua.3/WioTrackerL1_companion_radio_usb-v1.18.0-ua.3.uf2"
+              "sha256": "90558a1ea3e6426f610d6d851fa54a4004802b6369cba1f75791053c6fd2621f",
+              "url": "/firmware/custom/v1.18.0-ua.4/WioTrackerL1_companion_radio_usb-v1.18.0-ua.4.uf2",
+              "path": "/firmware/custom/v1.18.0-ua.4/WioTrackerL1_companion_radio_usb-v1.18.0-ua.4.uf2"
             }
           }
         },
@@ -1359,18 +1359,18 @@
           "hardwareTested": false,
           "files": {
             "zip": {
-              "name": "WioTrackerL1_repeater-v1.18.0-ua.3.zip",
+              "name": "WioTrackerL1_repeater-v1.18.0-ua.4.zip",
               "size": 377671,
-              "sha256": "456f3790ff5d17694542c45d09fa81e1f0496cbd8b8bcd4b1dae522647f5f9e1",
-              "url": "/firmware/custom/v1.18.0-ua.3/WioTrackerL1_repeater-v1.18.0-ua.3.zip",
-              "path": "/firmware/custom/v1.18.0-ua.3/WioTrackerL1_repeater-v1.18.0-ua.3.zip"
+              "sha256": "f2ea1eb45bc5db87ca9c59453d006474c036b94ec128151fb487754a0d3e52e2",
+              "url": "/firmware/custom/v1.18.0-ua.4/WioTrackerL1_repeater-v1.18.0-ua.4.zip",
+              "path": "/firmware/custom/v1.18.0-ua.4/WioTrackerL1_repeater-v1.18.0-ua.4.zip"
             },
             "uf2": {
-              "name": "WioTrackerL1_repeater-v1.18.0-ua.3.uf2",
+              "name": "WioTrackerL1_repeater-v1.18.0-ua.4.uf2",
               "size": 754176,
-              "sha256": "21b81ccf688290c9a16f84a7d07a28e1cdc76ebf3346d3b62e2680b3fc4bf077",
-              "url": "/firmware/custom/v1.18.0-ua.3/WioTrackerL1_repeater-v1.18.0-ua.3.uf2",
-              "path": "/firmware/custom/v1.18.0-ua.3/WioTrackerL1_repeater-v1.18.0-ua.3.uf2"
+              "sha256": "13f44e1d88b3731d222d91d3282bdbe0f5d2046236c037f55b234e191d611660",
+              "url": "/firmware/custom/v1.18.0-ua.4/WioTrackerL1_repeater-v1.18.0-ua.4.uf2",
+              "path": "/firmware/custom/v1.18.0-ua.4/WioTrackerL1_repeater-v1.18.0-ua.4.uf2"
             }
           }
         },
@@ -1379,18 +1379,18 @@
           "hardwareTested": false,
           "files": {
             "zip": {
-              "name": "WioTrackerL1_room_server-v1.18.0-ua.3.zip",
+              "name": "WioTrackerL1_room_server-v1.18.0-ua.4.zip",
               "size": 370719,
-              "sha256": "2c96eb126858e5c762983628a0accc55bed9179bbef6a34ed4b768bab4ace545",
-              "url": "/firmware/custom/v1.18.0-ua.3/WioTrackerL1_room_server-v1.18.0-ua.3.zip",
-              "path": "/firmware/custom/v1.18.0-ua.3/WioTrackerL1_room_server-v1.18.0-ua.3.zip"
+              "sha256": "d4488a337b7552fdcda3b7794401f1c32f98628fa4c9730220d4c5a37f466084",
+              "url": "/firmware/custom/v1.18.0-ua.4/WioTrackerL1_room_server-v1.18.0-ua.4.zip",
+              "path": "/firmware/custom/v1.18.0-ua.4/WioTrackerL1_room_server-v1.18.0-ua.4.zip"
             },
             "uf2": {
-              "name": "WioTrackerL1_room_server-v1.18.0-ua.3.uf2",
+              "name": "WioTrackerL1_room_server-v1.18.0-ua.4.uf2",
               "size": 739840,
-              "sha256": "f3c103dd3ad0f49e0df563180a73a0a495f85d6bc4353b3ef7e445911935f792",
-              "url": "/firmware/custom/v1.18.0-ua.3/WioTrackerL1_room_server-v1.18.0-ua.3.uf2",
-              "path": "/firmware/custom/v1.18.0-ua.3/WioTrackerL1_room_server-v1.18.0-ua.3.uf2"
+              "sha256": "ee3171c32203468591e163422e3f11475811b9d543e9cc0cf8ae01b2198f7d29",
+              "url": "/firmware/custom/v1.18.0-ua.4/WioTrackerL1_room_server-v1.18.0-ua.4.uf2",
+              "path": "/firmware/custom/v1.18.0-ua.4/WioTrackerL1_room_server-v1.18.0-ua.4.uf2"
             }
           }
         }
@@ -1405,18 +1405,18 @@
           "hardwareTested": false,
           "files": {
             "zip": {
-              "name": "Xiao_nrf52_companion_radio_ble-v1.18.0-ua.3.zip",
+              "name": "Xiao_nrf52_companion_radio_ble-v1.18.0-ua.4.zip",
               "size": 379411,
-              "sha256": "99e384c9fea6a6d08014afe948826b667c23715258b291758d054eaf18b54da4",
-              "url": "/firmware/custom/v1.18.0-ua.3/Xiao_nrf52_companion_radio_ble-v1.18.0-ua.3.zip",
-              "path": "/firmware/custom/v1.18.0-ua.3/Xiao_nrf52_companion_radio_ble-v1.18.0-ua.3.zip"
+              "sha256": "e7fb4106b44dd62ef79d908b7f6b6ca6fedd116a6fba0aef3d079470ade07b3a",
+              "url": "/firmware/custom/v1.18.0-ua.4/Xiao_nrf52_companion_radio_ble-v1.18.0-ua.4.zip",
+              "path": "/firmware/custom/v1.18.0-ua.4/Xiao_nrf52_companion_radio_ble-v1.18.0-ua.4.zip"
             },
             "uf2": {
-              "name": "Xiao_nrf52_companion_radio_ble-v1.18.0-ua.3.uf2",
+              "name": "Xiao_nrf52_companion_radio_ble-v1.18.0-ua.4.uf2",
               "size": 757248,
-              "sha256": "f81f080eb3f7f049c126095a9b1ad8f106e174e5e63cbcd188e737a27bedfdba",
-              "url": "/firmware/custom/v1.18.0-ua.3/Xiao_nrf52_companion_radio_ble-v1.18.0-ua.3.uf2",
-              "path": "/firmware/custom/v1.18.0-ua.3/Xiao_nrf52_companion_radio_ble-v1.18.0-ua.3.uf2"
+              "sha256": "ab0d86b3f6d64dce2243c007a2b7d846e71d32965b6504f48d1a821613f905ca",
+              "url": "/firmware/custom/v1.18.0-ua.4/Xiao_nrf52_companion_radio_ble-v1.18.0-ua.4.uf2",
+              "path": "/firmware/custom/v1.18.0-ua.4/Xiao_nrf52_companion_radio_ble-v1.18.0-ua.4.uf2"
             }
           }
         },
@@ -1425,18 +1425,18 @@
           "hardwareTested": false,
           "files": {
             "zip": {
-              "name": "Xiao_nrf52_companion_radio_usb-v1.18.0-ua.3.zip",
+              "name": "Xiao_nrf52_companion_radio_usb-v1.18.0-ua.4.zip",
               "size": 373715,
-              "sha256": "4fd2aa9f6c7843fa47bee14b83fbc74096e4772183a5558a6f8f5a138f4ed5d4",
-              "url": "/firmware/custom/v1.18.0-ua.3/Xiao_nrf52_companion_radio_usb-v1.18.0-ua.3.zip",
-              "path": "/firmware/custom/v1.18.0-ua.3/Xiao_nrf52_companion_radio_usb-v1.18.0-ua.3.zip"
+              "sha256": "8af2376058e3d6729b51b73f5ae72d7b5fa4d5b2bd424f683e8d76b65fbe9a57",
+              "url": "/firmware/custom/v1.18.0-ua.4/Xiao_nrf52_companion_radio_usb-v1.18.0-ua.4.zip",
+              "path": "/firmware/custom/v1.18.0-ua.4/Xiao_nrf52_companion_radio_usb-v1.18.0-ua.4.zip"
             },
             "uf2": {
-              "name": "Xiao_nrf52_companion_radio_usb-v1.18.0-ua.3.uf2",
+              "name": "Xiao_nrf52_companion_radio_usb-v1.18.0-ua.4.uf2",
               "size": 745984,
-              "sha256": "c17cc18491ccae6fe619ce80359b9674e529438ffe785c9327f1ff79df77970f",
-              "url": "/firmware/custom/v1.18.0-ua.3/Xiao_nrf52_companion_radio_usb-v1.18.0-ua.3.uf2",
-              "path": "/firmware/custom/v1.18.0-ua.3/Xiao_nrf52_companion_radio_usb-v1.18.0-ua.3.uf2"
+              "sha256": "b230981372aa01925b324fc9b1bcce6cf1591cfebac7bece6aebfbdf5bb9cadf",
+              "url": "/firmware/custom/v1.18.0-ua.4/Xiao_nrf52_companion_radio_usb-v1.18.0-ua.4.uf2",
+              "path": "/firmware/custom/v1.18.0-ua.4/Xiao_nrf52_companion_radio_usb-v1.18.0-ua.4.uf2"
             }
           }
         },
@@ -1445,18 +1445,18 @@
           "hardwareTested": false,
           "files": {
             "zip": {
-              "name": "Xiao_nrf52_repeater-v1.18.0-ua.3.zip",
+              "name": "Xiao_nrf52_repeater-v1.18.0-ua.4.zip",
               "size": 361731,
-              "sha256": "044038347da0ee837052a05abe1d1afe53b66abc34bc51a1f838825322102fdf",
-              "url": "/firmware/custom/v1.18.0-ua.3/Xiao_nrf52_repeater-v1.18.0-ua.3.zip",
-              "path": "/firmware/custom/v1.18.0-ua.3/Xiao_nrf52_repeater-v1.18.0-ua.3.zip"
+              "sha256": "4bae939a41d6383e9d8d69e81a96c79f836da7dadd764ff07d3a55b3e9d80a43",
+              "url": "/firmware/custom/v1.18.0-ua.4/Xiao_nrf52_repeater-v1.18.0-ua.4.zip",
+              "path": "/firmware/custom/v1.18.0-ua.4/Xiao_nrf52_repeater-v1.18.0-ua.4.zip"
             },
             "uf2": {
-              "name": "Xiao_nrf52_repeater-v1.18.0-ua.3.uf2",
+              "name": "Xiao_nrf52_repeater-v1.18.0-ua.4.uf2",
               "size": 721920,
-              "sha256": "60670b2009d3539b6987311ee132f88847c1b4962a9441fe38c9fe41fbd735fc",
-              "url": "/firmware/custom/v1.18.0-ua.3/Xiao_nrf52_repeater-v1.18.0-ua.3.uf2",
-              "path": "/firmware/custom/v1.18.0-ua.3/Xiao_nrf52_repeater-v1.18.0-ua.3.uf2"
+              "sha256": "cf31e81736c75c769c5a1b7162bfb30576c702989e5a974bbf42a0fae7d6e61e",
+              "url": "/firmware/custom/v1.18.0-ua.4/Xiao_nrf52_repeater-v1.18.0-ua.4.uf2",
+              "path": "/firmware/custom/v1.18.0-ua.4/Xiao_nrf52_repeater-v1.18.0-ua.4.uf2"
             }
           }
         },
@@ -1465,18 +1465,18 @@
           "hardwareTested": false,
           "files": {
             "zip": {
-              "name": "Xiao_nrf52_room_server-v1.18.0-ua.3.zip",
+              "name": "Xiao_nrf52_room_server-v1.18.0-ua.4.zip",
               "size": 354163,
-              "sha256": "f3a57987600278812accbb4a5d64ffe2961426b84bcf3b49eb91e1dba8e6b66e",
-              "url": "/firmware/custom/v1.18.0-ua.3/Xiao_nrf52_room_server-v1.18.0-ua.3.zip",
-              "path": "/firmware/custom/v1.18.0-ua.3/Xiao_nrf52_room_server-v1.18.0-ua.3.zip"
+              "sha256": "685fb76d55fecf874af66ab1db4723807e5e022364dd825f33f88fe35666397a",
+              "url": "/firmware/custom/v1.18.0-ua.4/Xiao_nrf52_room_server-v1.18.0-ua.4.zip",
+              "path": "/firmware/custom/v1.18.0-ua.4/Xiao_nrf52_room_server-v1.18.0-ua.4.zip"
             },
             "uf2": {
-              "name": "Xiao_nrf52_room_server-v1.18.0-ua.3.uf2",
+              "name": "Xiao_nrf52_room_server-v1.18.0-ua.4.uf2",
               "size": 707072,
-              "sha256": "797b73e4a9cf7246a8497da2215fa75a3da31f080f7e414f67f719d3f4ab50f4",
-              "url": "/firmware/custom/v1.18.0-ua.3/Xiao_nrf52_room_server-v1.18.0-ua.3.uf2",
-              "path": "/firmware/custom/v1.18.0-ua.3/Xiao_nrf52_room_server-v1.18.0-ua.3.uf2"
+              "sha256": "65c2422242c348e50ead57e85c1dc6b53be71de56064ae0214e804add9bed913",
+              "url": "/firmware/custom/v1.18.0-ua.4/Xiao_nrf52_room_server-v1.18.0-ua.4.uf2",
+              "path": "/firmware/custom/v1.18.0-ua.4/Xiao_nrf52_room_server-v1.18.0-ua.4.uf2"
             }
           }
         }

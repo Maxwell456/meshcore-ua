@@ -1,8 +1,8 @@
 # Збірка своїми руками ProMicro nRF52840 + E22
 
-nRF52 · MeshCore Україна **1.18.0-ua.3** · MeshCore 1.18.0
+nRF52 · MeshCore Україна **1.18.0-ua.4** · MeshCore 1.18.0
 
-[← Усі пристрої](../../README.md) · [Прошити в браузері](https://meshcore.com.ua/install/) · [Реліз v1.18.0-ua.3](https://github.com/Maxwell456/meshcore-ua/releases/tag/v1.18.0-ua.3)
+[← Усі пристрої](../../README.md) · [Прошити в браузері](https://meshcore.com.ua/install/) · [Реліз v1.18.0-ua.4](https://github.com/Maxwell456/meshcore-ua/releases/tag/v1.18.0-ua.4)
 
 Файли лежать у теках за типом вузла: [`bluetooth/`](bluetooth) — компаньйон Bluetooth, [`usb/`](usb) — компаньйон USB, [`repeater/`](repeater) — ретранслятор, [`room-server/`](room-server) — кімната.
 
@@ -10,10 +10,10 @@ nRF52 · MeshCore Україна **1.18.0-ua.3** · MeshCore 1.18.0
 
 | Тип вузла | UF2 | DFU-пакет (ZIP) |
 |---|---|---|
-| **Компаньйон Bluetooth**<br><sub>для телефона, застосунок MeshCore</sub> | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/promicro/bluetooth/ProMicro_companion_radio_ble-v1.18.0-ua.3.uf2) · 0,7 МБ | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/promicro/bluetooth/ProMicro_companion_radio_ble-v1.18.0-ua.3.zip) · 0,4 МБ |
-| **Компаньйон USB**<br><sub>для комп’ютера, веб-застосунок через кабель</sub> | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/promicro/usb/ProMicro_companion_radio_usb-v1.18.0-ua.3.uf2) · 0,7 МБ | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/promicro/usb/ProMicro_companion_radio_usb-v1.18.0-ua.3.zip) · 0,3 МБ |
-| **Ретранслятор**<br><sub>пересилає повідомлення, розширює покриття</sub> | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/promicro/repeater/ProMicro_repeater-v1.18.0-ua.3.uf2) · 0,7 МБ | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/promicro/repeater/ProMicro_repeater-v1.18.0-ua.3.zip) · 0,3 МБ |
-| **Кімната**<br><sub>зберігає історію повідомлень для учасників</sub> | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/promicro/room-server/ProMicro_room_server-v1.18.0-ua.3.uf2) · 0,6 МБ | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/promicro/room-server/ProMicro_room_server-v1.18.0-ua.3.zip) · 0,3 МБ |
+| **Компаньйон Bluetooth**<br><sub>для телефона, застосунок MeshCore</sub> | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/promicro/bluetooth/ProMicro_companion_radio_ble-v1.18.0-ua.4.uf2) · 0,7 МБ | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/promicro/bluetooth/ProMicro_companion_radio_ble-v1.18.0-ua.4.zip) · 0,4 МБ |
+| **Компаньйон USB**<br><sub>для комп’ютера, веб-застосунок через кабель</sub> | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/promicro/usb/ProMicro_companion_radio_usb-v1.18.0-ua.4.uf2) · 0,7 МБ | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/promicro/usb/ProMicro_companion_radio_usb-v1.18.0-ua.4.zip) · 0,3 МБ |
+| **Ретранслятор**<br><sub>пересилає повідомлення, розширює покриття</sub> | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/promicro/repeater/ProMicro_repeater-v1.18.0-ua.4.uf2) · 0,7 МБ | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/promicro/repeater/ProMicro_repeater-v1.18.0-ua.4.zip) · 0,3 МБ |
+| **Кімната**<br><sub>зберігає історію повідомлень для учасників</sub> | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/promicro/room-server/ProMicro_room_server-v1.18.0-ua.4.uf2) · 0,6 МБ | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/promicro/room-server/ProMicro_room_server-v1.18.0-ua.4.zip) · 0,3 МБ |
 
 ## Яку прошивку обрати
 
@@ -28,13 +28,13 @@ nRF52 · MeshCore Україна **1.18.0-ua.3** · MeshCore 1.18.0
 
 **UF2 (найпростіше)**
 1. Підключіть пристрій кабелем для даних і двічі швидко натисніть Reset.
-2. З’явиться диск (наприклад, `RAK4631`, `TECHOBOOT` чи `T1000-E`). Скопіюйте на нього `ProMicro_companion_radio_ble-v1.18.0-ua.3.uf2`.
+2. З’явиться диск (наприклад, `RAK4631`, `TECHOBOOT` чи `T1000-E`). Скопіюйте на нього `ProMicro_companion_radio_ble-v1.18.0-ua.4.uf2`.
 3. Пристрій перезавантажиться сам.
 
 **DFU через USB**
 ```sh
 pip install adafruit-nrfutil
-adafruit-nrfutil dfu serial --package ProMicro_companion_radio_ble-v1.18.0-ua.3.zip -p <порт> -b 115200 --touch 1200
+adafruit-nrfutil dfu serial --package ProMicro_companion_radio_ble-v1.18.0-ua.4.zip -p <порт> -b 115200 --touch 1200
 ```
 
 Прошивка на nRF52 не стирає налаштування. Якщо пристрій уже працював з MeshCore, після прошивки скиньте його до заводських налаштувань у застосунку — тоді з’являться канали спільноти.
@@ -45,14 +45,14 @@ adafruit-nrfutil dfu serial --package ProMicro_companion_radio_ble-v1.18.0-ua.3.
 <summary>SHA-256 файлів цього пристрою</summary>
 
 ```text
-869901b514b61578a26120199a5b2a40d0b76f69c4b181c41b4d98963a843a59  ProMicro_companion_radio_ble-v1.18.0-ua.3.uf2
-430db280f016f12983f9d9c9a68be27da8a566f365bd40c7d5d26c839da1a03b  ProMicro_companion_radio_ble-v1.18.0-ua.3.zip
-edc394ab5f7c079d663b149a8e1f30e3bcef3796c4f998127e27d4b59c9ed741  ProMicro_companion_radio_usb-v1.18.0-ua.3.uf2
-bd4a7e522079cb4359c475949a6b8e3bb96692b9154dca601bdeb9ae40ea12ed  ProMicro_companion_radio_usb-v1.18.0-ua.3.zip
-b92044a6ca22c1d5956f2f697102911aea9259ca079a5dfc96315c57535293fa  ProMicro_repeater-v1.18.0-ua.3.uf2
-abe08fd44136a248deef207a00c17203e70b4e14d23a15a7bee9f536dae2867e  ProMicro_repeater-v1.18.0-ua.3.zip
-6d1d1464efe57e9704f090fa7e512a672410c7a78a552b4be880eb97e84e5669  ProMicro_room_server-v1.18.0-ua.3.uf2
-91015e0a405f3e613b2101aab397eaef34c80e37afa4cd59f498ed31e40d7e81  ProMicro_room_server-v1.18.0-ua.3.zip
+927dbfac119b44bd13c6a5c329cbfd54ea20a66cb852696d6462ecb74fef380c  ProMicro_companion_radio_ble-v1.18.0-ua.4.uf2
+4c50adabc57a7f362932ecc6fdd7620ab839e97cfbb957a2e3e45b2c46a3b91e  ProMicro_companion_radio_ble-v1.18.0-ua.4.zip
+d6c5ca18cba516216237a67f4908515da37a8125981258afe5bfa0a8d27bb1c7  ProMicro_companion_radio_usb-v1.18.0-ua.4.uf2
+f5c30151b485be3f5516c06b1b098f3c2b333eea578be3b89dafe44e080247ee  ProMicro_companion_radio_usb-v1.18.0-ua.4.zip
+f17f59ac6daa9c992c626838fcba74243fed654f98c97f278ce57d36d5657af7  ProMicro_repeater-v1.18.0-ua.4.uf2
+dc4794902e3da1b48300de9a43140baa09d22ddf74dc484c9f8b5d61b2ef804e  ProMicro_repeater-v1.18.0-ua.4.zip
+1e68e5d51b23d95b2fcc5740f548769801446f76ec35ffb4f0510fa2c2ad6815  ProMicro_room_server-v1.18.0-ua.4.uf2
+9c574dcaaeb88c0cb8868e4b4734f6641d796f357a168316e2a4daa54f655067  ProMicro_room_server-v1.18.0-ua.4.zip
 ```
 
 </details>

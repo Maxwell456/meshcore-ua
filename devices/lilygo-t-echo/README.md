@@ -1,8 +1,8 @@
 # LilyGO T-Echo
 
-nRF52 · MeshCore Україна **1.18.0-ua.3** · MeshCore 1.18.0
+nRF52 · MeshCore Україна **1.18.0-ua.4** · MeshCore 1.18.0
 
-[← Усі пристрої](../../README.md) · [Прошити в браузері](https://meshcore.com.ua/install/) · [Реліз v1.18.0-ua.3](https://github.com/Maxwell456/meshcore-ua/releases/tag/v1.18.0-ua.3)
+[← Усі пристрої](../../README.md) · [Прошити в браузері](https://meshcore.com.ua/install/) · [Реліз v1.18.0-ua.4](https://github.com/Maxwell456/meshcore-ua/releases/tag/v1.18.0-ua.4)
 
 Файли лежать у теках за типом вузла: [`bluetooth/`](bluetooth) — компаньйон Bluetooth, [`usb/`](usb) — компаньйон USB, [`repeater/`](repeater) — ретранслятор, [`room-server/`](room-server) — кімната.
 
@@ -10,10 +10,10 @@ nRF52 · MeshCore Україна **1.18.0-ua.3** · MeshCore 1.18.0
 
 | Тип вузла | UF2 | DFU-пакет (ZIP) |
 |---|---|---|
-| **Компаньйон Bluetooth**<br><sub>для телефона, застосунок MeshCore</sub> | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/lilygo-t-echo/bluetooth/LilyGo_T-Echo_companion_radio_ble-v1.18.0-ua.3.uf2) · 0,7 МБ | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/lilygo-t-echo/bluetooth/LilyGo_T-Echo_companion_radio_ble-v1.18.0-ua.3.zip) · 0,4 МБ |
-| **Компаньйон USB**<br><sub>для комп’ютера, веб-застосунок через кабель</sub> | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/lilygo-t-echo/usb/LilyGo_T-Echo_companion_radio_usb-v1.18.0-ua.3.uf2) · 0,7 МБ | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/lilygo-t-echo/usb/LilyGo_T-Echo_companion_radio_usb-v1.18.0-ua.3.zip) · 0,4 МБ |
-| **Ретранслятор**<br><sub>пересилає повідомлення, розширює покриття</sub> | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/lilygo-t-echo/repeater/LilyGo_T-Echo_repeater-v1.18.0-ua.3.uf2) · 0,7 МБ | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/lilygo-t-echo/repeater/LilyGo_T-Echo_repeater-v1.18.0-ua.3.zip) · 0,3 МБ |
-| **Кімната**<br><sub>зберігає історію повідомлень для учасників</sub> | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/lilygo-t-echo/room-server/LilyGo_T-Echo_room_server-v1.18.0-ua.3.uf2) · 0,7 МБ | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/lilygo-t-echo/room-server/LilyGo_T-Echo_room_server-v1.18.0-ua.3.zip) · 0,3 МБ |
+| **Компаньйон Bluetooth**<br><sub>для телефона, застосунок MeshCore</sub> | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/lilygo-t-echo/bluetooth/LilyGo_T-Echo_companion_radio_ble-v1.18.0-ua.4.uf2) · 0,7 МБ | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/lilygo-t-echo/bluetooth/LilyGo_T-Echo_companion_radio_ble-v1.18.0-ua.4.zip) · 0,4 МБ |
+| **Компаньйон USB**<br><sub>для комп’ютера, веб-застосунок через кабель</sub> | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/lilygo-t-echo/usb/LilyGo_T-Echo_companion_radio_usb-v1.18.0-ua.4.uf2) · 0,7 МБ | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/lilygo-t-echo/usb/LilyGo_T-Echo_companion_radio_usb-v1.18.0-ua.4.zip) · 0,4 МБ |
+| **Ретранслятор**<br><sub>пересилає повідомлення, розширює покриття</sub> | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/lilygo-t-echo/repeater/LilyGo_T-Echo_repeater-v1.18.0-ua.4.uf2) · 0,7 МБ | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/lilygo-t-echo/repeater/LilyGo_T-Echo_repeater-v1.18.0-ua.4.zip) · 0,3 МБ |
+| **Кімната**<br><sub>зберігає історію повідомлень для учасників</sub> | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/lilygo-t-echo/room-server/LilyGo_T-Echo_room_server-v1.18.0-ua.4.uf2) · 0,7 МБ | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/lilygo-t-echo/room-server/LilyGo_T-Echo_room_server-v1.18.0-ua.4.zip) · 0,3 МБ |
 
 ## Яку прошивку обрати
 
@@ -28,13 +28,13 @@ nRF52 · MeshCore Україна **1.18.0-ua.3** · MeshCore 1.18.0
 
 **UF2 (найпростіше)**
 1. Підключіть пристрій кабелем для даних і двічі швидко натисніть Reset.
-2. З’явиться диск (наприклад, `RAK4631`, `TECHOBOOT` чи `T1000-E`). Скопіюйте на нього `LilyGo_T-Echo_companion_radio_ble-v1.18.0-ua.3.uf2`.
+2. З’явиться диск (наприклад, `RAK4631`, `TECHOBOOT` чи `T1000-E`). Скопіюйте на нього `LilyGo_T-Echo_companion_radio_ble-v1.18.0-ua.4.uf2`.
 3. Пристрій перезавантажиться сам.
 
 **DFU через USB**
 ```sh
 pip install adafruit-nrfutil
-adafruit-nrfutil dfu serial --package LilyGo_T-Echo_companion_radio_ble-v1.18.0-ua.3.zip -p <порт> -b 115200 --touch 1200
+adafruit-nrfutil dfu serial --package LilyGo_T-Echo_companion_radio_ble-v1.18.0-ua.4.zip -p <порт> -b 115200 --touch 1200
 ```
 
 Прошивка на nRF52 не стирає налаштування. Якщо пристрій уже працював з MeshCore, після прошивки скиньте його до заводських налаштувань у застосунку — тоді з’являться канали спільноти.
@@ -45,14 +45,14 @@ adafruit-nrfutil dfu serial --package LilyGo_T-Echo_companion_radio_ble-v1.18.0-
 <summary>SHA-256 файлів цього пристрою</summary>
 
 ```text
-f96f153a6c2ee8288837ae4d73741defca9ae9ce8db472b70514ab4a76e28e0a  LilyGo_T-Echo_companion_radio_ble-v1.18.0-ua.3.uf2
-780fea5f55d291e84649da15d2d5d8a094f5b79e9a00d1c61db4323f98dddbbc  LilyGo_T-Echo_companion_radio_ble-v1.18.0-ua.3.zip
-83acf31ec8c6a28fc3850d4ad40ab9e735deb7d81cf8c85b7abf5cbea4b401f8  LilyGo_T-Echo_companion_radio_usb-v1.18.0-ua.3.uf2
-38fed9f5058b24051c959aaffc4bfdeea98d39c4a3810a756fd5b388be673d3d  LilyGo_T-Echo_companion_radio_usb-v1.18.0-ua.3.zip
-594f8edcc9749ea3082bc2f6b76ce875686cd07708705562577801942d8caef4  LilyGo_T-Echo_repeater-v1.18.0-ua.3.uf2
-bee28324d91b4e0592b6ce59d640c4bb2aa030bc0cdeaa0a63fe2e327041fbad  LilyGo_T-Echo_repeater-v1.18.0-ua.3.zip
-b8f387650c58a412b93c1a53653b1349c7a1f965e9d96715296503cb3539be5d  LilyGo_T-Echo_room_server-v1.18.0-ua.3.uf2
-91b86d977d297d89ddaba1a20b461f9879e70c1928a8e75259bdf3c5bb4ba80a  LilyGo_T-Echo_room_server-v1.18.0-ua.3.zip
+e294d530b0862c2656c2b4655b937e93901c1b56164cb938888cdf7102ff9599  LilyGo_T-Echo_companion_radio_ble-v1.18.0-ua.4.uf2
+3b3f31a8b9e8d2ba2e6c257d4c8eb4f01fb9d38c104593656d5d9d42bf5cf92c  LilyGo_T-Echo_companion_radio_ble-v1.18.0-ua.4.zip
+8d535d0198efa236ad6983172bd445e1fa482d0d9ef42c6b6feb24c3360a317c  LilyGo_T-Echo_companion_radio_usb-v1.18.0-ua.4.uf2
+737dd1fe440719c55be8c1fba6170a27276b556e1b7cb1d85aaae3161d34d49f  LilyGo_T-Echo_companion_radio_usb-v1.18.0-ua.4.zip
+5e1faf8e78ef9b6e496b2f835172c9ecae793cd8144e0fed151eb3e32f5238ac  LilyGo_T-Echo_repeater-v1.18.0-ua.4.uf2
+e4d8ed90945d1faefcaabe1e446218f6611a4ec6f27969c3b85da4b907360f20  LilyGo_T-Echo_repeater-v1.18.0-ua.4.zip
+f8768c0a4e17ecf2dd36a8fdbbeed3c3f19d66bf804c2b664e2eb4b0315a7786  LilyGo_T-Echo_room_server-v1.18.0-ua.4.uf2
+737933fa4b3fa5d9fca85a020f14e3a51bf7d74414579e81f98cba7ecbb54527  LilyGo_T-Echo_room_server-v1.18.0-ua.4.zip
 ```
 
 </details>

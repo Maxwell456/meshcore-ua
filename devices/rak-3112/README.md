@@ -1,8 +1,8 @@
 # RAK Wireless RAK3112 (ESP32-S3)
 
-ESP32 · MeshCore Україна **1.18.0-ua.3** · MeshCore 1.18.0
+ESP32 · MeshCore Україна **1.18.0-ua.4** · MeshCore 1.18.0
 
-[← Усі пристрої](../../README.md) · [Прошити в браузері](https://meshcore.com.ua/install/) · [Реліз v1.18.0-ua.3](https://github.com/Maxwell456/meshcore-ua/releases/tag/v1.18.0-ua.3)
+[← Усі пристрої](../../README.md) · [Прошити в браузері](https://meshcore.com.ua/install/) · [Реліз v1.18.0-ua.4](https://github.com/Maxwell456/meshcore-ua/releases/tag/v1.18.0-ua.4)
 
 Файли лежать у теках за типом вузла: [`gateway/`](gateway) — шлюз #ukraine.
 
@@ -10,7 +10,7 @@ ESP32 · MeshCore Україна **1.18.0-ua.3** · MeshCore 1.18.0
 
 | Тип вузла | Нова установка | Оновлення |
 |---|---|---|
-| **Шлюз #ukraine**<br><sub>компаньйон Bluetooth + Wi-Fi, з’єднує місто з каналом #ukraine</sub> | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/rak-3112/gateway/RAK_3112_companion_radio_gateway-v1.18.0-ua.3-merged.bin) · 1,9 МБ | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/rak-3112/gateway/RAK_3112_companion_radio_gateway-v1.18.0-ua.3.bin) · 1,8 МБ |
+| **Шлюз #ukraine**<br><sub>компаньйон Bluetooth + Wi-Fi, з’єднує місто з каналом #ukraine</sub> | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/rak-3112/gateway/RAK_3112_companion_radio_gateway-v1.18.0-ua.4-merged.bin) · 1,9 МБ | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/rak-3112/gateway/RAK_3112_companion_radio_gateway-v1.18.0-ua.4.bin) · 1,8 МБ |
 
 ## Яку прошивку обрати
 
@@ -27,11 +27,11 @@ ESP32 · MeshCore Україна **1.18.0-ua.3** · MeshCore 1.18.0
 3. **Нова установка** (стирає налаштування, ключі й контакти; налаштування мережі застосуються одразу):
    ```sh
    esptool.py erase_flash
-   esptool.py write_flash 0x0 RAK_3112_companion_radio_gateway-v1.18.0-ua.3-merged.bin
+   esptool.py write_flash 0x0 RAK_3112_companion_radio_gateway-v1.18.0-ua.4-merged.bin
    ```
 4. **Оновлення** (зберігає налаштування, канали й ключі):
    ```sh
-   esptool.py write_flash 0x10000 RAK_3112_companion_radio_gateway-v1.18.0-ua.3.bin
+   esptool.py write_flash 0x10000 RAK_3112_companion_radio_gateway-v1.18.0-ua.4.bin
    ```
 
 ## Контрольні суми
@@ -40,8 +40,8 @@ ESP32 · MeshCore Україна **1.18.0-ua.3** · MeshCore 1.18.0
 <summary>SHA-256 файлів цього пристрою</summary>
 
 ```text
-85d0aa4d906b96f5e4baa42eb06caf3477f89d2c4bb2a4ef0a2a19fdd536a0c3  RAK_3112_companion_radio_gateway-v1.18.0-ua.3-merged.bin
-eb856c0a8542555bac7fdc37afa7e2b3b4382dbf6a8c0bc1585d3db89d64f397  RAK_3112_companion_radio_gateway-v1.18.0-ua.3.bin
+35593bd33ac3dddb7511c46f6dc556a6bc1bf01ae7da0c1f9d6dd905b77a681a  RAK_3112_companion_radio_gateway-v1.18.0-ua.4-merged.bin
+7b1c7a390bc688ebaf4ce6e9d8527d33dad4198e1185c83fd7fed93fa7b1da82  RAK_3112_companion_radio_gateway-v1.18.0-ua.4.bin
 ```
 
 </details>
