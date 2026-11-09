@@ -38,6 +38,11 @@ const COMPANION = new Set(['companion', 'companion_usb', 'gateway']);
 /** Вбудований шлюз #ukraine: збирається з BLE-компаньйона плати, перевіряється за його офіційною збіркою. */
 const GATEWAY = config.gateway ?? { boards: {} };
 const gatewayBoard = (b) => (typeof GATEWAY.boards[b] === 'string' ? { name: GATEWAY.boards[b], flags: [], unflags: [] } : { flags: [], unflags: [], ...GATEWAY.boards[b] });
+// Пам'ять шлюзу: Bluetooth і Wi-Fi разом лишали ESP32-S3 без PSRAM ~9 КБ купи, а TLS у збірці Arduino бере
+// два буфери по ~17 КБ на з'єднання (перевірено на Heltec V3: з 200 контактами заявка проходила, а MQTT —
+// ні, mbedtls_ssl_setup -0x7F00). Офіційні 350 контактів (~66 КБ) і черга з 256 кадрів (~45 КБ) — статичні
+// масиви, у шлюзі їх зменшуємо: [офіційне значення, значення шлюзу]. 100 — типове значення MeshCore.
+const GATEWAY_MEMORY = { MAX_CONTACTS: [350, 100], OFFLINE_QUEUE_SIZE: [256, 32] };
 const ESP_CHIPS = { 0: 'esp32', 2: 'esp32s2', 5: 'esp32c3', 9: 'esp32s3', 13: 'esp32c6' };
 const ASSET_RE = /^(?<board>.+?)_(?<role>companion_radio_ble|companion_radio_usb|repeater|room_server)-v(?<ver>\d+\.\d+\.\d+)-(?<hash>[0-9a-f]+)(?<merged>-merged)?\.(?<ext>bin|zip|uf2)$/;
 const TAG_RE = /^(companion|repeater|room-server)-v(\d+\.\d+\.\d+)$/;
@@ -334,6 +339,7 @@ ${head}#ifdef UA_GATEWAY
   ]);
 
   const flag = (f) => check(/^-D [A-Z0-9_]+(=[\w.]+)?$/.test(f), `gateway: неправильний прапорець ${f}`) ?? `  ${f}\n`;
+  const memory = GATEWAY_MEMORY;
   const ini = boards.map((b) => `[env:${b}_companion_radio_gateway]
 extends = env:${b}_companion_radio_ble
 build_flags =
@@ -341,9 +347,9 @@ build_flags =
   -D UA_GATEWAY
   -D ENABLE_WIFI_INTERFACE
   -D ENABLE_USB_INTERFACE
-${gatewayBoard(b).flags.map(flag).join('')}build_unflags =
+${Object.entries(memory).map(([k, [, v]]) => flag(`-D ${k}=${v}`)).join('')}${gatewayBoard(b).flags.map(flag).join('')}build_unflags =
   -D BLE_DEBUG_LOGGING=1
-${gatewayBoard(b).unflags.map(flag).join('')}build_src_filter =
+${Object.entries(memory).map(([k, [v]]) => flag(`-D ${k}=${v}`)).join('')}${gatewayBoard(b).unflags.map(flag).join('')}build_src_filter =
   \${env:${b}_companion_radio_ble.build_src_filter}
   +<helpers/wifi/*.cpp>
 `).join('\n');
@@ -364,6 +370,14 @@ function checkRadioFlags(envs) {
     for (const [key, value] of Object.entries(want)) {
       const found = [...flags.matchAll(new RegExp(`-D\\s*${key}=([\\d.]+)`, 'g'))].map((m) => Number(m[1]));
       check(found.length && found.every((v) => v === Number(value)), `${env}: ${key}=${found.join(',') || 'немає'}, очікувалось ${value}`);
+    }
+    // build_unflags спрацьовує лише на точний збіг: офіційне значення мусить бути саме таким.
+    if (env.endsWith('_companion_radio_gateway')) {
+      const base = env.replace(/_gateway$/, '_ble');
+      const baseFlags = [all.get(base)?.build_flags].flat().join(' ');
+      for (const [key, [official]] of Object.entries(GATEWAY_MEMORY)) {
+        check(new RegExp(`-D\\s*${key}=${official}(\\s|$)`).test(baseFlags), `${base}: ${key} не ${official} — оновіть GATEWAY_MEMORY у build.mjs`);
+      }
     }
   }
 }

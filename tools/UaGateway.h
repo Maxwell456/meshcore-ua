@@ -86,7 +86,6 @@ static volatile uint16_t claim_count = 0;
 static volatile esp_err_t claim_err = ESP_OK;
 static volatile int claim_http = 0;
 static char claim_reply[16] = "-";
-static volatile uint32_t claim_heap = 0;
 static volatile uint16_t mqtt_connects = 0;
 
 // Після старту MeshCore ставить годинник на затравку (RTC_TIME_MIN, 1 березня 2026) — з таким часом
@@ -330,7 +329,6 @@ static void claimTask(void*) {
   cfg.event_handler = httpEvent;
   cfg.user_data = &buf;
   claim_count++;
-  claim_heap = heap_caps_get_largest_free_block(MALLOC_CAP_8BIT);
   esp_http_client_handle_t c = esp_http_client_init(&cfg);
   uint32_t retry = 60000;
   claim_err = c ? ESP_OK : ESP_ERR_NO_MEM;
@@ -485,7 +483,10 @@ static void loop() {
   if (online && time_ok && !have_creds && claim_status == CLAIM_IDLE && (!claim_done_once || millis() - claim_last > claim_retry_ms)) {
     claim_status = CLAIM_RUNNING;
     // TLS-рукопожаття з перевіркою ECDSA-ланцюжка Let's Encrypt потребує запасу стека.
-    if (xTaskCreate(claimTask, "ua_claim", 10240, nullptr, 1, nullptr) != pdPASS) claim_status = CLAIM_DONE;
+    if (xTaskCreate(claimTask, "ua_claim", 10240, nullptr, 1, nullptr) != pdPASS) {
+      claim_err = ESP_ERR_NO_MEM;   // видно в «get gw.status»: без цього там лишалось err=ok claims=0
+      claim_status = CLAIM_DONE;
+    }
   }
 
   // MQTT.
@@ -516,7 +517,7 @@ static void status(char* reply) {
   snprintf(reply, 150, "> wifi=%d ntp=%d time=%s%s creds=%d claims=%u err=%s http=%d srv=%s heap=%uk/%uk mqtt=%d/%u",
            online, ntp_synced, when, time_ok ? "" : "(?)", have_creds, claim_count,
            claim_err == ESP_OK ? "ok" : esp_err_to_name(claim_err), claim_http, claim_reply,
-           (unsigned)(heap_caps_get_free_size(MALLOC_CAP_8BIT) / 1024), (unsigned)(claim_heap / 1024),
+           (unsigned)(heap_caps_get_free_size(MALLOC_CAP_8BIT) / 1024), (unsigned)(heap_caps_get_largest_free_block(MALLOC_CAP_8BIT) / 1024),
            mqtt_connected, mqtt_connects);
 }
 
