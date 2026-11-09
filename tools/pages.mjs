@@ -24,8 +24,9 @@ const ROLES = [
   ['companion_usb', 'Компаньйон USB', 'для комп’ютера, веб-застосунок через кабель'],
   ['repeater', 'Ретранслятор', 'пересилає повідомлення, розширює покриття'],
   ['room_server', 'Кімната', 'зберігає історію повідомлень для учасників'],
+  ['gateway', 'Шлюз #ukraine', 'компаньйон Bluetooth + Wi-Fi, з’єднує місто з каналом #ukraine'],
 ];
-const ROLE_DIR = { companion: 'bluetooth', companion_usb: 'usb', repeater: 'repeater', room_server: 'room-server' };
+const ROLE_DIR = { companion: 'bluetooth', companion_usb: 'usb', repeater: 'repeater', room_server: 'room-server', gateway: 'gateway' };
 const raw = (b, role, name) => `${ghUrl}/raw/main/devices/${b.slug}/${ROLE_DIR[role]}/${name}`;
 const slug = (board) => board.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 const boards = Object.entries(p.boards)
@@ -76,6 +77,7 @@ const ROLE_HINT = {
   companion_usb: 'особистий пристрій для комп’ютера. Повідомлення — у веб-застосунку через USB-кабель, Bluetooth вимкнено.',
   repeater: 'ставиться високо з постійним живленням і пересилає чужі повідомлення. Телефоном не користуються.',
   room_server: 'зберігає історію повідомлень, щоб учасники отримали пропущене, коли з’являться в мережі.',
+  gateway: 'ваша нода для телефона, яка ще й сама по Wi-Fi з’єднує ваше місто з каналом #ukraine. Прошивається й підключається на meshcore.com.ua/gateway/.',
 };
 
 function boardPage(b) {

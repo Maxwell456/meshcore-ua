@@ -1,7 +1,7 @@
 {
   "$comment": "Налаштування збірки MeshCore Україна. Змінили мережу, канали чи список плат — збільште revision, інакше нова версія не збереться.",
   "name": "MeshCore Україна",
-  "revision": 1,
+  "revision": 2,
   "upstream": "meshcore-dev/MeshCore",
   "network": {
     "presetName": "EU/UK (Narrow)",
@@ -10,7 +10,14 @@
     "spreadingFactor": 8,
     "codingRate": 8
   },
-  "channels": ["#ukraine", "#kyiv", "#kharkiv", "#dnipro", "#lviv", "#odesa"],
+  "channels": [
+    "#ukraine",
+    "#kyiv",
+    "#kharkiv",
+    "#dnipro",
+    "#lviv",
+    "#odesa"
+  ],
   "boards": {
     "Heltec_mesh_solar": "Heltec MeshSolar",
     "Heltec_t114": "Heltec Mesh Node T114",
@@ -29,5 +36,20 @@
     "WioTrackerL1": "Seeed Studio Wio Tracker L1",
     "Xiao_nrf52": "Seeed Studio XIAO nRF52840 + Wio-SX1262"
   },
-  "hardwareTested": ["Heltec_v3_companion_radio_ble"]
+  "hardwareTested": [
+    "Heltec_v3_companion_radio_ble"
+  ],
+  "gateway": {
+    "$comment": "Вбудований шлюз #ukraine: companion BLE + Wi-Fi + MQTT, лише ESP32-S3 з розділом прошивки від ~3 МБ (класичний ESP32 і T3S3 мають замалий розділ для Bluetooth, Wi-Fi і TLS разом). Плати — назви офіційних збірок <плата>_companion_radio_ble; значення — назва або {name, flags, unflags}.",
+    "mqttUri": "mqtts://57.128.194.68:8883",
+    "claimUrl": "https://meshcore.com.ua/api/gateway/claim",
+    "ca": "tools/ua-gateway-ca.crt",
+    "boards": {
+      "Heltec_v3": "Heltec WiFi LoRa 32 V3",
+      "heltec_v4": "Heltec WiFi LoRa 32 V4",
+      "heltec_v4_tft": "Heltec WiFi LoRa 32 V4 — з tft-екраном",
+      "RAK_3112": "RAK Wireless RAK3112 (ESP32-S3)",
+      "T_Beam_S3_Supreme_SX1262": "LilyGO T-Beam S3 Supreme"
+    }
+  }
 }

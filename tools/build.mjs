@@ -34,7 +34,10 @@ const python = process.env.PYTHON || 'python3';
 const config = JSON.parse(await readFile(join(root, 'config.json'), 'utf8'));
 const REPO = config.upstream;
 const ROLE_ENV = { companion: 'companion_radio_ble', companion_usb: 'companion_radio_usb', repeater: 'repeater', room_server: 'room_server' };
-const COMPANION = new Set(['companion', 'companion_usb']);
+const COMPANION = new Set(['companion', 'companion_usb', 'gateway']);
+/** Вбудований шлюз #ukraine: збирається з BLE-компаньйона плати, перевіряється за його офіційною збіркою. */
+const GATEWAY = config.gateway ?? { boards: {} };
+const gatewayBoard = (b) => (typeof GATEWAY.boards[b] === 'string' ? { name: GATEWAY.boards[b], flags: [], unflags: [] } : { flags: [], unflags: [], ...GATEWAY.boards[b] });
 const ESP_CHIPS = { 0: 'esp32', 2: 'esp32s2', 5: 'esp32c3', 9: 'esp32s3', 13: 'esp32c6' };
 const ASSET_RE = /^(?<board>.+?)_(?<role>companion_radio_ble|companion_radio_usb|repeater|room_server)-v(?<ver>\d+\.\d+\.\d+)-(?<hash>[0-9a-f]+)(?<merged>-merged)?\.(?<ext>bin|zip|uf2)$/;
 const TAG_RE = /^(companion|repeater|room-server)-v(\d+\.\d+\.\d+)$/;
@@ -119,6 +122,11 @@ async function resolvePlan() {
     if (!official) continue;
     const chip = official.merged ? 'esp32' : official.zip ? 'nrf52' : null;
     if (chip) targets.push({ board, role, chip, env, official });
+  }
+  for (const board of Object.keys(GATEWAY.boards)) {
+    const official = assets.get(`${board}_companion_radio_ble`);
+    if (official?.merged) targets.push({ board, role: 'gateway', chip: 'esp32', env: `${board}_companion_radio_gateway`, official });
+    else console.warn(`Увага: немає офіційної BLE-збірки ${board} — шлюз для неї не збирається`);
   }
   const missing = Object.keys(config.boards).filter((b) => !targets.some((t) => t.board === b));
   if (missing.length) console.warn(`Увага: в офіційному релізі немає файлів для ${missing.join(', ')}`);
@@ -244,7 +252,94 @@ static_assert(LORA_FREQ == ${n.frequencyMHz} && LORA_BW == ${n.bandwidthKHz} && 
   patched.push('examples/companion_radio/MeshcoreUaDefaults.h');
   await copyFile(join(root, 'tools/UaBootstrap.h'), join(source, 'examples/companion_radio/UaBootstrap.h'));
   patched.push('examples/companion_radio/UaBootstrap.h');
+  await prepareGateway(original, patch, patched);
   return { patched, files, prefix, channels: ch };
+}
+
+/** Шлюз #ukraine: файли, хуки в MyMesh і main.cpp, середовища <плата>_companion_radio_gateway. */
+async function prepareGateway(original, patch, patched) {
+  const boards = Object.keys(GATEWAY.boards);
+  if (!boards.length) return;
+  check(/^mqtts:\/\/[\w.-]+:\d+$/.test(GATEWAY.mqttUri) && /^https:\/\/[\w./-]+$/.test(GATEWAY.claimUrl), 'gateway: неправильні mqttUri / claimUrl');
+  const ca = (await readFile(join(root, GATEWAY.ca), 'utf8')).trim().split(/\r?\n/);
+  check(ca[0] === '-----BEGIN CERTIFICATE-----' && ca.at(-1) === '-----END CERTIFICATE-----', 'gateway: ca не PEM');
+  await writeFile(join(source, 'examples/companion_radio/UaGatewayConfig.h'), `#pragma once
+// Generated from config.json (gateway).
+#define UA_GW_MQTT_URI ${JSON.stringify(GATEWAY.mqttUri)}
+#define UA_GW_CLAIM_URL ${JSON.stringify(GATEWAY.claimUrl)}
+static const char UA_GW_CA_PEM[] =
+${ca.map((l) => `  "${l}\\n"`).join('\n')};
+`);
+  await copyFile(join(root, 'tools/UaGateway.h'), join(source, 'examples/companion_radio/UaGateway.h'));
+  patched.push('examples/companion_radio/UaGatewayConfig.h', 'examples/companion_radio/UaGateway.h');
+
+  const mesh = await readFile(join(source, 'examples/companion_radio/MyMesh.h'), 'utf8');
+  await writeFile(join(source, 'examples/companion_radio/MyMesh.h'), replaceOnce(mesh,
+    '  bool hasPendingWork() const;\n',
+    `  bool hasPendingWork() const;
+#ifdef UA_GATEWAY
+  // MeshCore Україна: вбудований шлюз #ukraine (UaGateway.h).
+  void uaInject(const uint8_t* raw, int len, bool transmit);
+  void logTx(mesh::Packet* packet, int len) override;
+#endif
+`, 'MyMesh.h: UA_GATEWAY'));
+  patched.includes('examples/companion_radio/MyMesh.h') || patched.push('examples/companion_radio/MyMesh.h');
+
+  const cpp = await readFile(join(source, 'examples/companion_radio/MyMesh.cpp'), 'utf8');
+  const head = 'void MyMesh::logRxRaw(float snr, float rssi, const uint8_t raw[], int len) {\n';
+  await writeFile(join(source, 'examples/companion_radio/MyMesh.cpp'), replaceOnce(cpp, head, `#ifdef UA_GATEWAY
+void ua_gateway_on_rx(const uint8_t* raw, int len);
+void ua_gateway_on_tx(const mesh::Packet* pkt);
+
+void MyMesh::logTx(mesh::Packet* packet, int len) {
+  ua_gateway_on_tx(packet);
+}
+
+// Пакет з MQTT: передати в ефір (якщо нода не ретранслює сама) і показати в застосунку як вхідний.
+void MyMesh::uaInject(const uint8_t* raw, int len, bool transmit) {
+  if (transmit) {
+    auto out = obtainNewPacket();
+    if (out) {
+      if (tryParsePacket(out, raw, len)) sendPacket(out, 1, 0);
+      else releasePacket(out);
+    }
+  }
+  auto in = obtainNewPacket();
+  if (in) {
+    if (tryParsePacket(in, raw, len)) _mgr->queueInbound(in, futureMillis(0));
+    else releasePacket(in);
+  }
+}
+#endif
+
+${head}#ifdef UA_GATEWAY
+  ua_gateway_on_rx(raw, len);
+#endif
+`, 'MyMesh.cpp: UA_GATEWAY'));
+
+  await patch('examples/companion_radio/main.cpp', [
+    ['void setup() {\n', '#ifdef UA_GATEWAY\n  #include "UaGateway.h"\n#endif\n\nvoid setup() {\n', 'main.cpp: include'],
+    ['  board.onBootComplete();\n}\n', '#ifdef UA_GATEWAY\n  ua_gateway_setup();\n#endif\n  board.onBootComplete();\n}\n', 'main.cpp: setup'],
+    ['void loop() {\n  the_mesh.loop();\n', 'void loop() {\n  the_mesh.loop();\n#ifdef UA_GATEWAY\n  ua_gateway_loop();\n#endif\n', 'main.cpp: loop'],
+  ]);
+
+  const flag = (f) => check(/^-D [A-Z0-9_]+(=[\w.]+)?$/.test(f), `gateway: неправильний прапорець ${f}`) ?? `  ${f}\n`;
+  const ini = boards.map((b) => `[env:${b}_companion_radio_gateway]
+extends = env:${b}_companion_radio_ble
+build_flags =
+  \${env:${b}_companion_radio_ble.build_flags}
+  -D UA_GATEWAY
+  -D ENABLE_WIFI_INTERFACE
+  -D ENABLE_USB_INTERFACE
+${gatewayBoard(b).flags.map(flag).join('')}build_unflags =
+  -D BLE_DEBUG_LOGGING=1
+${gatewayBoard(b).unflags.map(flag).join('')}build_src_filter =
+  \${env:${b}_companion_radio_ble.build_src_filter}
+  +<helpers/wifi/*.cpp>
+`).join('\n');
+  await mkdir(join(source, 'variants/ua_gateway'), { recursive: true });
+  await writeFile(join(source, 'variants/ua_gateway/platformio.ini'), `; Generated: MeshCore Україна gateway builds (companion BLE + Wi-Fi + MQTT).\n\n${ini}`);
+  patched.push('variants/ua_gateway/platformio.ini');
 }
 
 /** Жодна плата не має перевизначати радіопараметри. */
@@ -351,7 +446,7 @@ async function assemble() {
       await writeFile(join(dist, f.name), data);
       roleFiles[kind] = { ...f, url: `${base}/${f.name}`, path: `${base}/${f.name}` };
     }
-    const entry = (boards[t.board] ??= { name: config.boards[t.board], chip: t.chip, roles: {} });
+    const entry = (boards[t.board] ??= { name: config.boards[t.board] ?? gatewayBoard(t.board).name, chip: t.chip, roles: {} });
     entry.roles[t.role] = { env: t.env, hardwareTested: config.hardwareTested.includes(t.env), files: roleFiles };
   }
   const bundled = { ...files };
