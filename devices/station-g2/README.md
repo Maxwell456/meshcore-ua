@@ -1,8 +1,8 @@
 # Unit Engineering Station G2
 
-ESP32 · MeshCore Україна **1.18.0-ua.1** · MeshCore 1.18.0
+ESP32 · MeshCore Україна **1.18.0-ua.2** · MeshCore 1.18.0
 
-[← Усі пристрої](../../README.md) · [Прошити в браузері](https://meshcore.com.ua/install/) · [Реліз v1.18.0-ua.1](https://github.com/Maxwell456/meshcore-ua/releases/tag/v1.18.0-ua.1)
+[← Усі пристрої](../../README.md) · [Прошити в браузері](https://meshcore.com.ua/install/) · [Реліз v1.18.0-ua.2](https://github.com/Maxwell456/meshcore-ua/releases/tag/v1.18.0-ua.2)
 
 Файли лежать у теках за типом вузла: [`usb/`](usb) — компаньйон USB, [`repeater/`](repeater) — ретранслятор, [`room-server/`](room-server) — кімната.
 
@@ -10,9 +10,9 @@ ESP32 · MeshCore Україна **1.18.0-ua.1** · MeshCore 1.18.0
 
 | Тип вузла | Нова установка | Оновлення |
 |---|---|---|
-| **Компаньйон USB**<br><sub>для комп’ютера, веб-застосунок через кабель</sub> | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/station-g2/usb/Station_G2_companion_radio_usb-v1.18.0-ua.1-merged.bin) · 0,7 МБ | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/station-g2/usb/Station_G2_companion_radio_usb-v1.18.0-ua.1.bin) · 0,7 МБ |
-| **Ретранслятор**<br><sub>пересилає повідомлення, розширює покриття</sub> | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/station-g2/repeater/Station_G2_repeater-v1.18.0-ua.1-merged.bin) · 1,2 МБ | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/station-g2/repeater/Station_G2_repeater-v1.18.0-ua.1.bin) · 1,2 МБ |
-| **Кімната**<br><sub>зберігає історію повідомлень для учасників</sub> | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/station-g2/room-server/Station_G2_room_server-v1.18.0-ua.1-merged.bin) · 1,2 МБ | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/station-g2/room-server/Station_G2_room_server-v1.18.0-ua.1.bin) · 1,1 МБ |
+| **Компаньйон USB**<br><sub>для комп’ютера, веб-застосунок через кабель</sub> | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/station-g2/usb/Station_G2_companion_radio_usb-v1.18.0-ua.2-merged.bin) · 0,7 МБ | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/station-g2/usb/Station_G2_companion_radio_usb-v1.18.0-ua.2.bin) · 0,7 МБ |
+| **Ретранслятор**<br><sub>пересилає повідомлення, розширює покриття</sub> | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/station-g2/repeater/Station_G2_repeater-v1.18.0-ua.2-merged.bin) · 1,2 МБ | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/station-g2/repeater/Station_G2_repeater-v1.18.0-ua.2.bin) · 1,2 МБ |
+| **Кімната**<br><sub>зберігає історію повідомлень для учасників</sub> | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/station-g2/room-server/Station_G2_room_server-v1.18.0-ua.2-merged.bin) · 1,2 МБ | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/station-g2/room-server/Station_G2_room_server-v1.18.0-ua.2.bin) · 1,1 МБ |
 
 ## Яку прошивку обрати
 
@@ -31,11 +31,11 @@ ESP32 · MeshCore Україна **1.18.0-ua.1** · MeshCore 1.18.0
 3. **Нова установка** (стирає налаштування, ключі й контакти; налаштування мережі застосуються одразу):
    ```sh
    esptool.py erase_flash
-   esptool.py write_flash 0x0 Station_G2_companion_radio_usb-v1.18.0-ua.1-merged.bin
+   esptool.py write_flash 0x0 Station_G2_companion_radio_usb-v1.18.0-ua.2-merged.bin
    ```
 4. **Оновлення** (зберігає налаштування, канали й ключі):
    ```sh
-   esptool.py write_flash 0x10000 Station_G2_companion_radio_usb-v1.18.0-ua.1.bin
+   esptool.py write_flash 0x10000 Station_G2_companion_radio_usb-v1.18.0-ua.2.bin
    ```
 
 ## Контрольні суми
@@ -44,12 +44,12 @@ ESP32 · MeshCore Україна **1.18.0-ua.1** · MeshCore 1.18.0
 <summary>SHA-256 файлів цього пристрою</summary>
 
 ```text
-9884f1a0559035d5b5f11e551f04557c1245ead1e7032fe2266bb5019d60befa  Station_G2_companion_radio_usb-v1.18.0-ua.1-merged.bin
-d54b32f7ec27ef56e31220a6aa9c8dfcc71d053c4671e0b2fc9e1fa41cded5f0  Station_G2_companion_radio_usb-v1.18.0-ua.1.bin
-50ed5db9ef8f797f468124aa6d9a37cad08e3eae735bad8445cfbe975d6947f6  Station_G2_repeater-v1.18.0-ua.1-merged.bin
-3d69053906f1495b598d95bff1c6e3476416cb18969503c7fbfeda21e89016f4  Station_G2_repeater-v1.18.0-ua.1.bin
-5bd848d198b8d881f2457b41ca9042f2e7866151ac27b472d9c74211a28cf75e  Station_G2_room_server-v1.18.0-ua.1-merged.bin
-5f817578a5f74fb1158ea096970f5157999b1f504c721e15bd7e670496e5bf15  Station_G2_room_server-v1.18.0-ua.1.bin
+46cba149eed8fc0608d6378b312f38a9095122ee56e7f31fdd150a6a1ec3c22e  Station_G2_companion_radio_usb-v1.18.0-ua.2-merged.bin
+5878dab00df40438474ad911851b058b1662adc91271db06b10bf05239d1b9ae  Station_G2_companion_radio_usb-v1.18.0-ua.2.bin
+e88c27ca63808b797bb517610a28bf1cf2bb4603d1a82e7f0cb05e8bfc2af4c4  Station_G2_repeater-v1.18.0-ua.2-merged.bin
+859f30e3f58a3927588ff2868c31bd8d3617101955379480c3d9a72789a5e9d3  Station_G2_repeater-v1.18.0-ua.2.bin
+ecc67cedffa66e749401a9a43023fe732132677f84a6305446597f2d511e6d61  Station_G2_room_server-v1.18.0-ua.2-merged.bin
+7c2dd46446c7aebcbf4a4e8f458c1d6e28541892dc319d264a1b02a584705d77  Station_G2_room_server-v1.18.0-ua.2.bin
 ```
 
 </details>

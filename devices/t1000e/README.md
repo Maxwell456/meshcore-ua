@@ -1,8 +1,8 @@
 # Seeed Studio SenseCAP T1000-E
 
-nRF52 · MeshCore Україна **1.18.0-ua.1** · MeshCore 1.18.0
+nRF52 · MeshCore Україна **1.18.0-ua.2** · MeshCore 1.18.0
 
-[← Усі пристрої](../../README.md) · [Прошити в браузері](https://meshcore.com.ua/install/) · [Реліз v1.18.0-ua.1](https://github.com/Maxwell456/meshcore-ua/releases/tag/v1.18.0-ua.1)
+[← Усі пристрої](../../README.md) · [Прошити в браузері](https://meshcore.com.ua/install/) · [Реліз v1.18.0-ua.2](https://github.com/Maxwell456/meshcore-ua/releases/tag/v1.18.0-ua.2)
 
 Файли лежать у теках за типом вузла: [`bluetooth/`](bluetooth) — компаньйон Bluetooth, [`usb/`](usb) — компаньйон USB, [`repeater/`](repeater) — ретранслятор, [`room-server/`](room-server) — кімната.
 
@@ -10,10 +10,10 @@ nRF52 · MeshCore Україна **1.18.0-ua.1** · MeshCore 1.18.0
 
 | Тип вузла | UF2 | DFU-пакет (ZIP) |
 |---|---|---|
-| **Компаньйон Bluetooth**<br><sub>для телефона, застосунок MeshCore</sub> | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/t1000e/bluetooth/t1000e_companion_radio_ble-v1.18.0-ua.1.uf2) · 0,6 МБ | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/t1000e/bluetooth/t1000e_companion_radio_ble-v1.18.0-ua.1.zip) · 0,3 МБ |
-| **Компаньйон USB**<br><sub>для комп’ютера, веб-застосунок через кабель</sub> | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/t1000e/usb/t1000e_companion_radio_usb-v1.18.0-ua.1.uf2) · 0,6 МБ | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/t1000e/usb/t1000e_companion_radio_usb-v1.18.0-ua.1.zip) · 0,3 МБ |
-| **Ретранслятор**<br><sub>пересилає повідомлення, розширює покриття</sub> | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/t1000e/repeater/t1000e_repeater-v1.18.0-ua.1.uf2) · 0,6 МБ | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/t1000e/repeater/t1000e_repeater-v1.18.0-ua.1.zip) · 0,3 МБ |
-| **Кімната**<br><sub>зберігає історію повідомлень для учасників</sub> | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/t1000e/room-server/t1000e_room_server-v1.18.0-ua.1.uf2) · 0,5 МБ | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/t1000e/room-server/t1000e_room_server-v1.18.0-ua.1.zip) · 0,3 МБ |
+| **Компаньйон Bluetooth**<br><sub>для телефона, застосунок MeshCore</sub> | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/t1000e/bluetooth/t1000e_companion_radio_ble-v1.18.0-ua.2.uf2) · 0,6 МБ | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/t1000e/bluetooth/t1000e_companion_radio_ble-v1.18.0-ua.2.zip) · 0,3 МБ |
+| **Компаньйон USB**<br><sub>для комп’ютера, веб-застосунок через кабель</sub> | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/t1000e/usb/t1000e_companion_radio_usb-v1.18.0-ua.2.uf2) · 0,6 МБ | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/t1000e/usb/t1000e_companion_radio_usb-v1.18.0-ua.2.zip) · 0,3 МБ |
+| **Ретранслятор**<br><sub>пересилає повідомлення, розширює покриття</sub> | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/t1000e/repeater/t1000e_repeater-v1.18.0-ua.2.uf2) · 0,6 МБ | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/t1000e/repeater/t1000e_repeater-v1.18.0-ua.2.zip) · 0,3 МБ |
+| **Кімната**<br><sub>зберігає історію повідомлень для учасників</sub> | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/t1000e/room-server/t1000e_room_server-v1.18.0-ua.2.uf2) · 0,5 МБ | [Завантажити](https://github.com/Maxwell456/meshcore-ua/raw/main/devices/t1000e/room-server/t1000e_room_server-v1.18.0-ua.2.zip) · 0,3 МБ |
 
 ## Яку прошивку обрати
 
@@ -28,13 +28,13 @@ nRF52 · MeshCore Україна **1.18.0-ua.1** · MeshCore 1.18.0
 
 **UF2 (найпростіше)**
 1. Підключіть пристрій кабелем для даних і двічі швидко натисніть Reset.
-2. З’явиться диск (наприклад, `RAK4631`, `TECHOBOOT` чи `T1000-E`). Скопіюйте на нього `t1000e_companion_radio_ble-v1.18.0-ua.1.uf2`.
+2. З’явиться диск (наприклад, `RAK4631`, `TECHOBOOT` чи `T1000-E`). Скопіюйте на нього `t1000e_companion_radio_ble-v1.18.0-ua.2.uf2`.
 3. Пристрій перезавантажиться сам.
 
 **DFU через USB**
 ```sh
 pip install adafruit-nrfutil
-adafruit-nrfutil dfu serial --package t1000e_companion_radio_ble-v1.18.0-ua.1.zip -p <порт> -b 115200 --touch 1200
+adafruit-nrfutil dfu serial --package t1000e_companion_radio_ble-v1.18.0-ua.2.zip -p <порт> -b 115200 --touch 1200
 ```
 
 Прошивка на nRF52 не стирає налаштування. Якщо пристрій уже працював з MeshCore, після прошивки скиньте його до заводських налаштувань у застосунку — тоді з’являться канали спільноти.
@@ -45,14 +45,14 @@ adafruit-nrfutil dfu serial --package t1000e_companion_radio_ble-v1.18.0-ua.1.zi
 <summary>SHA-256 файлів цього пристрою</summary>
 
 ```text
-724e3f66b27ff7b32fd4ccf5733398d1f540d9b825bffcf253fef00119dbe610  t1000e_companion_radio_ble-v1.18.0-ua.1.uf2
-cef57fa43ce77183eedadb53e06906a131aacb8838e3fb293b41d60566b4eaff  t1000e_companion_radio_ble-v1.18.0-ua.1.zip
-68735116c7dbee0eae33833b4bf123b2f7dbca6ebe4a4ad0cb32edc0d034c5e2  t1000e_companion_radio_usb-v1.18.0-ua.1.uf2
-dabfc682a8e775c943bd2c4ac5cc2dcfd9b0ffcb31116b029fd59d420a655f98  t1000e_companion_radio_usb-v1.18.0-ua.1.zip
-4870ef83a6885a826e2008ac3fdc52bc72897b1d3d371f5a7cf08e35d732000e  t1000e_repeater-v1.18.0-ua.1.uf2
-53d211db744c8a557d4955655328727b4a59d70035d15a4aa720e5833a61eb12  t1000e_repeater-v1.18.0-ua.1.zip
-1b91cb3bf565c5b24bc7f050005fc8070250ed23cc82d96f5290af9863347a9c  t1000e_room_server-v1.18.0-ua.1.uf2
-122a49b9a48e432f8a8e94fd04fbd5b1e00b0cfb79c7640ef21ff883a5fcebbe  t1000e_room_server-v1.18.0-ua.1.zip
+de0f990411b908c15104322ec783b88ffcd11bf9fe635e2dca0ee25fa00f5c16  t1000e_companion_radio_ble-v1.18.0-ua.2.uf2
+6e37bc7b7e6c3f75c949d8034bd8ad424ed530efd19fbdca37c88f4088b4d255  t1000e_companion_radio_ble-v1.18.0-ua.2.zip
+5a4fd6a61363399d00667364c4e2bb01e663ecd72e140df0e6fab0df9ea03dad  t1000e_companion_radio_usb-v1.18.0-ua.2.uf2
+a30bdf67ef344ac835aa6575376dec198be997e682be7d8ea2c3505c9478f56e  t1000e_companion_radio_usb-v1.18.0-ua.2.zip
+e8b87f2e013b108f14f2ea6e7baa774b0e6136aea9c8b4b92d47291681758312  t1000e_repeater-v1.18.0-ua.2.uf2
+1da1a2814e15c297636f22271bb65c6402585fa09e9910b1c53dec5bcdc61f69  t1000e_repeater-v1.18.0-ua.2.zip
+0be14ead5539ca9d46e26c0d79889b62a529ea5d392565a03159098093cb3559  t1000e_room_server-v1.18.0-ua.2.uf2
+f0fc6ad8646eeedb3ef7e6cac0b837165ab0ffe57abecedb54d9443eed3e8987  t1000e_room_server-v1.18.0-ua.2.zip
 ```
 
 </details>

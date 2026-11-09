@@ -2,33 +2,35 @@
 
 Прошивки [MeshCore](https://github.com/meshcore-dev/MeshCore) для мережі MeshCore Україна: частота, пресет і канали спільноти вже налаштовані — пристрій працює в мережі одразу після прошивки.
 
-[![версія](https://img.shields.io/badge/%D0%B2%D0%B5%D1%80%D1%81%D1%96%D1%8F-1.18.0--ua.1-2f6f4f)](https://github.com/Maxwell456/meshcore-ua/releases/latest) [![MeshCore](https://img.shields.io/badge/MeshCore-1.18.0-2f6f4f)](https://github.com/meshcore-dev/MeshCore/commit/81dbae592ffad40b4212bc0b37e82b38da08f4bc) [![ліцензія](https://img.shields.io/badge/%D0%BB%D1%96%D1%86%D0%B5%D0%BD%D0%B7%D1%96%D1%8F-MIT-2f6f4f)](LICENSE)
+[![версія](https://img.shields.io/badge/%D0%B2%D0%B5%D1%80%D1%81%D1%96%D1%8F-1.18.0--ua.2-2f6f4f)](https://github.com/Maxwell456/meshcore-ua/releases/latest) [![MeshCore](https://img.shields.io/badge/MeshCore-1.18.0-2f6f4f)](https://github.com/meshcore-dev/MeshCore/commit/81dbae592ffad40b4212bc0b37e82b38da08f4bc) [![ліцензія](https://img.shields.io/badge/%D0%BB%D1%96%D1%86%D0%B5%D0%BD%D0%B7%D1%96%D1%8F-MIT-2f6f4f)](LICENSE)
 
 **Прошити в браузері: [meshcore.com.ua/install](https://meshcore.com.ua/install/)** — Chrome або Edge і USB-кабель, без встановлення програм.
 Для ручної прошивки оберіть пристрій у таблиці — на його сторінці файли й інструкція.
 
 ## Пристрої
 
-Версія **1.18.0-ua.1** на основі MeshCore 1.18.0 · пристроїв: 16 · прошивок: 61
+Версія **1.18.0-ua.2** на основі MeshCore 1.18.0 · пристроїв: 18 · прошивок: 66
 
 | Пристрій | Чип | Компаньйон Bluetooth | Компаньйон USB | Ретранслятор | Кімната |
 |---|---|:-:|:-:|:-:|:-:|
-| [Elecrow ThinkNode M1](devices/thinknode-m1/README.md) | nRF52 | + | + | + | + |
-| [Heltec Mesh Node T114](devices/heltec-t114/README.md) | nRF52 | + | + | + | + |
-| [Heltec Mesh Node T114 — без екрана](devices/heltec-t114-without-display/README.md) | nRF52 | + | + | + | + |
-| [Heltec MeshSolar](devices/heltec-mesh-solar/README.md) | nRF52 | — | — | + | + |
-| [Heltec WiFi LoRa 32 V3](devices/heltec-v3/README.md) | ESP32 | + | + | + | + |
-| [Heltec WiFi LoRa 32 V4](devices/heltec-v4/README.md) | ESP32 | + | + | + | + |
-| [Heltec WiFi LoRa 32 V4 — з tft-екраном](devices/heltec-v4-tft/README.md) | ESP32 | + | + | + | + |
-| [LilyGO T-Echo](devices/lilygo-t-echo/README.md) | nRF52 | + | + | + | + |
-| [RAK Wireless WisBlock RAK4631](devices/rak-4631/README.md) | nRF52 | + | + | + | + |
-| [RAK Wireless WisMesh Tag](devices/rak-wismesh-tag/README.md) | nRF52 | + | + | + | + |
-| [Seeed Studio SenseCAP Solar Node P1 / P1 Pro](devices/sensecap-solar/README.md) | nRF52 | + | + | + | + |
-| [Seeed Studio SenseCAP T1000-E](devices/t1000e/README.md) | nRF52 | + | + | + | + |
-| [Seeed Studio Wio Tracker L1](devices/wiotrackerl1/README.md) | nRF52 | + | + | + | + |
-| [Seeed Studio XIAO nRF52840 + Wio-SX1262](devices/xiao-nrf52/README.md) | nRF52 | + | + | + | + |
-| [Unit Engineering Station G2](devices/station-g2/README.md) | ESP32 | — | + | + | + |
-| [Збірка своїми руками ProMicro nRF52840 + E22](devices/promicro/README.md) | nRF52 | + | + | + | + |
+| [Elecrow ThinkNode M1](devices/thinknode-m1/README.md) | nRF52 | + | + | + | + | — |
+| [Heltec Mesh Node T114](devices/heltec-t114/README.md) | nRF52 | + | + | + | + | — |
+| [Heltec Mesh Node T114 — без екрана](devices/heltec-t114-without-display/README.md) | nRF52 | + | + | + | + | — |
+| [Heltec MeshSolar](devices/heltec-mesh-solar/README.md) | nRF52 | — | — | + | + | — |
+| [Heltec WiFi LoRa 32 V3](devices/heltec-v3/README.md) | ESP32 | + | + | + | + | + |
+| [Heltec WiFi LoRa 32 V4](devices/heltec-v4/README.md) | ESP32 | + | + | + | + | + |
+| [Heltec WiFi LoRa 32 V4 — з tft-екраном](devices/heltec-v4-tft/README.md) | ESP32 | + | + | + | + | + |
+| [LilyGO T-Beam S3 Supreme](devices/t-beam-s3-supreme-sx1262/README.md) | ESP32 | — | — | — | — | + |
+| [LilyGO T-Echo](devices/lilygo-t-echo/README.md) | nRF52 | + | + | + | + | — |
+| [RAK Wireless RAK3112 (ESP32-S3)](devices/rak-3112/README.md) | ESP32 | — | — | — | — | + |
+| [RAK Wireless WisBlock RAK4631](devices/rak-4631/README.md) | nRF52 | + | + | + | + | — |
+| [RAK Wireless WisMesh Tag](devices/rak-wismesh-tag/README.md) | nRF52 | + | + | + | + | — |
+| [Seeed Studio SenseCAP Solar Node P1 / P1 Pro](devices/sensecap-solar/README.md) | nRF52 | + | + | + | + | — |
+| [Seeed Studio SenseCAP T1000-E](devices/t1000e/README.md) | nRF52 | + | + | + | + | — |
+| [Seeed Studio Wio Tracker L1](devices/wiotrackerl1/README.md) | nRF52 | + | + | + | + | — |
+| [Seeed Studio XIAO nRF52840 + Wio-SX1262](devices/xiao-nrf52/README.md) | nRF52 | + | + | + | + | — |
+| [Unit Engineering Station G2](devices/station-g2/README.md) | ESP32 | — | + | + | + | — |
+| [Збірка своїми руками ProMicro nRF52840 + E22](devices/promicro/README.md) | nRF52 | + | + | + | + | — |
 
 Перевірено на фізичному пристрої: Heltec WiFi LoRa 32 V3 · Компаньйон Bluetooth. Решта зібрана з того самого коду й пройшла автоматичну перевірку образів (чип, таблиця розділів, версія, канали), але на залізі ще не запускалась.
 
@@ -64,7 +66,7 @@
 ## Як прошити вручну
 
 <details>
-<summary><b>ESP32</b> — Heltec V3, Heltec V4, Heltec V4 — з tft-екраном, Station G2</summary>
+<summary><b>ESP32</b> — Heltec V3, Heltec V4, Heltec V4 — з tft-екраном, LilyGO T-Beam S3 Supreme, RAK Wireless RAK3112 (ESP32-S3), Station G2</summary>
 
 1. Встановіть esptool: `pip install esptool`.
 2. Підключіть плату кабелем для даних. Якщо порт не з’являється — затисніть кнопку BOOT і натисніть RST.
@@ -108,7 +110,7 @@ sha256sum -c SHA256SUMS.txt --ignore-missing
 
 ## Оновлення
 
-Нова версія з’являється автоматично, щойно виходить стабільний реліз MeshCore: сервер збирає прошивки для всіх пристроїв, перевіряє їх і публікує тут і на [meshcore.com.ua](https://meshcore.com.ua/firmware/).
+Нова версія з’являється автоматично, щойно виходить стабільний реліз MeshCore: [GitHub Actions](https://github.com/Maxwell456/meshcore-ua/actions) збирає прошивки для всіх пристроїв, перевіряє кожен образ і публікує тут, а [meshcore.com.ua](https://meshcore.com.ua/firmware/) підтягує їх сам.
 Щоб отримувати сповіщення — **Watch → Custom → Releases** угорі сторінки. Усі версії — у [релізах](https://github.com/Maxwell456/meshcore-ua/releases).
 
 ## Збірка з вихідного коду
@@ -120,7 +122,7 @@ pio run -e Heltec_v3_companion_radio_ble -t mergebin
 pio run -e RAK_4631_companion_radio_ble
 ```
 
-Скрипт, яким збираються всі прошивки, і код початкових налаштувань з тестом — у [`tools/`](tools).
+Налаштування мережі, каналів і список плат — у [`config.json`](config.json). Скрипт збірки й код початкових налаштувань з тестом — у [`tools/`](tools), сценарій збірки — у [`.github/workflows/build.yml`](.github/workflows/build.yml).
 
 ## Ліцензія
 
