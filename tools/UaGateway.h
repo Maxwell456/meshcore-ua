@@ -22,6 +22,8 @@
 #include <esp_http_client.h>
 #include <esp_crt_bundle.h>
 #include <esp_log.h>
+#include <esp_sntp.h>
+#include <esp_heap_caps.h>
 #include <freertos/FreeRTOS.h>
 #include <freertos/queue.h>
 #include <Utils.h>
@@ -77,6 +79,24 @@ static char* scratch = nullptr;     // JSON для публікації / hex п
 #define UA_GW_SCRATCH 704
 
 static bool time_ok = false;
+static volatile bool ntp_synced = false;
+
+// Діагностика для команди «get gw.status» (USB/Bluetooth-консоль застосунку).
+static volatile uint16_t claim_count = 0;
+static volatile esp_err_t claim_err = ESP_OK;
+static volatile int claim_http = 0;
+static char claim_reply[16] = "-";
+static volatile uint32_t claim_heap = 0;
+static volatile uint16_t mqtt_connects = 0;
+
+// Після старту MeshCore ставить годинник на затравку (RTC_TIME_MIN, 1 березня 2026) — з таким часом
+// сертифікат сайту ще «не дійсний» і TLS не проходить. Вірний час: синхронізація NTP або час, що помітно
+// пізніший за затравку (його ставить телефон або відновлено після м’якого перезапуску).
+#ifndef RTC_TIME_MIN
+#define RTC_TIME_MIN 1772323200
+#endif
+static void onNtpSync(struct timeval*) { ntp_synced = true; }
+static bool clockTrusted(time_t t) { return ntp_synced || t > (time_t)RTC_TIME_MIN + 7 * 86400; }
 
 // ------------------------------------------------------------ пакети
 
@@ -309,12 +329,23 @@ static void claimTask(void*) {
   cfg.crt_bundle_attach = esp_crt_bundle_attach;
   cfg.event_handler = httpEvent;
   cfg.user_data = &buf;
+  claim_count++;
+  claim_heap = heap_caps_get_largest_free_block(MALLOC_CAP_8BIT);
   esp_http_client_handle_t c = esp_http_client_init(&cfg);
   uint32_t retry = 60000;
+  claim_err = c ? ESP_OK : ESP_ERR_NO_MEM;
+  claim_http = 0;
+  strcpy(claim_reply, "-");
   if (c) {
     esp_http_client_set_header(c, "Content-Type", "application/json");
     esp_http_client_set_post_field(c, body, body_len);
-    if (esp_http_client_perform(c) == ESP_OK && esp_http_client_get_status_code(c) == 200) {
+    claim_err = esp_http_client_perform(c);
+    if (claim_err == ESP_OK) {
+      claim_http = esp_http_client_get_status_code(c);
+      char st[16];
+      if (jsonString(buf.data, "status", st, sizeof(st))) strcpy(claim_reply, st);
+    }
+    if (claim_err == ESP_OK && claim_http == 200) {
       char status[16], user[65], pass[65];
       if (jsonString(buf.data, "status", status, sizeof(status))) {
         if (strcmp(status, "approved") == 0 && jsonString(buf.data, "user", user, sizeof(user)) && jsonString(buf.data, "pass", pass, sizeof(pass))) {
@@ -343,6 +374,7 @@ static void mqttEvent(void*, esp_event_base_t, int32_t event_id, void* data) {
   switch ((esp_mqtt_event_id_t)event_id) {
     case MQTT_EVENT_CONNECTED:
       mqtt_connected = true;
+      mqtt_connects++;
       mqtt_auth_failures = 0;
       esp_mqtt_client_subscribe(e->client, UA_GW_PREFIX "/packets/+", 1);
       esp_mqtt_client_enqueue(e->client, topic_status, "{\"online\":true,\"radio\":true}", 0, 1, 1, true);
@@ -427,7 +459,8 @@ static void setup() {
   if (!seen || !pending || !sources || !in_event || !in_loop || !scratch) return;   // без пам'яті шлюз вимкнено
   inbox = xQueueCreate(4, sizeof(InMsg));
   loadCreds();
-  configTime(0, 0, "pool.ntp.org", "time.google.com");
+  sntp_set_time_sync_notification_cb(onNtpSync);
+  configTime(0, 0, "pool.ntp.org", "time.google.com", "time.cloudflare.com");
 }
 
 static void loop() {
@@ -437,7 +470,7 @@ static void loop() {
   // Час з інтернету потрібен для перевірки віку пакетів.
   if (online && !time_ok) {
     time_t t = time(nullptr);
-    if (t > 1700000000) {
+    if (clockTrusted(t)) {
       the_mesh.getRTCClock()->setCurrentTime((uint32_t)t);
       time_ok = true;
     }
@@ -451,7 +484,8 @@ static void loop() {
   }
   if (online && time_ok && !have_creds && claim_status == CLAIM_IDLE && (!claim_done_once || millis() - claim_last > claim_retry_ms)) {
     claim_status = CLAIM_RUNNING;
-    if (xTaskCreate(claimTask, "ua_claim", 8192, nullptr, 1, nullptr) != pdPASS) claim_status = CLAIM_DONE;
+    // TLS-рукопожаття з перевіркою ECDSA-ланцюжка Let's Encrypt потребує запасу стека.
+    if (xTaskCreate(claimTask, "ua_claim", 10240, nullptr, 1, nullptr) != pdPASS) claim_status = CLAIM_DONE;
   }
 
   // MQTT.
@@ -467,7 +501,28 @@ static void loop() {
   transmitNext();
 }
 
+/** Відповідь на «get gw.status»: по кроках, де шлюз зупинився (до ~150 символів). */
+static void status(char* reply) {
+  if (!scratch) {
+    strcpy(reply, "> gw: off (no memory)");
+    return;
+  }
+  bool online = wifi_enabled && WiFi.status() == WL_CONNECTED;
+  time_t t = time(nullptr);
+  struct tm tm;
+  gmtime_r(&t, &tm);
+  char when[20];
+  strftime(when, sizeof(when), "%Y-%m-%d %H:%M", &tm);
+  snprintf(reply, 150, "> wifi=%d ntp=%d time=%s%s creds=%d claims=%u err=%s http=%d srv=%s heap=%uk/%uk mqtt=%d/%u",
+           online, ntp_synced, when, time_ok ? "" : "(?)", have_creds, claim_count,
+           claim_err == ESP_OK ? "ok" : esp_err_to_name(claim_err), claim_http, claim_reply,
+           (unsigned)(heap_caps_get_free_size(MALLOC_CAP_8BIT) / 1024), (unsigned)(claim_heap / 1024),
+           mqtt_connected, mqtt_connects);
+}
+
 }  // namespace ua_gw
+
+void ua_gateway_status(char* reply) { ua_gw::status(reply); }
 
 // Хуки з MyMesh.cpp.
 void ua_gateway_on_rx(const uint8_t* raw, int len) { if (ua_gw::scratch) ua_gw::uplink(raw, len); }

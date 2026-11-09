@@ -285,11 +285,21 @@ ${ca.map((l) => `  "${l}\\n"`).join('\n')};
 `, 'MyMesh.h: UA_GATEWAY'));
   patched.includes('examples/companion_radio/MyMesh.h') || patched.push('examples/companion_radio/MyMesh.h');
 
-  const cpp = await readFile(join(source, 'examples/companion_radio/MyMesh.cpp'), 'utf8');
+  let cpp = await readFile(join(source, 'examples/companion_radio/MyMesh.cpp'), 'utf8');
+  // Діагностика в консолі застосунку: «get gw.status».
+  const wifiStatus = '  if (strcmp(command, "get wifi.status") == 0) {\n';
+  cpp = replaceOnce(cpp, wifiStatus, `#ifdef UA_GATEWAY
+  if (strcmp(command, "get gw.status") == 0) {
+    ua_gateway_status(reply);
+    return true;
+  }
+#endif
+${wifiStatus}`, 'MyMesh.cpp: get gw.status');
   const head = 'void MyMesh::logRxRaw(float snr, float rssi, const uint8_t raw[], int len) {\n';
   await writeFile(join(source, 'examples/companion_radio/MyMesh.cpp'), replaceOnce(cpp, head, `#ifdef UA_GATEWAY
 void ua_gateway_on_rx(const uint8_t* raw, int len);
 void ua_gateway_on_tx(const mesh::Packet* pkt);
+void ua_gateway_status(char* reply);
 
 void MyMesh::logTx(mesh::Packet* packet, int len) {
   ua_gateway_on_tx(packet);
