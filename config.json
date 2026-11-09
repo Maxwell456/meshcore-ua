@@ -1,7 +1,7 @@
 {
   "$comment": "Налаштування збірки MeshCore Україна. Змінили мережу, канали чи список плат — збільште revision, інакше нова версія не збереться.",
   "name": "MeshCore Україна",
-  "revision": 3,
+  "revision": 4,
   "upstream": "meshcore-dev/MeshCore",
   "network": {
     "presetName": "EU/UK (Narrow)",
